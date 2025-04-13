@@ -1,0 +1,182 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.course-page{
+    width: 90%;
+    height: 160vh;
+    /* background-color: red; */
+    margin-left:3%;
+    margin-top: 10px;
+}
+.headline{
+    width: 100%;
+    /* background-color: blue; */
+    display: flex;
+    align-items: center;
+    justify-content:left;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+
+}
+.headline img{
+    width: 5%;
+    height: 5%;
+}
+.mid-page{
+    width: 100%;
+    height: 75%;
+    /* background-color: blue; */
+    display: flex;
+ 
+}
+.mid-left{
+    width: 67%;
+    height: 100%;
+    /* background-color:yellow ; */
+}
+.tittle h2{
+    width: 100%;
+    /* background-color: blueviolet; */
+    font-weight: 900;
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.mid-page-bg{
+    width: 80%;
+    height: 35%;
+    /* background-color: rosybrown; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color:white ;
+    
+}
+.overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.39);
+    position: relative;
+}
+.overlay-content{
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+.overlay span{
+    display: flex;
+}
+.overlay span h1{
+    font-size:55px;
+    font-weight: 600;
+}
+.overlay h2{
+    margin-top: 10px;
+    font-size:30px ;
+    font-weight: 600;
+}
+.overlay img{
+    margin-right: 20px;
+    height: 10%;
+}
+.descripton{
+    width: 80%;
+}
+.descripton h2{
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.descripton p{
+    margin-bottom: 25px;
+}
+.mid-right{
+    width: 30%;
+    height: 100%;
+    border-radius: 13px;
+    /* background-color: cadetblue; */
+    border: 1px solid black;
+    padding: 25px 30px;
+}
+.mid-right-content h2{
+    font-size: 35px;
+    font-weight: 700;
+}
+.mid-right-content span{
+    color:rgb(74, 53, 209) ;
+    font-size: 22px;
+    font-weight: 700;
+}
+.price{
+    display: flex;
+    justify-content: space-between;
+}
+.price h3 {
+    text-decoration: line-through;
+    font-weight: 700;
+    font-size: 20px;
+}
+.price  i{
+    text-decoration: line-through;
+    font-size: 20px;
+}
+.price button{
+    background-color: rgb(152, 152, 152);
+    padding: 10px 20px;
+    color:maroon;
+    font-weight: 500;
+    border-radius: 13px;
+    box-shadow: 0px 4px 2px black;
+    cursor: pointer;
+}
+.cur-price h1{
+    font-weight: 700;
+    font-size: 30px;
+   
+}
+.cur-price i{
+    font-size: 27px;
+    margin-right: 10px;
+}
+.cur-price button{
+    background-color:  cadetblue;
+    padding: 10px 50px;
+    font-weight: 800;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-left:20%;
+    cursor: pointer;
+
+}
+button:hover{
+    transform: scale(1.1);
+}
+.lilist{
+    margin-bottom: 10px;
+}
+h2{
+    margin-bottom: 20px;
+}
+.craftbutton{
+    padding: 0px 30px;
+    background-color:cadetblue ;
+    border-radius: 12px;
+    font-weight: 800;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+.craftbutton i{
+    font-size: 36px;
+    font-weight: 900;
+}
+.course-content{
+    display: flex;
+    gap: 20px;
+}
