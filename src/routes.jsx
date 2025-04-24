@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import LoginTest from './pages/LoginTest';
 import Courses from './pages/CoursePage';
+import React from 'react';
 
 const AppRoutes = () => (
   <Routes>
