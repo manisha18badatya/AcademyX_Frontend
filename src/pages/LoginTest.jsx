@@ -1,8 +1,8 @@
-import '../../Csscomponent/Login.css';
+import '../Stylesheets/Login.css';
 import React, { useState } from 'react'
 
 import { Link,NavLink } from 'react-router-dom';
-function Login() {
+function LoginTest() {
     let [email,setemail]=useState("")
     let[password,setpassword]=useState("")
     let[validate,setvalidate]=useState("")
@@ -76,4 +76,4 @@ function Login() {
   )
 }
 
-export default Login
+export default LoginTest

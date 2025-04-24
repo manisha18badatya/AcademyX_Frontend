@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import '../../Csscomponent/CoursePage.css'
-import CourseContent from './CourseContent'
-import CoursesList from './CoursesList'
+import '../Stylesheets/CoursePage.css'
+import CourseContent from '../components/CourseContent'
+import CoursesList from '../components/CoursesList'
 function CoursePage() {
  let [list,setList]=useState(['Lorem Ipsum Dolo','sit Amet,Consectetu', 'R Adispiscing Elit,ed D','O Eiusmod Tempor','Incididunt Ut Ladore Et','Dolore Magna Aliqua','ut Enim Ad Minum Veniam','Quis Nostrud Execitation Ullamco Laboris','Nisi Ut Aliquio Ex Ea Commondo Consequant','Aute Irure Dolor In','Reprehenderit In'])
 

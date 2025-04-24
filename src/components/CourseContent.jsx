@@ -1,4 +1,5 @@
 import React from 'react'
+
 function CourseContent() {
     let style={
         width:'25%',

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../Csscomponent/CoursesList.css'
+import '../Stylesheets/CoursesList.css'
 import { useState,useEffect } from 'react';
 export default function CoursesList() { 
   let [card,setCard]=useState([])
