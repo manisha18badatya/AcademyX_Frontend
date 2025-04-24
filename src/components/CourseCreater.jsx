@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import '../../Csscomponent/CourseCreater.css';
+import '../Stylesheets/CourseCreater.css';
 export default function CourseCreater() {
   let [card,setCard]=useState([])
   useEffect(()=>{

@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import '../../Csscomponent/CourseCategories.css';
+import '../Stylesheets/CourseCategories.css';
 function CoursesCategories() {
   return (
     <div className='mainCourses'>

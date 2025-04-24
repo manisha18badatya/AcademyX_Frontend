@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {Link,NavLink, Outlet} from 'react-router-dom'
-import '../../Csscomponent/Header.css';
+import '../Stylesheets/Header.css';
 function Header() {
     let [courseText,setCourseText]=useState("")
   return (

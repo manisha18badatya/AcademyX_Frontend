@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../../Csscomponent/Coursesignup.css';
+import '../Stylesheets/Coursesignup.css';
 function CourseSignUp() {
     let [signup,setSignUp]=useState("")
   return (
