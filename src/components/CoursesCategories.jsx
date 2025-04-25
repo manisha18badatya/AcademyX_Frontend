@@ -34,7 +34,7 @@ function CoursesCategories() {
           </NavLink>
             </li>
             <li>
-          <NavLink >
+          <NavLink to="/coursepage" >
             UI/UX Design
           </NavLink>
             </li>

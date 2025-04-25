@@ -1,12 +1,12 @@
 import React from 'react'
 import CourseSignUp from '../components/CourseSignUp'
 import CourseCreater from '../components/CourseCreater'
-import Header from '../components/Header'
+import Navbar from '../components/navbar'
 
 function Home() {
   return (
     <div>
-      <Header/>
+      <Navbar/>
       <CourseSignUp/>
       <CourseCreater/>
     </div>

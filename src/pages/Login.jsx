@@ -1,27 +1,42 @@
 import '../Stylesheets/Login.css';
 import React, { useState } from 'react'
+import { useNavigate } from "react-router-dom";
+import { useAuth } from '../context/AuthContext';
 
 import { Link,NavLink } from 'react-router-dom';
-function LoginTest() {
+function Login() {
     let [email,setemail]=useState("")
     let[password,setpassword]=useState("")
     let[validate,setvalidate]=useState("")
+
+    const { setIsLoggedIn } = useAuth();
+    const navigate = useNavigate();
+
+    const handleLogin = (e) => {
+      e.preventDefault();
+      if (!email || !password) {
+        setValidate("Please enter email and password");
+      } else {
+        setIsLoggedIn(true);
+        localStorage.setItem("isLoggedIn", "true");
+        navigate("/home");
+      }
+    };
+
   return (
     <>
       <div className='main'>
-        <div className='left'> 
-          <div className='layout'>
-
-          <div className='left_logo'>
-            <img src="/public/Image/background_removed_image_ryQNP8BvSu6YbNDZBfKXiA.png" alt="" />
+        <div className='left-login'> 
+        <div className='left_logo'>
+            <NavLink to="/home" ><img src="/public/Image/background_removed_image_ryQNP8BvSu6YbNDZBfKXiA.png" alt="" /></NavLink>
           </div>
+          <div className='layout'>
             <div className='content'>
-                <h2>AcademyX</h2>
-                <h1>WELCOME!</h1>
-                <p>Experience the X-Factor in learning <br />learn at your pace</p>
-            </div>
-            <div className='lbutton'>
-            <button>Learn more</button>
+                <h2 style={{fontSize: '30px'}}>AcademyX</h2>
+                <h1 style={{fontSize: '80px', marginTop: '80px'}}>WELCOME</h1>
+                <h1 style={{fontSize: '70px'}}>Back!</h1>
+                <p style={{fontSize: '20px', marginTop: '40px'}}>Experience the X-Factor in learning <br /></p>
+                <p style={{fontSize: '40px', marginTop: '40px'}}>Continue Your Learnings</p>
             </div>
           </div>
         </div>
@@ -51,10 +66,9 @@ function LoginTest() {
                 </div>
                 
                  <div className='linkpage'>
-                      <button onClick={(e)=>{
-                        e.preventDefault();
-                        {!email||!password? setvalidate("please enter email and password"):setvalidate (NULL)}
-                      }}>Sign in</button>
+
+                      <button onClick={handleLogin}>Sign in</button>
+
                       <p>{validate}</p>
                       <span>
                         <a href="/">don't have an account?|</a><a href="/">Create an Account</a>
@@ -76,4 +90,4 @@ function LoginTest() {
   )
 }
 
-export default LoginTest
+export default Login
