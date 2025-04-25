@@ -3,10 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-html,body{
-    width: 100%;
-    height: 100%;
-}
+
 .main{
     width: 100vw;
     height: 100vh;
@@ -14,28 +11,30 @@ html,body{
     display: flex;
     margin-bottom: 20px;
 }
-.left{
+.left-login{
     width: 60%;
-    height: 100%;
-    /* background-color: blue; */
-     background-image: url(/public/Image/pexels-buro-millennial-636760-1438081.jpg);
+    background-color: rgb(21, 103, 179);
     background-position: 100% 0%;
     background-size: cover;
-    position: relative;
-    
 }
+
+.left-signup{
+    width: 60%;
+    background-image: url(/public/Image/pexels-buro-millennial-636760-1438081.jpg);
+    background-position: 100% 0%;
+    background-size: cover;
+}
+
 .left_logo{
-    width: 10%;
-    height: 10%;
-    /* background-color: red; */
-    margin-left:7%;
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    top:0;
+    left:0;
+    transform: scale(0.1);
 }
-.layout{
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.358);
-    
-}
+
+
 .right{
     width: 40%;
     height: 100%;
@@ -45,27 +44,10 @@ html,body{
 }
 .content{
     position: absolute;
-    top :25%;
+    top :9%;
     left: 10%;
     color: white;
 
-}
-.content h1{
-  font-size: 90px;
-  margin-top: 25px;
-  margin-bottom: 40px;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-}
-.content p{
-    font-size: 17px;
-    width: 70%;
-    height: 20%;
-    letter-spacing: 1px;
-}
-.content h2{
-    font-size: 27px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    letter-spacing: 1px;
 }
 .lbutton{
     width: 40%;

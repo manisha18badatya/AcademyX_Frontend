@@ -1,0 +1,127 @@
+.create-course-container {
+    display: flex;
+    padding: 20px;
+    font-family: sans-serif;
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #e6e6e6;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #111;
+  }
+  
+  .thumbnail-box {
+    background-color: #0073a8;
+    height: 150px;
+    position: relative;
+  }
+  
+  .thumbnail-upload {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .upload-icon {
+    font-size: 30px;
+    color: white;
+  }
+  
+  .edit-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .attachment-box {
+    background-color: #0073a8;
+    padding: 20px;
+    color: white;
+    text-align: center;
+  }
+  
+  .attachment-icon {
+    font-size: 24px;
+  }
+  
+  .btn-light, .btn-light-blue, .btn-dark {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .btn-light {
+    background-color: #f0f0f0;
+  }
+  
+  .btn-light-blue {
+    background-color: #aee1ff;
+  }
+  
+  .btn-dark {
+    background-color: #111;
+    color: white;
+  }
+  
+  .main-form {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .course-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .course-form input,
+  .course-form textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid lightgray;
+    width: 100%;
+  }
+  
+  .inline-group {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  
+  .video-upload {
+    background-color: #e6e6e6;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    font-weight: bold;
+    border-radius: 10px;
+  }
+  
+  .add-lesson-btn {
+    background-color: #0073a8;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    width: fit-content;
+    cursor: pointer;
+  }
+  
