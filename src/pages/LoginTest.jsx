@@ -1,11 +1,39 @@
 import '../Stylesheets/Login.css';
 import React, { useState } from 'react'
 
-import { Link,NavLink } from 'react-router-dom';
+import { Link,NavLink, useNavigate } from 'react-router-dom';
 function LoginTest() {
     let [email,setemail]=useState("")
     let[password,setpassword]=useState("")
     let[validate,setvalidate]=useState("")
+
+    const Navigate = useNavigate();
+    const fetchedLogin = async()=>{
+      
+      const url = "https://academyx-backend.onrender.com/api/v1/users/login"
+      
+     const response =  await fetch(url,{
+      method :"POST",
+      headers:{
+        "Content-Type" :"application/json",
+      },
+       credentials:"include",
+      body: JSON.stringify({
+        email:email,
+        password:password,
+      }),
+     
+    })
+      const data = await response.json()
+      console.log(data)
+      if(data.success === true){
+        Navigate('/courseCategory')
+      }else{
+        alert("wrong email or password")
+      }
+      // console.log("emial",email)
+      // console.log("password",password)
+    }
   return (
     <>
       <div className='main'>
@@ -53,7 +81,8 @@ function LoginTest() {
                  <div className='linkpage'>
                       <button onClick={(e)=>{
                         e.preventDefault();
-                        {!email||!password? setvalidate("please enter email and password"):setvalidate (NULL)}
+                        {!email||!password? setvalidate("please enter email and password"):setvalidate ("")}
+                        fetchedLogin()
                       }}>Sign in</button>
                       <p>{validate}</p>
                       <span>

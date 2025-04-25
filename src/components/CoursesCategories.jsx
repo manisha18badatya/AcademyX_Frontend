@@ -1,10 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import '../Stylesheets/CourseCategories.css';
+import { useState } from 'react';
+import Cards from './Card.component';
 function CoursesCategories() {
+
+  const [courses,setCourses] = useState([])
+  const courseFetch = async()=>{
+    const url = "https://academyx-backend.onrender.com/api/v1/courses/allCourses"
+    const response = await fetch(url)
+    const courseData = await response.json()
+    
+    setCourses(courseData)
+  }
+
+  useEffect(()=>{
+    courseFetch()
+  },[])
+
   return (
     <div className='mainCourses'>
-        <div className='coursesleft'>
+        <div className='coursesleft '>
             <h1 >Courses</h1>
             <h2>categories</h2>
             <ul>
@@ -119,8 +135,8 @@ function CoursesCategories() {
             <h2><i class="ri-filter-line"></i>Filter</h2>
             <h2>Sort<i class="ri-menu-line"></i></h2>
           </div>  
-          <div className='List-vedo'>
-            
+          <div className='List-vedo m-l-5'>
+              <Cards data={courses} />
             </div> 
         </div>
     </div>

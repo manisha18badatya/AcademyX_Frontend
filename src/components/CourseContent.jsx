@@ -8,7 +8,11 @@ function CourseContent() {
     }
   return (
     <>
-    <div style={style}></div>
+    <div style={style}>
+      <div>
+        <h4>python</h4>
+      </div>
+    </div>
     </>
   )
 }

@@ -4,6 +4,17 @@ import { useState,useEffect } from 'react';
 export default function CoursesList() { 
   let [card,setCard]=useState([])
 
+  const courseData = async()=>{
+    const url  = "https://academyx-backend.onrender.com/api/v1/courses/allCourses"
+    const response = await fetch(url)
+    const data = await response.json()
+    console.log(data)
+    // setCard(data)
+
+  }
+    // useEffect(()=>{
+    //     courseData()
+    // },[])
       useEffect(()=>{
         let cardValue=[
           {img:"/Image/Ai portrait Disney style - Dall-E 3.jpg",
@@ -52,10 +63,7 @@ export default function CoursesList() {
           <div className='course-card'>
          <div className="course-img">
 
-          <img src={image} alt={tittle} className="" 
-          
-          > 
-          </img>
+          <img src={image} alt={tittle} />
           <div className="data-set">
             <h3 className="text-lg font-semibold">{tittle}</h3>
             <p className="text-lg">{course}</p>
