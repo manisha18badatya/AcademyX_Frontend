@@ -7,7 +7,7 @@ import { Link,NavLink } from 'react-router-dom';
 function SignUp() {
     let [email,setemail]=useState("")
     let[password,setpassword]=useState("")
-    let[validate,setvalidate]=useState("")
+    let[validate,setValidate]=useState("")
 
     const { setIsLoggedIn } = useAuth();
     const navigate = useNavigate();

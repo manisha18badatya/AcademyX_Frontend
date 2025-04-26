@@ -9,7 +9,7 @@ function Navbar() {
   const handlelogOut = (e) => {
 
       // Clear auth tokens or context values
-    localStorage.removeItem("authToken"); // or whatever you're using
+    // localStorage.removeItem("authToken"); // or whatever you're using
 
     // Force full page reload
       localStorage.removeItem("isLoggedIn");

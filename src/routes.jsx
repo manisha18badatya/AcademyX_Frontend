@@ -11,7 +11,7 @@ import SignUp from './pages/Signup';
 
 const AppRoutes = () => (
   <Routes>
-    <Route path="/home" element={<Home />} />
+    <Route path="/" element={<Home />} />
     <Route path="/login" element={<Login />} />
     <Route path="/signup" element={<SignUp />} />
     <Route path="/courses" element={<Courses />} />

@@ -7,19 +7,39 @@ import { Link,NavLink } from 'react-router-dom';
 function Login() {
     let [email,setemail]=useState("")
     let[password,setpassword]=useState("")
-    let[validate,setvalidate]=useState("")
+    let[validate,setValidate]=useState("")
 
     const { setIsLoggedIn } = useAuth();
     const navigate = useNavigate();
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
       e.preventDefault();
       if (!email || !password) {
         setValidate("Please enter email and password");
       } else {
-        setIsLoggedIn(true);
-        localStorage.setItem("isLoggedIn", "true");
-        navigate("/home");
+
+        const url = "https://academyx-backend.onrender.com/api/v1/users/login"
+        const response = await fetch(url,{
+          method : "POST",
+          headers:{"content-type":"application/json"},
+          credentials: 'include',
+          body: JSON.stringify({
+            email:email,
+            password:password
+          }),
+         
+        });
+        const jsonResponse = await response.json()
+        console.log(jsonResponse)
+        if(jsonResponse.success === true){
+          
+          setIsLoggedIn(true);
+          navigate("/");
+        }else{
+          setValidate("password is incorrect")
+        }
+        // localStorage.setItem("isLoggedIn", "true");
+        
       }
     };
 
