@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import {Link,NavLink, Outlet} from 'react-router-dom'
+import {Link,NavLink, Outlet, useNavigate} from 'react-router-dom'
 import '../Stylesheets/Navbar.css';
 import { useAuth } from '../context/AuthContext';
 
 
 function Navbar() {
+  const navigate = useNavigate()
   const { isLoggedIn,setIsLoggedIn } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   let [courseText,setCourseText]=useState("")
@@ -17,12 +18,12 @@ function Navbar() {
         method:"GET",
         credentials:"include"
       })
-      const fetRes = await response.json()
-      console.log(fetRes)
+      
+      
     // Force full page reload
       localStorage.removeItem("isLoggedIn");
-      window.location.reload();
       setIsLoggedIn(false);
+      navigate('/login')
     }
 
 
