@@ -69,12 +69,14 @@ function Login() {
                  value={email}
                  onChange={(e)=>{setemail(e.target.value)}}
                  placeholder='youremail@gmail.com'
+                 required={true}
                  />
                   <br />
                   <input 
                  type="text"
                  id='inputbox'
                  value={password}
+                 required = {true}
                  onChange={(e)=>{setpassword(e.target.value)}}
                  placeholder='password'
                  />      
