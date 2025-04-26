@@ -11,14 +11,13 @@ function Login() {
 
     const { setIsLoggedIn } = useAuth();
     const navigate = useNavigate();
-
     const handleLogin = async (e) => {
       e.preventDefault();
       if (!email || !password) {
         setValidate("Please enter email and password");
       } else {
 
-        const url = "https://academyx-backend.onrender.com/api/v1/users/login"
+        const url = "http://localhost:8080/api/v1/users/login"
         const response = await fetch(url,{
           method : "POST",
           headers:{"content-type":"application/json"},
@@ -32,7 +31,7 @@ function Login() {
         const jsonResponse = await response.json()
         console.log(jsonResponse)
         if(jsonResponse.success === true){
-          
+          localStorage.setItem("isLoggedIn",true)
           setIsLoggedIn(true);
           navigate("/");
         }else{

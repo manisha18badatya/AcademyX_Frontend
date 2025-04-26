@@ -5,12 +5,20 @@ import { useAuth } from '../context/AuthContext';
 
 
 function Navbar() {
-
-  const handlelogOut = (e) => {
+  const { isLoggedIn,setIsLoggedIn } = useAuth();
+  const [isOpen, setIsOpen] = useState(false);
+  let [courseText,setCourseText]=useState("")
+  const handlelogOut = async(e) => {
 
       // Clear auth tokens or context values
     // localStorage.removeItem("authToken"); // or whatever you're using
-
+      const url = 'http://localhost:8080/api/v1/users/logout'
+      const response = await fetch(url,{
+        method:"GET",
+        credentials:"include"
+      })
+      const fetRes = await response.json()
+      console.log(fetRes)
     // Force full page reload
       localStorage.removeItem("isLoggedIn");
       window.location.reload();
@@ -18,9 +26,7 @@ function Navbar() {
     }
 
 
-  const { isLoggedIn } = useAuth();
-  const [isOpen, setIsOpen] = useState(false);
-  let [courseText,setCourseText]=useState("")
+  
   return (
     <>
     
