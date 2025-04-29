@@ -1,0 +1,29 @@
+@import '../Animations/Animations';
+
+
+ @mixin dropdown-container{
+    position: relative;
+    z-index: 99; // so that child absolute with high z-index can stack properly
+}
+
+@mixin dropdown {
+    width: 20vh;
+    background-color: white;
+    display: grid;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 200px;
+    padding: 20px;
+  
+    z-index: 9999; // Make it appear above almost everything
+
+    transform-origin: top;
+    animation: drop 0.2s ease-out forwards;
+  
+    &__content {
+      padding: 20px;
+      position: relative;
+      z-index: inherit; // Optional, or leave as 99 if needed
+    }
+  }

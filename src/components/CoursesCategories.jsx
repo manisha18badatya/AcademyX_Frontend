@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import '../Stylesheets/CourseCategories.css';
 
 
@@ -22,109 +22,7 @@ function CoursesCategories() {
         <div className='coursesleft'>
             <h1 >Courses</h1>
             <h2>categories</h2>
-            <ul>
-            <li>
-          <NavLink >
-           Illustration Craft
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            Marketing & Business
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-           Photography &video
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            Design
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-           3D Animation
-          </NavLink>
-            </li>
-            <li>
-          <NavLink to="/coursepage" >
-            UI/UX Design
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            Architecture & Spaces
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            Wrtting
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            Fashon
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            Web and App Design
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            Calligraphy & Typography
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            Music &Audio
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            Culinary
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            Artificial Intelligence
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            Wellness
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            How to become
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            Logo Design 
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            Programming
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            Web DEvelopment
-          </NavLink>
-            </li>
-            <li>
-          <NavLink >
-            Data Analysis
-          </NavLink>
-            </li>
-          </ul>
-        </div>
+          </div>
         <div className='coursesright'>
         <div className='headline'>
                     <img src="/public/Image/background_removed_image_ryQNP8BvSu6YbNDZBfKXiA.png" alt="" />

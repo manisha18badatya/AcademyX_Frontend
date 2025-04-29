@@ -1,0 +1,41 @@
+@import './ColorSystem/MainColors';
+@import './FontSystem/Fonts';
+@import './UIComponents/cards';
+@import './UIComponents/buttons';
+@import './base';
+@import './Animations/Animations';
+
+
+.Topcreator{
+  @include herocard;
+  background-color: $accent1;
+  margin-top: 30px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 2rem;
+  padding: 2rem;
+}
+  
+
+.cardset{
+  @include card($padding:1.5rem);
+  margin-top: 20px;
+  height: 60vh;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover .cardset__img{
+    transform: scale(1.05);
+  }
+}
+
+.cardset__img{
+  height: 60%;
+  border-radius: 50%;
+  @include transition(transform);
+}
+
+

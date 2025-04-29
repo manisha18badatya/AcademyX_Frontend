@@ -1,14 +1,14 @@
 import React from 'react'
-import CourseSignUp from '../components/CourseSignUp'
-import CourseCreater from '../components/CourseCreater'
+import HomeHero from '../components/Home/HomeHero'
+import TopCreators from '../components/Home/TopCreators'
 import Navbar from '../components/navbar'
 
 function Home() {
   return (
     <div>
       <Navbar/>
-      <CourseSignUp/>
-      <CourseCreater/>
+      <HomeHero/>
+      <TopCreators/>
     </div>
   )
 }

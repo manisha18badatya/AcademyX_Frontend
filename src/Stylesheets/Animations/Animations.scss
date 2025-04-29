@@ -1,0 +1,60 @@
+
+
+@mixin transition($properties: all, $duration: 0.3s, $timing: ease-in-out) {
+    transition-property: $properties;
+    transition-duration: $duration;
+    transition-timing-function: $timing;
+  }
+
+  // animations.scss
+
+// Fade in animation
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+// Slide up animation
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// dropdown animation
+@keyframes drop {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+  
+  // Pulse animation
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  // Reusable animation classes
+  .fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  .pulse {
+    animation: pulse 1.5s infinite;
+  }
+  

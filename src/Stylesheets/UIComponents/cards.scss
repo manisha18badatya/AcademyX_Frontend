@@ -1,0 +1,129 @@
+// _card.scss
+@import '../ColorSystem/MainColors';
+@import '../FontSystem/Fonts';
+
+
+
+@mixin herocard{
+    width: 90%;
+    margin-inline: auto;
+    height: 90vh;
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+    background-color: $bg-dark1;
+    padding-top: 30px;
+
+    &__title{
+      position: absolute;
+      color: white;
+      font-family: 'Heading', sans-serif;
+      font-weight: 900;
+      font-size: 50px;
+    }
+
+    &__subtitle{
+      position:relative;
+      color: white;
+      font-family: 'Heading', sans-serif;
+      font-weight: 300;
+      font-size: 30px;
+    }
+}
+
+
+
+@mixin card(
+  $width: 25vw,
+  $padding: 1rem,
+  $border-radius: 12px,
+  $bg-color: #333,
+) {
+  width: $width;
+  padding: $padding;
+  border-radius: $border-radius;
+  background-color: $bg-color;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 10px 20px $highlight;
+  }
+
+  &__img{
+    display: flex;
+    margin-top: 20px;
+    margin-inline: auto;
+  } 
+
+  &__title{
+    margin-top: 20px;
+    color: white;
+    font-family: 'Heading', sans-serif;
+    font-size: 20px;
+  }
+
+  &__subtitle{
+    margin-top: 10px;
+    color: $grey1;
+    font-family: 'SubHeading1', sans-serif;
+    font-size: 18px;
+  }
+
+  &__description{
+    margin-top: 7px;
+    color: $grey2;
+    font-family: 'Content', sans-serif;
+    font-size: 15px;
+  }
+}
+
+
+@mixin videocard(
+  $width: 25vw,
+  $padding: 1rem,
+  $border-radius: 12px,
+) {
+  width: $width;
+  padding: $padding;
+  border-radius: $border-radius;
+  background-color: $grey2;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 10px 20px $highlight;
+  }
+
+  &__thumb{
+    display: flex;
+    margin: 0;
+    height: 50px;
+  } 
+
+  &__title{
+    margin-top: 20px;
+    color: white;
+    font-family: 'Heading', sans-serif;
+    font-size: 20px;
+  }
+
+  &__subtitle{
+    margin-top: 10px;
+    color: $grey1;
+    font-family: 'SubHeading1', sans-serif;
+    font-size: 18px;
+  }
+
+  &__description{
+    margin-top: 7px;
+    color: $grey2;
+    font-family: 'Content', sans-serif;
+    font-size: 15px;
+  }
+
+  &__price{
+    margin-top: 20px;
+    font-family: 'Heading',sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+  }
+}

@@ -1,0 +1,166 @@
+@font-face {
+  font-family: "Heading";
+  src: url("./AlbertSans.ttf") format("truetype");
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: "SubHeading1";
+  src: url("./Inter.ttf") format("ttf");
+  font-weight: 50;
+}
+@font-face {
+  font-family: "Content";
+  src: url("./Inter.ttf") format("ttf");
+  font-weight: 30;
+}
+@font-face {
+  font-family: "Heading";
+  src: url("./AlbertSans.ttf") format("truetype");
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: "SubHeading1";
+  src: url("./Inter.ttf") format("ttf");
+  font-weight: 50;
+}
+@font-face {
+  font-family: "Content";
+  src: url("./Inter.ttf") format("ttf");
+  font-weight: 30;
+}
+@font-face {
+  font-family: "Heading";
+  src: url("./AlbertSans.ttf") format("truetype");
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: "SubHeading1";
+  src: url("./Inter.ttf") format("ttf");
+  font-weight: 50;
+}
+@font-face {
+  font-family: "Content";
+  src: url("./Inter.ttf") format("ttf");
+  font-weight: 30;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes drop {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.pulse {
+  animation: pulse 1.5s infinite;
+}
+
+.hero {
+  width: 90%;
+  margin-inline: auto;
+  height: 90vh;
+  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #201D21;
+  padding-top: 30px;
+  background-image: linear-gradient(to right, rgb(7, 116, 171), rgba(0, 0, 0, 0)), url(/Image/homehero.jpg);
+  background-size: cover;
+  background-position: 90% 30%;
+  position: relative;
+  z-index: 3;
+}
+.hero__title {
+  position: absolute;
+  color: white;
+  font-family: "Heading", sans-serif;
+  font-weight: 900;
+  font-size: 50px;
+}
+.hero__subtitle {
+  position: relative;
+  color: white;
+  font-family: "Heading", sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+}
+
+.hero__title {
+  font-size: 70px;
+  margin-top: 30px;
+  margin-left: 40px;
+}
+
+.hero__subtitle {
+  font-size: 50px;
+  margin-top: 300px;
+  margin-left: 40px;
+}
+
+.signupbutton {
+  width: 50vw;
+  height: 8vh;
+  color: #201D21;
+  background-color: #dddddd;
+  border: none;
+  border-radius: 4rem;
+  display: grid;
+  place-content: center;
+  z-index: 3;
+  transition-property: transform box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  margin-inline: auto;
+  margin-top: 15vh;
+  cursor: pointer;
+  text-decoration: none;
+}
+.signupbutton:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px #84DEFF;
+}
+.signupbutton__text {
+  font-size: 25px;
+  font-weight: 600;
+  opacity: 0.85;
+  font-family: "SubHeading", sans-serif;
+}/*# sourceMappingURL=HomeHero.css.map */

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import '../Stylesheets/CourseCreater.css';
-export default function CourseCreater() {
+import '../../Stylesheets/TopCreator.css';
+export default function TopCreators() {
   let [card,setCard]=useState([])
   useEffect(()=>{
     let cardValue=[
@@ -21,11 +21,11 @@ export default function CourseCreater() {
 },[])
   return (
     <>
-    <div className='courseCreators'>
+    <div className='Topcreator'>
     
-      <h1>Our Top Creators</h1>
+      <h1 className='Topcreator__subtitle'>Our Top Creators</h1>
      
-      <div>
+      <div className='cards-grid'>
           {card.length>0?(
             card.map((value,idx)=>(
               <CourseCard
@@ -51,11 +51,11 @@ function CourseCard({image,tittle,course}){
       <>
       <div className='card_container'>
      <div className="cardset">
-      <img src={image} alt={tittle} className="cardimg" />
+      <img src={image} alt={tittle} className="cardset__img" />
       <div className="data">
-        <h3 className="text-lg font-semibold">{tittle}</h3>
-        <p className="text-sm">{course}</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quidem molestias harum blanditiis vel exercitationem, dolore rem ex recusandae optio?</p>
+        <h3 className="cardset__title">{tittle}</h3>
+        <p className="cardset__subtitle">{course}</p>
+        <p className='cardset__description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum quidem </p>
       </div>
     </div>
     </div>
