@@ -9,7 +9,7 @@
 .hero{
     @include herocard;
     background-image:linear-gradient( to right,
-        rgba(7, 116, 171, 1), 
+        rgba(8, 116, 171, 1), 
         rgba(0, 0, 0, 0)
       ), url(/Image/homehero.jpg);
     background-size: cover;
