@@ -1,14 +1,16 @@
-import React from 'react'
-import CoursesCategories from '../components/CoursesCategories'
-import Navbar from '../components/navbar'
+import React from "react";
+import CoursesCategories from "../components/Courses/CoursesCategories";
+import CourseCard from "../components/Courses/CourseCards";
+import Navbar from "../components/navbar";
 
 function Courses() {
   return (
     <div>
-      <Navbar/>
-      <CoursesCategories/>
+      <Navbar />
+      <CoursesCategories />
+      <CourseCard />
     </div>
-  )
+  );
 }
 
-export default Courses
+export default Courses;
