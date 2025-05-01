@@ -13,8 +13,8 @@ const UserProfile = () => {
         credentials: "include" 
       })
       const userDashboard = await response.json()
-      console.log(userDashboard)
-      setUserDashboardData(userDashboard.data)
+      console.log(userDashboard.data[0])
+      setUserDashboardData(userDashboard.data[0])
       
 
     }
@@ -32,7 +32,7 @@ const UserProfile = () => {
           <div className="pfp">
             <img src="/public/Image/pfp1.png" />
           </div>
-          <h2 className="name">@{userDashboardData?.username}</h2>
+          <h2 className="name">@{userDashboardData.username}</h2>
           <p className="bio">
             User bio - Lorem ipsum dolor sit amet, consectetur adipiscing elit,
           </p>
