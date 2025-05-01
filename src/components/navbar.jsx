@@ -133,9 +133,9 @@ function Navbar() {
                 onMouseEnter={() => setIsOpen(true)}
                 onMouseLeave={() => setIsOpen(false)}
               >
-                <img className="pfp-icon" src="/public/Image/pfp.png" />
+                <img className="pfp-icon" src="/public/Image/pfp1.png" />
                 {isOpen && (
-                  <div className="pfpdrop-container">
+                  <div className="pfpdzrop-container">
                     <div className="pfpdrop">
                       <NavLink to="/profile" className="pfpdrop__content">
                         My Profile
