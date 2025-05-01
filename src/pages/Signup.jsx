@@ -5,21 +5,37 @@ import { useAuth } from '../context/AuthContext';
 
 import { Link,NavLink } from 'react-router-dom';
 function SignUp() {
+    let navigate = useNavigate()
     let [email,setemail]=useState("")
     let[password,setpassword]=useState("")
+    let[username,setusername] = useState("")
     let[validate,setValidate]=useState("")
-
+    
     const { setIsLoggedIn } = useAuth();
-    const navigate = useNavigate();
+    
 
-    const handleLogin = (e) => {
+    const handleSignUp = async(e) => {
+      console.log(email,password,username)
       e.preventDefault();
-      if (!email || !password) {
+      if (!email || !password || !username) {
         setValidate("Please enter email and password");
-      } else {
-        setIsLoggedIn(true);
-        localStorage.setItem("isLoggedIn", "true");
-        navigate("/home");
+      } 
+      const response = await fetch("http://localhost:8080/api/v1/users/register",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+          username,
+          email,
+          password
+
+        })
+      })
+      const jsonResponse = await response.json()
+      console.log(jsonResponse)
+      if(jsonResponse.success){
+        navigate('/login')
+      }else{
+        setValidate(jsonResponse.message)
       }
     };
 
@@ -47,6 +63,14 @@ function SignUp() {
                 <div className='formpage'>
                  <h3>JOIN</h3>
                  <input 
+                 type="text"
+                 id='inputbox'
+                 value={username}
+                 onChange={(e)=>{setusername(e.target.value)}}
+                 placeholder='enter username'
+                 />
+                 
+                 <input 
                  type="email"
                  id='inputbox'
                  value={email}
@@ -61,15 +85,12 @@ function SignUp() {
                  onChange={(e)=>{setpassword(e.target.value)}}
                  placeholder='password'
                  />      
-                    <div className='rmiddle'>
-                      <span><input type="checkbox" id='checkbox' /> Keep me logged in </span>
-                       <a href='\'>Forgot Password?</a>
-                     </div>
+                   
                 </div>
                 
                  <div className='linkpage'>
 
-                      <button onClick={handleLogin}>Sign up</button>
+                      <button onClick={handleSignUp}>Sign up</button>
 
                       <p>{validate}</p>
                       <span>

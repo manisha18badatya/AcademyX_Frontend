@@ -13,8 +13,8 @@ const UserProfile = () => {
         credentials: "include" 
       })
       const userDashboard = await response.json()
-      console.log(userDashboard.data[0])
-      setUserDashboardData(userDashboard.data[0])
+      console.log(userDashboard)
+      setUserDashboardData(userDashboard.data)
       
 
     }
