@@ -160,22 +160,29 @@ html, body {
   border-radius: 0.5rem;
   margin-left: 20px;
   min-height: 100vh;
-  font-family: "SubHeading", sans-serif;
+  font-family: sans-serif;
+}
+.course-tracker .course-head {
+  text-transform: uppercase;
+  font-weight: 100;
 }
 .course-tracker .lesson-section {
+  text-transform: uppercase;
   margin-top: 30px;
-  margin-left: 10px;
+  font-size: 10px;
 }
 .course-tracker .active-video {
   color: #fff;
 }
 .course-tracker .video-list {
-  margin-block: 10px;
+  text-transform: none;
   list-style-type: none;
   margin-left: 20px;
+  font-size: 15px;
 }
 .course-tracker .video-list li {
-  margin-block: 10px;
+  margin-top: 15px;
+  margin-bottom: 30px;
   list-style-type: none;
   cursor: pointer;
 }

@@ -10,7 +10,7 @@ function CourseTracker() {
 
   return (
     <div className="course-tracker">
-      <h3>Course Progress</h3>
+      <h3 className="course-head">{course.courseName}</h3>
       {course.content.map((section, index) => (
         <div key={section._id} className="lesson-section">
           <h4>
