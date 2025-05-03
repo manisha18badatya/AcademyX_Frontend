@@ -1,0 +1,208 @@
+@import './base.css';
+@font-face {
+  font-family: "Heading";
+  src: url("./AlbertSans.ttf") format("truetype");
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: "SubHeading1";
+  src: url("./Inter.ttf") format("truetype");
+  font-weight: 50;
+}
+@font-face {
+  font-family: "Content";
+  src: url("./Inter.ttf") format("truetype");
+  font-weight: 30;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes drop {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.pulse {
+  animation: pulse 1.5s infinite;
+}
+
+.headings {
+  margin-top: 30px;
+  font-family: "Heading", sans-serif;
+  color: #999;
+  font-size: 20px;
+}
+
+.categories {
+  width: 18vw;
+  height: 100vh;
+  border-radius: 0.5rem;
+  background-color: #201D21;
+  color: #dddddd;
+  float: left;
+}
+.categories__list {
+  list-style-type: none;
+}
+.categories__items {
+  font-family: "SubHeading", sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: capitalize;
+  margin-block: 10px;
+  color: #dddddd;
+  transition-property: color font-size;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+.categories__items:hover {
+  font-size: 16px;
+  color: #fff;
+}
+.categories__items:active {
+  color: #FFB703;
+}
+
+.navlink {
+  text-decoration: none;
+}
+
+.videocard-container {
+  width: 75vw;
+  float: left;
+}
+
+.videocard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.videocard {
+  width: 24vw;
+  height: 60vh;
+  border-radius: 1rem;
+  background-color: white;
+  border: 1px solid #999;
+  text-decoration: none;
+  padding: 0;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.videocard:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+.videocard__thumbcontainer {
+  overflow: hidden;
+  height: 40%;
+  padding: 0;
+}
+.videocard__thumb {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+.videocard__data {
+  display: block;
+  height: 40%;
+  width: 100%;
+  overflow: hidden;
+}
+.videocard__data__title {
+  text-decoration: none;
+  margin-top: 20px;
+  color: #201D21;
+  font-family: "Heading", sans-serif;
+  font-size: 20px;
+}
+.videocard__data__subtitle {
+  text-decoration: none;
+  margin-top: 10px;
+  color: #201D21;
+  font-family: "SubHeading1", sans-serif;
+  font-size: 15px;
+}
+.videocard__data__description {
+  text-decoration: none;
+  margin-top: 30px;
+  color: #201D21;
+  font-family: "Content", sans-serif;
+  font-size: 12px;
+}
+.videocard__buycontainer {
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  justify-content: space-between;
+}
+.videocard__buycontainer__buy-button {
+  margin-right: 30px;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background-color: #FFB703;
+  border-radius: 0.5rem;
+  padding-block: 1vw;
+  padding-inline: 2vw;
+  color: #201D21;
+  font-family: "Heading", sans-serif;
+  font-weight: 900;
+  width: 50%;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+}
+.videocard__buycontainer__buy-button:hover {
+  color: #fff;
+}
+.videocard__buycontainer__price {
+  font-family: "Heading", sans-serif;
+  color: #201D21;
+  font-size: 30px;
+  font-weight: bolder;
+  margin: 0;
+}/*# sourceMappingURL=Courses.css.map */

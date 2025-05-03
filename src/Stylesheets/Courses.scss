@@ -1,0 +1,61 @@
+@import './UIComponents/cards';
+@import './base.css';
+
+.headings{
+    margin-top: 30px;
+    font-family: 'Heading', sans-serif;
+    color: $grey2;
+    font-size: 20px;
+}
+
+.categories{
+    width: 18vw;
+    height: 100vh;
+    border-radius: 0.5rem;
+    background-color: $bg-dark1;
+    color: $grey1;
+    float: left;
+
+    &__list{
+        list-style-type: none;
+    }
+
+    &__items{
+        font-family: 'SubHeading', sans-serif;
+        font-size: 15px;
+        text-decoration: none;
+        text-transform: capitalize;
+        margin-block: 10px;
+        color: $grey1;
+        @include transition(color font-size);
+
+        &:hover{
+            font-size: 16px;
+            color: #fff;
+        }
+
+        &:active{
+            color: $accent2;
+        }
+    }
+}
+
+
+.navlink{
+    text-decoration: none;
+}
+
+.videocard-container{
+    width: 75vw;
+    float: left;
+}
+
+.videocard-grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+}
+
+.videocard{
+    @include videocard(24vw, 60vh);
+}

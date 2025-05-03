@@ -56,12 +56,12 @@
 }
 @font-face {
   font-family: "SubHeading1";
-  src: url("./Inter.ttf") format("ttf");
+  src: url("./Inter.ttf") format("truetype");
   font-weight: 50;
 }
 @font-face {
   font-family: "Content";
-  src: url("./Inter.ttf") format("ttf");
+  src: url("./Inter.ttf") format("truetype");
   font-weight: 30;
 }
 @keyframes fadeIn {
@@ -115,54 +115,51 @@
   animation: pulse 1.5s infinite;
 }
 
-nav {
+.navbar {
   max-width: vw;
   width: 100%;
-  height: 100%;
-  display: inline-flex;
+  height: 60px;
+  display: grid;
   align-items: center;
-}
-
-.nav .navright {
-  justify-content: flex-end;
-  margin: 0;
+  margin-bottom: 10px;
 }
 
 .navleft {
-  padding-left: 20px;
+  padding: 0;
   float: left;
   list-style-type: none;
-  width: 12%;
+  width: 15%;
   display: flex;
-  overflow: visible;
+  overflow: hidden;
+  justify-content: flex-start;
 }
 
 .navmiddle {
   float: left;
   list-style-type: none;
-  width: 48%;
+  width: 46%;
   display: flex;
-  overflow: visible;
+  overflow: hidden;
   justify-content: center;
   align-items: center;
 }
 
 .navmiddle li {
-  margin-inline: 30px;
-  position: relative;
+  margin-top: 20px;
+  margin-inline: 20px;
   display: inline-block;
 }
 
 .navright {
-  padding-right: 30px;
+  padding: 0;
+  padding-top: 10px;
   position: relative;
   float: right;
   list-style-type: none;
-  width: 42%;
+  width: 39%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  overflow: visible;
 }
 
 .ullist {
@@ -174,8 +171,9 @@ nav {
   display: grid;
   text-decoration: none;
   color: #201D21;
+  height: 40px;
   border: none;
-  font-size: 17px;
+  font-size: 15px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   transition-property: transform color;
   transition-duration: 0.25s;
@@ -205,52 +203,88 @@ nav {
 }
 
 .pfp-icon {
-  height: 40px;
-  margin-left: 30px;
-}
-
-.logo {
   height: 50px;
+  margin-left: 20px;
+  transform: translateX(10px);
 }
 
-.acad {
+.left-container {
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0;
+  padding: 0;
+}
+.left-container:hover {
+  transform: translateX(5px);
+}
+.left-container__logo {
+  height: 60px;
+  margin: 0;
+  transform: translateX(-20px);
+}
+.left-container__acad {
   text-decoration: none;
   font-family: "Heading", sans-serif;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 25px;
   color: #201D21;
   opacity: 0.7;
   display: grid;
+  transform: translateX(-45px);
   place-items: center; /* shorthand for align-items and justify-items */
 }
 
-.login, .signup {
-  border-radius: 1rem;
-  justify-content: center;
-  padding-inline: 20px;
-  padding-block: 10px;
+.user-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-block: auto;
+  gap: 8px;
+  font-size: 15px;
+  text-align: center;
+  font-family: "Content", sans-serif;
+}
+.user-buttons__login {
+  place-content: center;
+  padding-block: 8px;
+  padding-inline: 12px;
+  border-radius: 0.5rem;
   text-decoration: none;
-}
-
-.login {
-  background-color: rgb(168, 212, 250);
+  background-color: #B9D4E2;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
   color: #1a1a1a;
-  margin-right: 10px;
-  margin-left: 5px;
 }
-
-.signup {
-  background-color: rgb(13, 105, 185);
+.user-buttons__login:hover {
+  background-color: #84DEFF;
+}
+.user-buttons__signup {
+  place-content: center;
+  padding-block: 5px;
+  padding-inline: 10px;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  background-color: #0774AB;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
   color: #fff;
+}
+.user-buttons__signup:hover {
+  background-color: #84DEFF;
+  color: #1a1a1a;
 }
 
 .search-bar {
   height: 90%;
-  padding: 8px;
+  padding: 0px;
   max-width: 400px;
   margin: 0 auto;
+  margin-right: 20px;
   display: inline-flex;
-  overflow: hidden;
   background-color: white;
   transition: border 0.3s ease;
 }
@@ -258,11 +292,13 @@ nav {
   border-color: #007BFF;
 }
 .search-bar__icon {
-  margin-top: 5px;
+  margin-top: 10px;
+  height: 20px;
 }
 .search-bar__input {
-  width: 80%;
+  width: 100%;
   flex: 1;
+  height: 40px;
   padding: 0.75rem 0.25rem;
   border-radius: 0.5rem;
   font-size: 1rem;
@@ -285,6 +321,7 @@ nav {
 }
 .search-bar__button:hover {
   background-color: #0056b3;
+  transform: scale(1.02);
 }
 
 .pfpdrop-container {

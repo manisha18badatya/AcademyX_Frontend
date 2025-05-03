@@ -1,11 +1,11 @@
 // _card.scss
 @import '../ColorSystem/MainColors';
 @import '../FontSystem/Fonts';
-
+@import '../Animations/Animations.scss';
 
 
 @mixin herocard{
-    width: 90%;
+    width: vw;
     margin-inline: auto;
     height: 90vh;
     border-radius: 1rem;
@@ -80,50 +80,105 @@
 
 @mixin videocard(
   $width: 25vw,
-  $padding: 1rem,
-  $border-radius: 12px,
+  $height: 40vh,
+  $border-radius: 1rem,
 ) {
   width: $width;
-  padding: $padding;
+  height: $height;
   border-radius: $border-radius;
-  background-color: $grey2;
+  background-color: white;
+  border: 1px solid $grey2;
+  text-decoration: none;
+  padding: 0;
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    box-shadow: 0 10px 20px $highlight;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+
+
+  &__thumbcontainer{
+    overflow: hidden;
+    height: 40%;
+    padding: 0;
+
   }
 
   &__thumb{
-    display: flex;
+    object-fit: cover;    
+    object-position: center;
     margin: 0;
-    height: 50px;
+    width: 100%;
+   height: 100%; 
+    padding: 0;
   } 
 
-  &__title{
-    margin-top: 20px;
-    color: white;
-    font-family: 'Heading', sans-serif;
-    font-size: 20px;
+  &__data{
+    display: block;
+    height: 40%;
+    width: 100%;
+    overflow: hidden;
+
+    &__title{
+      text-decoration: none;
+      margin-top: 20px;
+      color: $bg-dark1;
+      font-family: 'Heading', sans-serif;
+      font-size: 20px;
+    }
+  
+    &__subtitle{
+      text-decoration: none;
+      margin-top: 10px;
+      color: $bg-dark1;
+      font-family: 'SubHeading1', sans-serif;
+      font-size: 15px;
+    }
+  
+    &__description{
+      text-decoration: none;
+      margin-top: 30px;
+      color: $bg-dark1;
+      font-family: 'Content', sans-serif;
+      font-size: 12px;
+    }
   }
 
-  &__subtitle{
-    margin-top: 10px;
-    color: $grey1;
-    font-family: 'SubHeading1', sans-serif;
-    font-size: 18px;
+  &__buycontainer {
+    display: flex;
+    padding: 5px;
+    align-items: center;    
+    justify-content: space-between; // optional: separates price and button
+
+    &__buy-button{
+      margin-right: 30px;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background-color: $accent2;
+      border-radius: 0.5rem;
+      padding-block: 1vw;
+      padding-inline: 2vw;
+      color: $bg-dark1;
+      font-family: 'Heading', sans-serif;
+      font-weight: 900;
+      width: 50%;
+      @include transition;
+
+      &:hover{
+        color: #fff;
+      }
+    }
+  
+    &__price {
+      font-family: 'Heading', sans-serif;
+      color: $bg-dark1;
+      font-size: 30px;
+      font-weight: bolder;
+      margin: 0; // ensure no margin pushes it off-center
+    }
   }
 
-  &__description{
-    margin-top: 7px;
-    color: $grey2;
-    font-family: 'Content', sans-serif;
-    font-size: 15px;
-  }
-
-  &__price{
-    margin-top: 20px;
-    font-family: 'Heading',sans-serif;
-    font-size: 30px;
-    font-weight: bolder;
-  }
 }

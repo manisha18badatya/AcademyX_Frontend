@@ -2,24 +2,13 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../Stylesheets/Profile.css";
 import Navbar from "../components/navbar";
+import useUserData from "../components/userdata";
 
 const UserProfile = () => {
-  const [userDashboardData,setUserDashboardData] = useState([])
- 
-  useEffect(()=>{
-    const dashboardData = async ()=>{
-      const response = await fetch("http://localhost:8080/api/v1/dashboards/",{
-        method: "GET",
-        credentials: "include" 
-      })
-      const userDashboard = await response.json()
-      console.log(userDashboard.data[0])
-      setUserDashboardData(userDashboard.data[0])
-      
+  const { user, isLoading } = useUserData();
 
-    }
-    dashboardData()
-  },[])
+  if (isLoading) return <p>Loading profile...</p>;
+  if (!user) return <p>User not found</p>;
 
   return (
     <div className="page1">
@@ -32,7 +21,7 @@ const UserProfile = () => {
           <div className="pfp">
             <img src="/public/Image/pfp1.png" />
           </div>
-          <h2 className="name">@{userDashboardData.username}</h2>
+          <h2 className="main-data__name">{user.username}</h2>
           <p className="bio">
             User bio - Lorem ipsum dolor sit amet, consectetur adipiscing elit,
           </p>

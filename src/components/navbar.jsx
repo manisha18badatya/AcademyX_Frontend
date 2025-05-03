@@ -28,16 +28,18 @@ function Navbar() {
       <div className="navbar">
         <nav>
           <div className="navleft">
-            <NavLink to="/">
-              <img
-                className="logo"
-                src="/public/Image/background_removed_image_ryQNP8BvSu6YbNDZBfKXiA.png"
-                alt=""
-              />
-            </NavLink>
-            <NavLink to="/" className="acad">
-              <div> AcademyX</div>
-            </NavLink>
+            <div className="left-container">
+              <NavLink to="/">
+                <img
+                  className="left-container__logo"
+                  src="/public/Image/background_removed_image_ryQNP8BvSu6YbNDZBfKXiA.png"
+                  alt=""
+                />
+              </NavLink>
+              <NavLink to="/" className="left-container__acad">
+                <div> AcademyX</div>
+              </NavLink>
+            </div>
           </div>
           <div className="navmiddle">
             <ul className="ullist">
@@ -93,9 +95,8 @@ function Navbar() {
           <div className="navright">
             <div className="search-bar">
               <svg
-                width="18"
-                height="18"
                 viewBox="0 0 18 18"
+                fill="#222222"
                 className="search-bar__icon"
               >
                 <path
@@ -118,11 +119,11 @@ function Navbar() {
               </button>
             </div>
             {!isLoggedIn && (
-              <div>
-                <NavLink className="login" to="/login">
+              <div className="user-buttons">
+                <NavLink className="user-buttons__login" to="/login">
                   Log in
                 </NavLink>
-                <NavLink to="/signup" className="signup">
+                <NavLink className="user-buttons__signup" to="/signup">
                   Sign up
                 </NavLink>
               </div>
