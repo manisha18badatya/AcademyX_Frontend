@@ -27,6 +27,7 @@
     }
 
     p{
+        margin-left: 5px;
         margin-top: 20px;
     }
 }
@@ -39,7 +40,7 @@
 }
 .videocontainer-body{
     margin-top: 4vh;
-    width: 65vw;
+    width: 60vw;
     float: left;
 
     .lesson{
@@ -53,7 +54,8 @@
     .video-title{
         font-family: 'Heading', sans-serif;
         margin-block: 10px;
-        color: $bg-dark1;
+        margin-left: 15px;
+        color: #444;
     }
 }
 
@@ -83,7 +85,7 @@ height: 80px;
 .course-tracker{
     margin-top: 5vh;
     padding-top: 30px;
-    width: 20vw;
+    width: 25vw;
     padding-inline: 20px;
     background-color: $bg-dark1;
     float: left;
@@ -105,7 +107,7 @@ height: 80px;
     .video-list{
         margin-block: 10px;
         list-style-type: none;
-        margin-left: 10px;
+        margin-left: 20px;
     }
 
     .video-list li{
