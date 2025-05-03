@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import "../../stylesheets/Courses.css";
+import { NavLink } from "react-router-dom";
 
 // Component that fetches and renders all course cards
 export default function CourseList() {
   const [courses, setCourses] = useState([]);
-
   const fetchCourses = async () => {
     try {
       const url = "http://localhost:8080/api/v1/courses/allCourses";
@@ -21,39 +22,49 @@ export default function CourseList() {
   }, []);
 
   return (
-    <div className="cards-grid">
-      {courses.length > 0 ? (
-        courses.map((value, idx) => (
-          <CourseCard
-            key={value._id || idx}
-            thumb={value.thumbnail}
-            title={value.courseName}
-            course={value.description}
-            price={value.price}
-          />
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
+    <div className="videocard-container">
+      <div className="videocard-grid">
+        {courses.length > 0 ? (
+          courses.map((value, idx) => (
+            <CourseCard
+              key={value._id || idx}
+              course={value} // pass the full object
+            />
+          ))
+        ) : (
+          <p>Loading...</p>
+        )}
+      </div>
     </div>
   );
 }
 
 // Reusable course card component
-function CourseCard({ thumb, title, course, price }) {
+function CourseCard({ course }) {
   return (
-    <div className="card_container">
-      <div className="cardset">
-        <img src={thumb} alt={title} className="cardset__img" />
-        <div className="data">
-          <h3 className="cardset__title">{title}</h3>
-          <p className="cardset__subtitle">{course}</p>
-          <p className="cardset__description">
+    <NavLink to={`/coursepage/${course._id}`} className="navlink">
+      <div className="videocard">
+        <div className="videocard__thumbcontainer">
+          <img
+            src={course.thumbnail}
+            alt={course.courseName}
+            className="videocard__thumb"
+          />
+        </div>
+        <div className="videocard__data">
+          <h3 className="videocard__data__title">{course.title}</h3>
+          <p className="videocard__data__subtitle">{course.description}</p>
+          <p className="videocard__data__description">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
-          <h2>₹{price}</h2>
+        </div>
+        <div className="videocard__buycontainer">
+          <h2 className="videocard__buycontainer__price">₹{course.price}</h2>
+          <NavLink to="/" className="videocard__buy-button">
+            BUY NOW
+          </NavLink>
         </div>
       </div>
-    </div>
+    </NavLink>
   );
 }

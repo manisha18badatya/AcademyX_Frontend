@@ -31,12 +31,14 @@
     width:60%;
     display: grid;
     place-content: left center;
+
+    &__name{
+        margin-left: 40px;
+        margin-top: 30px;
+        font-size: 40px;
+    }
 }
 
-.main-data .name{
-    margin-top: 30px;
-    font-size: 40px;
-}
 
 .main-buttons{
     display: grid;

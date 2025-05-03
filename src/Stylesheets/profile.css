@@ -31,8 +31,8 @@
   display: grid;
   place-content: left center;
 }
-
-.main-data .name {
+.main-data__name {
+  margin-left: 40px;
   margin-top: 30px;
   font-size: 40px;
 }

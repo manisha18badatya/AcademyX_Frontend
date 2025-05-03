@@ -1,0 +1,114 @@
+@import './base';
+@import './Animations/Animations';
+@import './FontSystem/Fonts';
+@import './ColorSystem/MainColors';
+
+
+.course-header{
+    width: 100%;
+    font-family: 'Heading', sans-serif;
+    height: 20vh;
+
+    h1{
+        text-transform:capitalize;
+        margin-top: 10px;
+        font-size: 40px;
+    }
+
+    h2{
+        margin-top: 20px;
+        font-size: 20px;
+    }
+
+    p{
+        margin-top: 20px;
+    }
+}
+
+.line{
+    width: 100%;
+    background-color: $grey2;
+    height: 3px;
+    margin-block: 30px;
+}
+.videocontainer-body{
+    margin-top: 4vh;
+    width: 70vw;
+    padding-inline: 10px;
+    float: left;
+
+    .lesson{
+        text-transform: capitalize;
+        font-family: 'Heading', sans-serif;
+        margin-block: 10px;
+        font-size: 30px;
+        color: $bg-dark1;
+    }
+
+    .video-title{
+        font-family: 'Heading', sans-serif;
+        margin-block: 10px;
+        color: $bg-dark1;
+    }
+}
+
+.video-player {
+    position: relative;
+  }
+  
+.video-player video {
+    margin-top: 30px;
+display: block;
+width: 100%;
+height: auto;
+}
+
+.play-icon {
+position: absolute;
+top: 50%;
+left: 50%;
+fill: white;
+transform: translate(-50%, -50%);
+pointer-events: none; /* so the video controls still work */
+opacity: 0.8;
+width: 80px;
+height: 80px;
+}
+
+.course-tracker{
+    margin-top: 5vh;
+    padding-top: 30px;
+    width: 23vw;
+    padding-inline: 20px;
+    background-color: $bg-dark1;
+    float: left;
+    color: $grey2;
+    border-radius: 0.5rem;
+    margin-left: 20px;
+    min-height: 100vh;
+    font-family: 'SubHeading', sans-serif;
+
+    .lesson-section{
+        margin-top: 30px;
+        margin-left: 10px;
+    }
+
+    .video-list{
+        margin-block: 10px;
+        list-style-type: none;
+        margin-left: 10px;
+    }
+
+    .video-list li{
+        margin-block: 10px;
+        list-style-type: none;
+        cursor: pointer;
+
+        &:hover{
+            color: white;
+        }
+    }
+    .head{
+        
+    }
+}

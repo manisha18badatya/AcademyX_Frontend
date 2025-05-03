@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import "../../Stylesheets/Courses.css";
+import { NavLink } from "react-router-dom";
 
 function CoursesCategories() {
   const [Courses, setCourses] = useState([]);
@@ -20,12 +22,19 @@ function CoursesCategories() {
   }, []);
 
   return (
-    <div className="categories-list">
-      <h1>Course Categories</h1>
-      <ul>
+    <div className="categories">
+      <h1 className="headings">Course Categories</h1>
+      <ul className="categories__list">
         {[...new Set(Courses.map((course) => course.category))].map(
           (category, idx) => (
-            <li key={idx}>{category}</li>
+            <NavLink
+              to="/courses"
+              className={({ isActive }) =>
+                isActive ? "categories__items active" : "categories__items"
+              }
+            >
+              <li key={idx}>{category}</li>
+            </NavLink>
           )
         )}
       </ul>

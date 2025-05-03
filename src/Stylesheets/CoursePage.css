@@ -1,182 +1,173 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding-inline: 5px;
 }
-html,body{
-    width: 100%;
-    height: 100%;
-}
-.course-page{
-    width: 90%;
-    height: 160vh;
-    /* background-color: red; */
-    margin-left:3%;
-    margin-top: 10px;
-}
-.headline{
-    width: 100%;
-    /* background-color: blue; */
-    display: flex;
-    align-items: center;
-    justify-content:left;
-    border-bottom: 1px solid black;
-    margin-bottom: 20px;
 
+html, body {
+  width: 100%;
+  height: 100%;
 }
-.headline img{
-    width: 5%;
-    height: 5%;
-}
-.mid-page{
-    width: 100%;
-    height: 75%;
-    /* background-color: blue; */
-    display: flex;
- 
-}
-.mid-left{
-    width: 67%;
-    height: 100%;
-    /* background-color:yellow ; */
-}
-.tittle h2{
-    width: 100%;
-    /* background-color: blueviolet; */
-    font-weight: 900;
-    font-size: 30px;
-    letter-spacing: 1px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.mid-page-bg{
-    width: 80%;
-    height: 35%;
-    /* background-color: rosybrown; */
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color:white ;
-    
-}
-.overlay{
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.39);
-    position: relative;
-}
-.overlay-content{
-    position: absolute;
-    top: 30%;
-    left: 10%;
-}
-.overlay span{
-    display: flex;
-}
-.overlay span h1{
-    font-size:55px;
-    font-weight: 600;
-}
-.overlay h2{
-    margin-top: 10px;
-    font-size:30px ;
-    font-weight: 600;
-}
-.overlay img{
-    margin-right: 20px;
-    height: 10%;
-}
-.descripton{
-    width: 80%;
-}
-.descripton h2{
-    font-weight: 700;
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-.descripton p{
-    margin-bottom: 25px;
-}
-.mid-right{
-    width: 30%;
-    height: 100%;
-    border-radius: 13px;
-    /* background-color: cadetblue; */
-    border: 1px solid black;
-    padding: 25px 30px;
-}
-.mid-right-content h2{
-    font-size: 35px;
-    font-weight: 700;
-}
-.mid-right-content span{
-    color:rgb(74, 53, 209) ;
-    font-size: 22px;
-    font-weight: 700;
-}
-.price{
-    display: flex;
-    justify-content: space-between;
-}
-.price h3 {
-    text-decoration: line-through;
-    font-weight: 700;
-    font-size: 20px;
-}
-.price  i{
-    text-decoration: line-through;
-    font-size: 20px;
-}
-.price button{
-    background-color: rgb(152, 152, 152);
-    padding: 10px 20px;
-    color:maroon;
-    font-weight: 500;
-    border-radius: 13px;
-    box-shadow: 0px 4px 2px black;
-    cursor: pointer;
-}
-.cur-price h1{
-    font-weight: 700;
-    font-size: 30px;
-   
-}
-.cur-price i{
-    font-size: 27px;
-    margin-right: 10px;
-}
-.cur-price button{
-    background-color:  cadetblue;
-    padding: 10px 50px;
-    font-weight: 800;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 18px;
-    border-radius: 10px;
-    margin-top: 30px;
-    margin-left:20%;
-    cursor: pointer;
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-button:hover{
-    transform: scale(1.1);
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
-.lilist{
-    margin-bottom: 10px;
+@keyframes drop {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
 }
-h2{
-    margin-bottom: 20px;
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
-.craftbutton{
-    padding: 0px 30px;
-    background-color:cadetblue ;
-    border-radius: 12px;
-    font-weight: 800;
-    margin-left: 40px;
-    margin-top: 20px;
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
 }
-.craftbutton i{
-    font-size: 36px;
-    font-weight: 900;
+
+.slide-up {
+  animation: slideUp 0.8s ease-out forwards;
 }
-.course-content{
-    display: flex;
-    gap: 20px;
+
+.pulse {
+  animation: pulse 1.5s infinite;
 }
+
+@font-face {
+  font-family: "Heading";
+  src: url("./AlbertSans.ttf") format("truetype");
+  font-weight: 100 900;
+}
+@font-face {
+  font-family: "SubHeading1";
+  src: url("./Inter.ttf") format("truetype");
+  font-weight: 50;
+}
+@font-face {
+  font-family: "Content";
+  src: url("./Inter.ttf") format("truetype");
+  font-weight: 30;
+}
+.course-header {
+  width: 100%;
+  font-family: "Heading", sans-serif;
+  height: 20vh;
+}
+.course-header h1 {
+  text-transform: capitalize;
+  margin-top: 10px;
+  font-size: 40px;
+}
+.course-header h2 {
+  margin-top: 20px;
+  font-size: 20px;
+}
+.course-header p {
+  margin-top: 20px;
+}
+
+.line {
+  width: 100%;
+  background-color: #999;
+  height: 3px;
+  margin-block: 30px;
+}
+
+.videocontainer-body {
+  margin-top: 4vh;
+  width: 70vw;
+  padding-inline: 10px;
+  float: left;
+}
+.videocontainer-body .lesson {
+  text-transform: capitalize;
+  font-family: "Heading", sans-serif;
+  margin-block: 10px;
+  font-size: 30px;
+  color: #201D21;
+}
+.videocontainer-body .video-title {
+  font-family: "Heading", sans-serif;
+  margin-block: 10px;
+  color: #201D21;
+}
+
+.video-player {
+  position: relative;
+}
+
+.video-player video {
+  margin-top: 30px;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  fill: white;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* so the video controls still work */
+  opacity: 0.8;
+  width: 80px;
+  height: 80px;
+}
+
+.course-tracker {
+  margin-top: 5vh;
+  padding-top: 30px;
+  width: 23vw;
+  padding-inline: 20px;
+  background-color: #201D21;
+  float: left;
+  color: #999;
+  border-radius: 0.5rem;
+  margin-left: 20px;
+  min-height: 100vh;
+  font-family: "SubHeading", sans-serif;
+}
+.course-tracker .lesson-section {
+  margin-top: 30px;
+  margin-left: 10px;
+}
+.course-tracker .video-list {
+  margin-block: 10px;
+  list-style-type: none;
+  margin-left: 10px;
+}
+.course-tracker .video-list li {
+  margin-block: 10px;
+  list-style-type: none;
+  cursor: pointer;
+}
+.course-tracker .video-list li:hover {
+  color: white;
+}/*# sourceMappingURL=CoursePage.css.map */

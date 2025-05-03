@@ -5,11 +5,11 @@
 }
 @font-face {
   font-family: "SubHeading1";
-  src: url("./Inter.ttf") format("ttf");
+  src: url("./Inter.ttf") format("truetype");
   font-weight: 50;
 }
 @font-face {
   font-family: "Content";
-  src: url("./Inter.ttf") format("ttf");
+  src: url("./Inter.ttf") format("truetype");
   font-weight: 30;
 }/*# sourceMappingURL=Fonts.css.map */
