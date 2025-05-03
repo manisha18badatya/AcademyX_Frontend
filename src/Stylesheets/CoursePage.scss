@@ -3,9 +3,15 @@
 @import './FontSystem/Fonts';
 @import './ColorSystem/MainColors';
 
+.maincontent{
+    display: flex;
+    justify-content: center;
+}
 
 .course-header{
-    width: 100%;
+    width: 95%;
+    display: block;
+    margin-inline: auto ;
     font-family: 'Heading', sans-serif;
     height: 20vh;
 
@@ -33,8 +39,7 @@
 }
 .videocontainer-body{
     margin-top: 4vh;
-    width: 70vw;
-    padding-inline: 10px;
+    width: 65vw;
     float: left;
 
     .lesson{
@@ -78,7 +83,7 @@ height: 80px;
 .course-tracker{
     margin-top: 5vh;
     padding-top: 30px;
-    width: 23vw;
+    width: 20vw;
     padding-inline: 20px;
     background-color: $bg-dark1;
     float: left;
@@ -91,6 +96,10 @@ height: 80px;
     .lesson-section{
         margin-top: 30px;
         margin-left: 10px;
+    }
+
+    .active-video{
+        color: #fff;
     }
 
     .video-list{
