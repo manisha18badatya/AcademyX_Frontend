@@ -11,7 +11,7 @@ function CourseHeading() {
     <div className="course-header">
       <h1>{course.courseName}</h1>
       <h2>
-        <text style={{ fontWeight: "100" }}>created by</text>
+        <text style={{ fontWeight: "100" }}>By</text>
         <text style={{ textTransform: "capitalize" }}>
           {" "}
           {course.educator.username}{" "}

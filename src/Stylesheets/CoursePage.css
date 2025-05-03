@@ -96,6 +96,7 @@ html, body {
   font-size: 20px;
 }
 .course-header p {
+  margin-left: 5px;
   margin-top: 20px;
 }
 
@@ -108,7 +109,7 @@ html, body {
 
 .videocontainer-body {
   margin-top: 4vh;
-  width: 65vw;
+  width: 60vw;
   float: left;
 }
 .videocontainer-body .lesson {
@@ -121,7 +122,8 @@ html, body {
 .videocontainer-body .video-title {
   font-family: "Heading", sans-serif;
   margin-block: 10px;
-  color: #201D21;
+  margin-left: 15px;
+  color: #444;
 }
 
 .video-player {
@@ -150,7 +152,7 @@ html, body {
 .course-tracker {
   margin-top: 5vh;
   padding-top: 30px;
-  width: 20vw;
+  width: 25vw;
   padding-inline: 20px;
   background-color: #201D21;
   float: left;
@@ -170,7 +172,7 @@ html, body {
 .course-tracker .video-list {
   margin-block: 10px;
   list-style-type: none;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 .course-tracker .video-list li {
   margin-block: 10px;

@@ -27,7 +27,7 @@ export function CourseProvider({ children }) {
               url: firstVideo.videoUrl,
               title: firstVideo.videoTitle,
             });
-            setSelectedLesson(firstLesson.title); // store as string
+            setSelectedLesson(`Course 1: ${firstLesson.title}`); // store as string
           }
         }
       })

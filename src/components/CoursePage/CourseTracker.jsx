@@ -11,9 +11,11 @@ function CourseTracker() {
   return (
     <div className="course-tracker">
       <h3>Course Progress</h3>
-      {course.content.map((section) => (
+      {course.content.map((section, index) => (
         <div key={section._id} className="lesson-section">
-          <h4>{section.title}</h4>
+          <h4>
+            Course{index + 1} : {section.title}
+          </h4>
           <ul className="video-list">
             {section.video.map((vid) => (
               <li
@@ -26,10 +28,10 @@ function CourseTracker() {
                     url: vid.videoUrl,
                     title: vid.videoTitle,
                   });
-                  setSelectedLesson(section.title);
+                  setSelectedLesson(`Course ${index + 1}: ${section.title}`);
                 }}
               >
-                {vid.videoTitle}
+                - {vid.videoTitle}
               </li>
             ))}
           </ul>
