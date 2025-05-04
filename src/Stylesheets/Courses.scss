@@ -1,4 +1,6 @@
 @import './UIComponents/cards';
+@import './UIComponents/buttons';
+@import './Animations/Animations';
 @import './base.css';
 
 .headings{
@@ -41,7 +43,7 @@
 }
 
 
-.navlink{
+.courses{
     text-decoration: none;
 }
 
@@ -58,4 +60,56 @@
 
 .videocard{
     @include videocard(24vw, 60vh);
+
+
+    &__buybutton{
+        @include normbutton(20vw, $bgcolor: $accent2-light);
+        @include transition(background-color opacity);
+        margin-inline: auto;
+        align-items: center;
+        color: $grey3;
+
+        text{
+            display: block;
+            float: left;
+        }
+
+        &__price{
+            display: block;
+            float: left;
+            font-family: sans-serif;
+        }
+
+        .hover-text{
+            position: absolute;
+            display: none;
+            align-items: center;
+            justify-content:center ;
+            opacity: 0;
+            visibility: hidden;
+            color: $white;
+            @include transition(transform opacity, 0.8s)
+        }
+
+        .pricecontain{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            opacity: 1;
+            transition: opacity 0.2s ease;
+        }
+
+        &:hover .pricecontain{
+            opacity: 0;
+        }
+
+        &:hover{
+            background-color: $accent2-dark;
+        }
+        &:hover .hover-text{
+            display: block;
+            visibility: visible;
+            animation: slideright 0.5s ease-out forwards;
+        }
+    }
 }

@@ -91,7 +91,7 @@
   text-decoration: none;
   padding: 0;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
 
   &:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -146,39 +146,5 @@
     }
   }
 
-  &__buycontainer {
-    display: flex;
-    padding: 5px;
-    align-items: center;    
-    justify-content: space-between; // optional: separates price and button
-
-    &__buy-button{
-      margin-right: 30px;
-      display: block;
-      text-align: center;
-      text-decoration: none;
-      background-color: $accent2;
-      border-radius: 0.5rem;
-      padding-block: 1vw;
-      padding-inline: 2vw;
-      color: $bg-dark1;
-      font-family: 'Heading', sans-serif;
-      font-weight: 900;
-      width: 50%;
-      @include transition;
-
-      &:hover{
-        color: #fff;
-      }
-    }
-  
-    &__price {
-      font-family: 'Heading', sans-serif;
-      color: $bg-dark1;
-      font-size: 30px;
-      font-weight: bolder;
-      margin: 0; // ensure no margin pushes it off-center
-    }
-  }
 
 }

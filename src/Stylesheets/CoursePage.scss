@@ -21,6 +21,12 @@
         font-size: 40px;
     }
 
+    .duration{
+        font-size: 15px;
+        font-weight: 100;
+        opacity: 0.5;
+    }
+
     h2{
         margin-top: 20px;
         font-size: 20px;
@@ -35,7 +41,7 @@
 .line{
     width: 100%;
     background-color: $grey2;
-    height: 3px;
+    height: 1px;
     margin-block: 30px;
 }
 .videocontainer-body{
@@ -51,11 +57,27 @@
         color: $bg-dark1;
     }
 
+    .hrline{
+        margin-top: 50px;
+        margin-bottom: 30px;
+        background-color: $grey2;
+        border: none;
+        height: 1px;
+        width: 100%;
+    }
+
     .video-title{
-        font-family: 'Heading', sans-serif;
+        font-family: 'Content', sans-serif;
         margin-block: 10px;
-        margin-left: 15px;
+        margin-left: 5px;
+        font-weight: 100;
         color: #444;
+    }
+    
+    .videotime{
+        font-size: 15px;
+        font-weight: 100;
+        opacity: 0.6;
     }
 }
 
@@ -64,10 +86,9 @@
   }
   
 .video-player video {
-    margin-top: 30px;
-display: block;
-width: 100%;
-height: auto;
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .play-icon {
@@ -83,13 +104,13 @@ height: 80px;
 }
 
 .course-tracker{
+    background-color: $grey1;
     margin-top: 5vh;
     padding-top: 30px;
     width: 25vw;
     padding-inline: 20px;
-    background-color: $bg-dark1;
     float: left;
-    color: $grey2;
+    color: $grey3;
     border-radius: 0.5rem;
     margin-left: 20px;
     min-height: 100vh;
@@ -107,24 +128,26 @@ height: 80px;
     }
 
     .active-video{
-        color: #fff;
+        color: $accent2-dark;
+        transform: translateX(5px);
     }
 
     .video-list{
         text-transform: none;
         list-style-type: none;
-        margin-left: 20px;
         font-size: 15px;
     }
 
     .video-list li{
         margin-top: 15px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
         list-style-type: none;
         cursor: pointer;
+        @include transition;
 
         &:hover{
-            color: white;
+            color: $bg-dark1;
+            transform: translateX(5px);
         }
     }
     .head{

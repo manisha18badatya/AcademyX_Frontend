@@ -42,7 +42,7 @@ export default function CourseList() {
 // Reusable course card component
 function CourseCard({ course }) {
   return (
-    <NavLink to={`/coursepage/${course._id}`} className="navlink">
+    <NavLink to={`/coursepage/${course._id}`} className="courses">
       <div className="videocard">
         <div className="videocard__thumbcontainer">
           <img
@@ -58,12 +58,13 @@ function CourseCard({ course }) {
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
           </p>
         </div>
-        <div className="videocard__buycontainer">
-          <h2 className="videocard__buycontainer__price">₹{course.price}</h2>
-          <NavLink to="/" className="videocard__buy-button">
-            BUY NOW
-          </NavLink>
-        </div>
+        <NavLink to="/buypage" className="videocard__buybutton">
+          <div className="pricecontain">
+            <text>BUY NOW</text>
+            <text className="videocard__price">₹{course.price}</text>
+          </div>
+          <div className="hover-text">GET IT {">"} </div>
+        </NavLink>
       </div>
     </NavLink>
   );

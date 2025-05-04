@@ -9,7 +9,10 @@ function CourseHeading() {
 
   return (
     <div className="course-header">
-      <h1>{course.courseName}</h1>
+      <h1>
+        {course.courseName}{" "}
+        <text className="duration">Course duration: {course.duration}</text>
+      </h1>
       <h2>
         <text style={{ fontWeight: "100" }}>By</text>
         <text style={{ textTransform: "capitalize" }}>

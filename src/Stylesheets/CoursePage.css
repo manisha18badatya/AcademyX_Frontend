@@ -62,17 +62,14 @@ html, body {
 @font-face {
   font-family: "Heading";
   src: url("./AlbertSans.ttf") format("truetype");
-  font-weight: 100 900;
 }
 @font-face {
   font-family: "SubHeading1";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 50;
 }
 @font-face {
   font-family: "Content";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 30;
 }
 .maincontent {
   display: flex;
@@ -91,6 +88,11 @@ html, body {
   margin-top: 10px;
   font-size: 40px;
 }
+.course-header .duration {
+  font-size: 15px;
+  font-weight: 100;
+  opacity: 0.5;
+}
 .course-header h2 {
   margin-top: 20px;
   font-size: 20px;
@@ -102,8 +104,8 @@ html, body {
 
 .line {
   width: 100%;
-  background-color: #999;
-  height: 3px;
+  background-color: #888;
+  height: 1px;
   margin-block: 30px;
 }
 
@@ -119,11 +121,25 @@ html, body {
   font-size: 30px;
   color: #201D21;
 }
+.videocontainer-body .hrline {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  background-color: #888;
+  border: none;
+  height: 1px;
+  width: 100%;
+}
 .videocontainer-body .video-title {
-  font-family: "Heading", sans-serif;
+  font-family: "Content", sans-serif;
   margin-block: 10px;
-  margin-left: 15px;
+  margin-left: 5px;
+  font-weight: 100;
   color: #444;
+}
+.videocontainer-body .videotime {
+  font-size: 15px;
+  font-weight: 100;
+  opacity: 0.6;
 }
 
 .video-player {
@@ -131,7 +147,6 @@ html, body {
 }
 
 .video-player video {
-  margin-top: 30px;
   display: block;
   width: 100%;
   height: auto;
@@ -150,13 +165,13 @@ html, body {
 }
 
 .course-tracker {
+  background-color: #ebebeb;
   margin-top: 5vh;
   padding-top: 30px;
   width: 25vw;
   padding-inline: 20px;
-  background-color: #201D21;
   float: left;
-  color: #999;
+  color: #444;
   border-radius: 0.5rem;
   margin-left: 20px;
   min-height: 100vh;
@@ -172,20 +187,24 @@ html, body {
   font-size: 10px;
 }
 .course-tracker .active-video {
-  color: #fff;
+  color: #FB8500;
+  transform: translateX(5px);
 }
 .course-tracker .video-list {
   text-transform: none;
   list-style-type: none;
-  margin-left: 20px;
   font-size: 15px;
 }
 .course-tracker .video-list li {
   margin-top: 15px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   list-style-type: none;
   cursor: pointer;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
 }
 .course-tracker .video-list li:hover {
-  color: white;
+  color: #201D21;
+  transform: translateX(5px);
 }/*# sourceMappingURL=CoursePage.css.map */
