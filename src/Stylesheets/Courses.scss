@@ -63,11 +63,11 @@
 
 
     &__buybutton{
-        @include normbutton(20vw, $bgcolor: $accent2-light);
+        @include normbutton(20vw, $bgcolor: $accent2);
         @include transition(background-color opacity);
         margin-inline: auto;
         align-items: center;
-        color: $grey3;
+        color: $white;
 
         text{
             display: block;

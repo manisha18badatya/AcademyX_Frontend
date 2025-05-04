@@ -62,6 +62,7 @@ function CourseCard({ course }) {
           <div className="pricecontain">
             <text>BUY NOW</text>
             <text className="videocard__price">₹{course.price}</text>
+            {console.log(typeof course.price)}
           </div>
           <div className="hover-text">GET IT {">"} </div>
         </NavLink>

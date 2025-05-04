@@ -234,3 +234,44 @@
     @include dropdown;
 }
 
+@media screen and (max-width: 768px) {
+    .navleft,
+    .navmiddle,
+    .navright {
+      display: none; // Hide main navbar sections
+    }
+  
+    .navbar {
+      justify-content: space-between;
+      padding: 0 16px;
+      display: flex;
+    }
+  
+    .mobile-menu-button {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: $bg-dark1;
+      cursor: pointer;
+    }
+  
+    .mobile-dropdown {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 16px;
+      background-color: white;
+      border: 1px solid #ccc;
+      padding: 10px;
+      z-index: 1000;
+    }
+  
+    .mobile-dropdown a {
+      text-decoration: none;
+      color: $bg-dark1;
+      padding: 10px 0;
+    }
+  }
+  

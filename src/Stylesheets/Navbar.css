@@ -16,6 +16,16 @@
     opacity: 1;
   }
 }
+@keyframes slideright {
+  from {
+    transform: translatex(0px);
+    opacity: 0;
+  }
+  to {
+    transform: translatex(20px);
+    opacity: 1;
+  }
+}
 @keyframes drop {
   from {
     transform: scaleY(0);
@@ -52,17 +62,14 @@
 @font-face {
   font-family: "Heading";
   src: url("./AlbertSans.ttf") format("truetype");
-  font-weight: 100 900;
 }
 @font-face {
   font-family: "SubHeading1";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 50;
 }
 @font-face {
   font-family: "Content";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 30;
 }
 @keyframes fadeIn {
   from {
@@ -79,6 +86,16 @@
   }
   to {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideright {
+  from {
+    transform: translatex(0px);
+    opacity: 0;
+  }
+  to {
+    transform: translatex(20px);
     opacity: 1;
   }
 }
@@ -346,4 +363,41 @@
   padding: 20px;
   position: relative;
   z-index: inherit;
+}
+
+@media screen and (max-width: 768px) {
+  .navleft,
+  .navmiddle,
+  .navright {
+    display: none;
+  }
+  .navbar {
+    justify-content: space-between;
+    padding: 0 16px;
+    display: flex;
+  }
+  .mobile-menu-button {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #201D21;
+    cursor: pointer;
+  }
+  .mobile-dropdown {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 16px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+  }
+  .mobile-dropdown a {
+    text-decoration: none;
+    color: #201D21;
+    padding: 10px 0;
+  }
 }/*# sourceMappingURL=Navbar.css.map */

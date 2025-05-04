@@ -8,37 +8,87 @@
 
 .hero{
     @include herocard;
-    background-image:linear-gradient( to right,
+    /*background-image:linear-gradient( to right,
         rgba(7, 116, 171, 1), 
         rgba(0, 0, 0, 0)
-      ), url(/Image/homehero.jpg);
+      ), url(/Image/homehero.jpg);*/
+    background-color: $bg-dark1;
     background-size: cover;
     background-position:90% 30%;
     position: relative;
+    display: flex;
+    align-items: center;
     z-index: 3;
-}
 
-.hero__title{
-    font-size: 70px;
-    margin-top: 30px;
-    margin-left: 40px;
-}
+    perspective: 1000px; // Add perspective here for 3D effect
+    perspective-origin: center;
+  
+    .heroimage {
+      transform-style: preserve-3d;
+      transition: transform 0.3s ease;
+      will-change: transform;
+    }
 
-.hero__subtitle{
-    font-size: 50px;
-    margin-top: 300px;
-    margin-left: 40px;
+    .herotext{
+        display: flex;
+        position: relative;
+        height: 90%;
+        float: left;
+        width: 50%;
+        
+        &__free{
+            display: block;
+            position: absolute;
+            padding: 3% 5%;
+            transform: translate(8vw,-6vh);
+            background-color: $accent2-dark;
+            border-radius: 1rem;
+        }
+    }
+
+    .hero__title{
+        font-size: 70px;
+        margin-left: 40px;
+    }
+    
+    .hero__subtitle{
+        width: 60%;
+        margin-top: 40%;
+        font-size: 40px;
+        margin-left: 40px;
+    }
+    
+
+    .heroimage{
+        border-radius: 1rem;
+        display: block;
+        float: left;
+        width: 40%;
+        height: 60%;
+        margin-left: 50px;
+        background-color: $accent1;
+        overflow: hidden;
+        padding: 0;
+        
+        img{
+            margin: 0;
+            padding: 0;
+            object-fit: cover;    
+            object-position: center;
+        }
+    }
 }
 
 .signupbutton{
-    @include capsulebutton(50vw, 8vh);
-    margin-inline: auto;
-    margin-top: 15vh;
+    @include capsulebutton(20vw, 8vh);
+    margin-left: 10vw;
+    margin-top: 60vh;
     cursor: pointer;
     text-decoration: none;
+    position: absolute;
 
     &__text{
-        font-size: 25px;
+        font-size: 20px;
         font-weight: 600;
         opacity: 0.85;
         font-family: 'SubHeading',sans-serif;

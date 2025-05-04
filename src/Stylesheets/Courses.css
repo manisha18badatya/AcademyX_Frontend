@@ -315,7 +315,7 @@
   font-size: 12px;
 }
 .videocard__buybutton {
-  background-color: #FFDB65;
+  background-color: #FFB703;
   color: #201D21;
   display: flex;
   width: 20vw;
@@ -332,7 +332,7 @@
   transition-timing-function: ease-in-out;
   margin-inline: auto;
   align-items: center;
-  color: #444;
+  color: #fff;
 }
 .videocard__buybutton text {
   display: block;
