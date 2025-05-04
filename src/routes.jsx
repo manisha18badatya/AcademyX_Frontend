@@ -10,6 +10,7 @@ import CreateCoursePage from "./pages/CreateCourse";
 import SignUp from "./pages/Signup";
 import MyLibrary from "./pages/MyLibrary";
 import Community from "./pages/Community";
+import BuyPage from "./pages/BuyPage";
 
 const AppRoutes = () => (
   <Routes>
@@ -22,6 +23,7 @@ const AppRoutes = () => (
     <Route path="/mylibrary" element={<MyLibrary />} />
     <Route path="/community" element={<Community />} />
     <Route path="/createcourse" element={<CreateCoursePage />} />
+    <Route path="/buypage" element={<BuyPage />} />
   </Routes>
 );
 
