@@ -267,13 +267,13 @@ html, body {
 }
 .cardset__subtitle {
   margin-top: 10px;
-  color: #dddddd;
+  color: #ddd;
   font-family: "SubHeading1", sans-serif;
   font-size: 18px;
 }
 .cardset__description {
   margin-top: 7px;
-  color: #999;
+  color: #888;
   font-family: "Content", sans-serif;
   font-size: 15px;
 }

@@ -26,6 +26,17 @@
   }
 }
 
+@keyframes slideright {
+  from {
+    transform: translatex(0px);
+    opacity: 0;
+  }
+  to {
+    transform: translatex(20px);
+    opacity: 1;
+  }
+}
+
 // dropdown animation
 @keyframes drop {
   from {
