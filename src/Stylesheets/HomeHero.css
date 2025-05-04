@@ -1,32 +1,26 @@
 @font-face {
   font-family: "Heading";
   src: url("./AlbertSans.ttf") format("truetype");
-  font-weight: 100 900;
 }
 @font-face {
   font-family: "SubHeading1";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 50;
 }
 @font-face {
   font-family: "Content";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 30;
 }
 @font-face {
   font-family: "Heading";
   src: url("./AlbertSans.ttf") format("truetype");
-  font-weight: 100 900;
 }
 @font-face {
   font-family: "SubHeading1";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 50;
 }
 @font-face {
   font-family: "Content";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 30;
 }
 @keyframes fadeIn {
   from {
@@ -43,6 +37,16 @@
   }
   to {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideright {
+  from {
+    transform: translatex(0px);
+    opacity: 0;
+  }
+  to {
+    transform: translatex(20px);
     opacity: 1;
   }
 }
@@ -82,17 +86,14 @@
 @font-face {
   font-family: "Heading";
   src: url("./AlbertSans.ttf") format("truetype");
-  font-weight: 100 900;
 }
 @font-face {
   font-family: "SubHeading1";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 50;
 }
 @font-face {
   font-family: "Content";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 30;
 }
 @keyframes fadeIn {
   from {
@@ -109,6 +110,16 @@
   }
   to {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideright {
+  from {
+    transform: translatex(0px);
+    opacity: 0;
+  }
+  to {
+    transform: translatex(20px);
     opacity: 1;
   }
 }
@@ -150,15 +161,23 @@
   margin-inline: auto;
   height: 90vh;
   border-radius: 1rem;
-  justify-content: center;
+  justify-content: first baseline;
   align-items: center;
   background-color: #201D21;
   padding-top: 30px;
-  background-image: linear-gradient(to right, rgb(7, 116, 171), rgba(0, 0, 0, 0)), url(/Image/homehero.jpg);
+  /*background-image:linear-gradient( to right,
+      rgba(7, 116, 171, 1), 
+      rgba(0, 0, 0, 0)
+    ), url(/Image/homehero.jpg);*/
+  background-color: #201D21;
   background-size: cover;
   background-position: 90% 30%;
   position: relative;
+  display: flex;
+  align-items: center;
   z-index: 3;
+  perspective: 1000px;
+  perspective-origin: center;
 }
 .hero__title {
   position: absolute;
@@ -174,24 +193,61 @@
   font-weight: 300;
   font-size: 30px;
 }
-
-.hero__title {
+.hero .heroimage {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+.hero .herotext {
+  display: flex;
+  position: relative;
+  height: 90%;
+  float: left;
+  width: 50%;
+}
+.hero .herotext__free {
+  display: block;
+  position: absolute;
+  padding: 3% 5%;
+  transform: translate(8vw, -6vh);
+  background-color: #FB8500;
+  border-radius: 1rem;
+}
+.hero .hero__title {
   font-size: 70px;
-  margin-top: 30px;
   margin-left: 40px;
 }
-
-.hero__subtitle {
-  font-size: 50px;
-  margin-top: 300px;
+.hero .hero__subtitle {
+  width: 60%;
+  margin-top: 40%;
+  font-size: 40px;
   margin-left: 40px;
+}
+.hero .heroimage {
+  border-radius: 1rem;
+  display: block;
+  float: left;
+  width: 40%;
+  height: 60%;
+  margin-left: 50px;
+  background-color: #0774AB;
+  overflow: hidden;
+  padding: 0;
+}
+.hero .heroimage img {
+  margin: 0;
+  padding: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .signupbutton {
-  width: 50vw;
+  width: 20vw;
   height: 8vh;
   color: #201D21;
-  background-color: #ddd;
+  background-color: #fff;
   border: none;
   border-radius: 4rem;
   display: grid;
@@ -200,17 +256,18 @@
   transition-property: transform box-shadow;
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
-  margin-inline: auto;
-  margin-top: 15vh;
+  margin-left: 10vw;
+  margin-top: 60vh;
   cursor: pointer;
   text-decoration: none;
+  position: absolute;
 }
 .signupbutton:hover {
   transform: scale(1.02);
   box-shadow: 0 10px 20px #84DEFF;
 }
 .signupbutton__text {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 600;
   opacity: 0.85;
   font-family: "SubHeading", sans-serif;
