@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
-import "../../Stylesheets/Courses.css";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
-function CoursesCategories() {
+import { useCategory } from "../../context/CategoryContext";
+import "../../Stylesheets/Courses.css";
+
+export default function CoursesCategories() {
+  const { setCategory, selectedCategory, setSelectedCategory } = useCategory();
   const [Courses, setCourses] = useState([]);
 
   const fetchCategories = async () => {
@@ -17,29 +19,66 @@ function CoursesCategories() {
     }
   };
 
+  const handleCategoryClick = (category) => {
+    setCategory(category);
+    setSelectedCategory(category);
+  };
+
   useEffect(() => {
     fetchCategories();
   }, []);
 
   return (
     <div className="categories">
-      <h1 className="headings">Course Categories</h1>
+      <h2 className="headings">Courses</h2>
+      <ul className="categories__list">
+        <li
+          className={selectedCategory === "All Courses" ? "active-li" : ""}
+          onClick={() => handleCategoryClick("All Courses")}
+        >
+          All Courses
+        </li>
+
+        <li
+          className={selectedCategory === "Free Courses" ? "active-li" : ""}
+          onClick={() => handleCategoryClick("Free Courses")}
+        >
+          Free Courses
+        </li>
+
+        <li
+          className={selectedCategory === "New Courses" ? "active-li" : ""}
+          onClick={() => handleCategoryClick("New Courses")}
+        >
+          New Courses
+        </li>
+
+        <li
+          className={selectedCategory === "Popular Courses" ? "active-li" : ""}
+          onClick={() => handleCategoryClick("Popular Courses")}
+        >
+          Popular Courses
+        </li>
+      </ul>
+      <h1
+        className="headings"
+        style={{ fontSize: "15px", marginLeft: "2vw", marginTop: "3vw" }}
+      >
+        Course Categories
+      </h1>
       <ul className="categories__list">
         {[...new Set(Courses.map((course) => course.category))].map(
           (category, idx) => (
-            <NavLink
-              to="/courses"
-              className={({ isActive }) =>
-                isActive ? "categories__items active" : "categories__items"
-              }
+            <li
+              className={selectedCategory === category ? "active-li" : ""}
+              key={idx}
+              onClick={() => handleCategoryClick(category)}
             >
-              <li key={idx}>{category}</li>
-            </NavLink>
+              {category}
+            </li>
           )
         )}
       </ul>
     </div>
   );
 }
-
-export default CoursesCategories;

@@ -1,4 +1,4 @@
-@import './base';
+
 @import './Animations/Animations';
 @import './FontSystem/Fonts';
 @import './ColorSystem/MainColors';
@@ -149,8 +149,5 @@ height: 80px;
             color: $bg-dark1;
             transform: translateX(5px);
         }
-    }
-    .head{
-        
     }
 }

@@ -117,13 +117,14 @@
 
   &__data{
     display: block;
+    margin-left: 1vw;
     height: 40%;
     width: 100%;
     overflow: hidden;
 
     &__title{
       text-decoration: none;
-      margin-top: 20px;
+      margin-top: 2vh;
       color: $bg-dark1;
       font-family: 'Heading', sans-serif;
       font-size: 20px;

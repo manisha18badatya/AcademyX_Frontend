@@ -1,46 +1,57 @@
 @import './UIComponents/cards';
 @import './UIComponents/buttons';
 @import './Animations/Animations';
-@import './base.css';
+@import './ColorSystem/MainColors';
+
 
 .headings{
+    text-transform: uppercase;
     margin-top: 30px;
+    margin-left: 15px;
     font-family: 'Heading', sans-serif;
     color: $grey2;
     font-size: 20px;
 }
 
-.categories{
+.categories {
     width: 18vw;
     height: 100vh;
     border-radius: 0.5rem;
     background-color: $bg-dark1;
     color: $grey1;
     float: left;
-
-    &__list{
-        list-style-type: none;
+  
+    &__list {
+      list-style-type: none;
     }
 
-    &__items{
-        font-family: 'SubHeading', sans-serif;
-        font-size: 15px;
-        text-decoration: none;
-        text-transform: capitalize;
-        margin-block: 10px;
-        color: $grey1;
-        @include transition(color font-size);
+    .active-li{
+        font-size: 16px;
+        color: $accent2;
 
         &:hover{
-            font-size: 16px;
-            color: #fff;
-        }
-
-        &:active{
             color: $accent2;
         }
     }
-}
+
+    li{
+        font-family: sans-serif;
+      font-size: 15px;
+      text-decoration: none;
+      text-transform: capitalize;
+      margin-block: 30px;
+      margin-left: 30px;
+      color: $grey2;
+      cursor: pointer;
+      transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  
+      &:hover {
+        transform: translateX(0.3vw);
+        color: $white;
+      }
+    }
+  }
+  
 
 
 .courses{
@@ -48,7 +59,10 @@
 }
 
 .videocard-container{
+    display: block;
     width: 75vw;
+    min-height: 120vh;
+    margin-left: 2vw;
     float: left;
 }
 
@@ -60,7 +74,6 @@
 
 .videocard{
     @include videocard(24vw, 60vh);
-
 
     &__buybutton{
         @include normbutton(20vw, $bgcolor: $accent2);
@@ -96,7 +109,7 @@
             width: 100%;
             justify-content: space-between;
             opacity: 1;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.4s ease-in-out;
         }
 
         &:hover .pricecontain{
