@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../Stylesheets/Profile.css";
 import Navbar from "../components/navbar";
+import Footer from "../components/footer";
 import useUserData from "../components/userdata";
 
 const UserProfile = () => {
@@ -111,6 +112,7 @@ const UserProfile = () => {
           </aside>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

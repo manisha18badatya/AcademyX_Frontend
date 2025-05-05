@@ -240,7 +240,7 @@
 .left-container__logo {
   height: 60px;
   margin: 0;
-  transform: translateX(-20px);
+  transform: translateX(-10px);
 }
 .left-container__acad {
   text-decoration: none;
@@ -250,7 +250,7 @@
   color: #201D21;
   opacity: 0.7;
   display: grid;
-  transform: translateX(-45px);
+  transform: translateX(-25px);
   place-items: center; /* shorthand for align-items and justify-items */
 }
 

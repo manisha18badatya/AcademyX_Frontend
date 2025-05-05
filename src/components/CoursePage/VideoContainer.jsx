@@ -18,7 +18,7 @@ function VideoContainer() {
     const secs = Math.floor(seconds % 60)
       .toString()
       .padStart(2, "0");
-    return `${mins}:${secs}`;
+    return `${mins} minutes ${secs} seconds`;
   };
 
   return (

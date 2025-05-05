@@ -1,0 +1,24 @@
+@import './ColorSystem/MainColors';
+
+.footer{
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    background-color: $grey3;
+    font-family: sans-serif;
+    color: $grey2;
+    margin-top: 10vh;
+
+    .top-footer{
+        width: 100%;
+        height: 60%;
+        background-color: $grey2;
+    }
+
+    .bottom-footer{
+        font-family: sans-serif;
+    }
+}

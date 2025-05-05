@@ -1,32 +1,26 @@
 @font-face {
   font-family: "Heading";
   src: url("./AlbertSans.ttf") format("truetype");
-  font-weight: 100 900;
 }
 @font-face {
   font-family: "SubHeading1";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 50;
 }
 @font-face {
   font-family: "Content";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 30;
 }
 @font-face {
   font-family: "Heading";
   src: url("./AlbertSans.ttf") format("truetype");
-  font-weight: 100 900;
 }
 @font-face {
   font-family: "SubHeading1";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 50;
 }
 @font-face {
   font-family: "Content";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 30;
 }
 @keyframes fadeIn {
   from {
@@ -43,6 +37,16 @@
   }
   to {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideright {
+  from {
+    transform: translatex(0px);
+    opacity: 0;
+  }
+  to {
+    transform: translatex(20px);
     opacity: 1;
   }
 }
@@ -82,17 +86,14 @@
 @font-face {
   font-family: "Heading";
   src: url("./AlbertSans.ttf") format("truetype");
-  font-weight: 100 900;
 }
 @font-face {
   font-family: "SubHeading1";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 50;
 }
 @font-face {
   font-family: "Content";
   src: url("./Inter.ttf") format("truetype");
-  font-weight: 30;
 }
 @keyframes fadeIn {
   from {
@@ -109,6 +110,16 @@
   }
   to {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideright {
+  from {
+    transform: translatex(0px);
+    opacity: 0;
+  }
+  to {
+    transform: translatex(20px);
     opacity: 1;
   }
 }
@@ -145,16 +156,6 @@
   animation: pulse 1.5s infinite;
 }
 
-* {
-  margin: 0;
-  padding-inline: 5px;
-}
-
-html, body {
-  width: 100%;
-  height: 100%;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -170,6 +171,16 @@ html, body {
   }
   to {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideright {
+  from {
+    transform: translatex(0px);
+    opacity: 0;
+  }
+  to {
+    transform: translatex(20px);
     opacity: 1;
   }
 }
@@ -211,7 +222,7 @@ html, body {
   margin-inline: auto;
   height: 90vh;
   border-radius: 1rem;
-  justify-content: center;
+  justify-content: first baseline;
   align-items: center;
   background-color: #201D21;
   padding-top: 30px;
@@ -267,7 +278,7 @@ html, body {
 }
 .cardset__subtitle {
   margin-top: 10px;
-  color: #ddd;
+  color: #ebebeb;
   font-family: "SubHeading1", sans-serif;
   font-size: 18px;
 }
