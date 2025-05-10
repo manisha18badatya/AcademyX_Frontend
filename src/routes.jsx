@@ -15,6 +15,7 @@ import Dashboard from "./components/User/Dashboard";
 import CreateCoursePage from "./components/CourseCreation/CreateCourse";
 import CreateLesson from "./components/CourseCreation/CreateLesson";
 import CourseModify from "./pages/CourseModify";
+import UpdateLesson from "./components/CourseCreation/UpdateLesson";
 
 const AppRoutes = () => (
   <Routes>
@@ -28,6 +29,11 @@ const AppRoutes = () => (
       path="/user/updatecourse/:id/createlesson"
       element={<CreateLesson />}
     />
+    <Route
+      path="/user/updatecourse/:courseId/:lessonId/updatelesson"
+      element={<UpdateLesson />}
+    />
+
     <Route path="/user" element={<UserProfile />} />
     <Route path="/user/mylibrary" element={<MyLibrary />} />
     <Route path="/community" element={<Community />} />

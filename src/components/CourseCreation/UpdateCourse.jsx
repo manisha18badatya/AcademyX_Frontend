@@ -78,6 +78,32 @@ export default function UpdateCourse() {
     }
   };
 
+  const handleDelVid = async (lessonId, videoId) => {
+    try {
+      await axios.delete(
+        `http://localhost:8080/api/v1/lessons/${id}/${lessonId}/${videoId}`,
+        courseData,
+        { withCredentials: true }
+      );
+      alert("Course updated!");
+    } catch (error) {
+      console.error("Update error:", error);
+    }
+  };
+
+  const delLesson = async (lessonId) => {
+    try {
+      await axios.delete(
+        `http://localhost:8080/api/v1/lessons/${id}/${lessonId}`,
+        courseData,
+        { withCredentials: true }
+      );
+      alert("Course updated!");
+    } catch (error) {
+      console.error("Update error:", error);
+    }
+  };
+
   const handleThumbnailUpdate = async () => {
     try {
       const formData = new FormData();
@@ -163,10 +189,19 @@ export default function UpdateCourse() {
             <div key={lesson._id}>
               <h4>
                 Lesson {index + 1} : {lesson.title}
+                <NavLink
+                  to={`/user/updatecourse/${course._id}/${lesson._id}/updatelesson`}
+                >
+                  Edit lesson
+                </NavLink>
+                <button onClick={() => delLesson(lesson._id)}>
+                  Delete Lesson
+                </button>
+                <button onClick={delLesson(lesson._id)}></button>
               </h4>
               <ul>
                 {lesson.video.map((vid) => (
-                  <li key={vid._id}>- {vid.videoTitle}</li>
+                  <li key={vid._id}>- {vid.videoTitle} </li>
                 ))}
               </ul>
             </div>
