@@ -20,7 +20,7 @@ function CourseHeading() {
           {course.educator.username}{" "}
         </text>
       </h2>
-      <p>{course.description}</p>
+      <p>{course.title}</p>
       <hr className="line" />
     </div>
   );

@@ -6,16 +6,16 @@
 
 .headings{
     text-transform: uppercase;
-    margin-top: 30px;
-    margin-left: 15px;
+    margin-top: 3vw;
+    margin-left: 1.5vw;
     font-family: 'Heading', sans-serif;
     color: $grey2;
-    font-size: 20px;
+    font-size: clamp(0.6rem, 1.5vw,2vw);
 }
 
 .categories {
     width: 18vw;
-    height: 100vh;
+    min-height: 60vw;
     border-radius: 0.5rem;
     background-color: $bg-dark1;
     color: $grey1;
@@ -26,8 +26,9 @@
     }
 
     .active-li{
-        font-size: 16px;
+        font-size: clamp(0.8rem, 1.2vw,1.2vw);
         color: $accent2;
+        transform: translateX(0.3vw);
 
         &:hover{
             color: $accent2;
@@ -36,11 +37,14 @@
 
     li{
         font-family: sans-serif;
-      font-size: 15px;
+      font-size: clamp(0.6rem, 1vw,1vw);
       text-decoration: none;
       text-transform: capitalize;
-      margin-block: 30px;
-      margin-left: 30px;
+      display: flex;
+      align-items: center;
+      height: 3vw;
+      margin-block: clamp(0.6rem, 0.2vw,0.5vw);
+      margin-left: 3vw;
       color: $grey2;
       cursor: pointer;
       transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -56,13 +60,14 @@
 
 .courses{
     text-decoration: none;
+    height: fit-content;
 }
 
 .videocard-container{
-    display: block;
+    display: flex;
     width: 75vw;
     min-height: 120vh;
-    margin-left: 2vw;
+    margin-left: 1vw;
     float: left;
 }
 
@@ -73,25 +78,14 @@
 }
 
 .videocard{
-    @include videocard(24vw, 60vh);
+    @include videocard(24vw, clamp(20rem, 35vw, 35vw));
 
     &__buybutton{
-        @include normbutton(20vw, $bgcolor: $accent2);
+        @include normbutton(20vw, 5vw, $bgcolor: $accent2);
         @include transition(background-color opacity);
         margin-inline: auto;
         align-items: center;
         color: $white;
-
-        text{
-            display: block;
-            float: left;
-        }
-
-        &__price{
-            display: block;
-            float: left;
-            font-family: sans-serif;
-        }
 
         .hover-text{
             position: absolute;
@@ -101,12 +95,14 @@
             opacity: 0;
             visibility: hidden;
             color: $white;
+            font-size: clamp(0.8rem,1.5vw, 1.5rem);
             @include transition(transform opacity, 0.8s)
         }
 
         .pricecontain{
             display: flex;
             width: 100%;
+            font-size: clamp(0.2rem, 1.2vw, 1.5vw);
             justify-content: space-between;
             opacity: 1;
             transition: opacity 0.4s ease-in-out;

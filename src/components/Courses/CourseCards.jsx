@@ -65,19 +65,14 @@ export default function CourseCard() {
                     {course.courseName}
                     {console.log(course.category)}
                   </h3>
-                  <p className="videocard__data__subtitle">
-                    {course.description}
-                  </p>
-                  <p className="videocard__data__description">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
+                  <p className="videocard__data__subtitle">{course.title}</p>
                 </div>
                 <NavLink to="/buypage" className="videocard__buybutton">
                   <div className="pricecontain">
-                    <text>BUY NOW</text>
-                    <text className="videocard__price">
+                    <span>BUY NOW</span>
+                    <span>
                       {course.price === 0 ? "Free" : `₹ ${course.price}`}
-                    </text>
+                    </span>
                   </div>
                   <div className="hover-text">GET IT {">"} </div>
                 </NavLink>

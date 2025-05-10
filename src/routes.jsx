@@ -6,11 +6,15 @@ import CoursePage from "./pages/CoursePage";
 import Courses from "./pages/Courses";
 import React from "react";
 import UserProfile from "./pages/UserProfile";
-import CreateCoursePage from "./pages/CreateCourse";
 import SignUp from "./pages/Signup";
 import MyLibrary from "./pages/MyLibrary";
 import Community from "./pages/Community";
 import BuyPage from "./pages/BuyPage";
+import YourCourses from "./components/User/YourCourses";
+import Dashboard from "./components/User/Dashboard";
+import CreateCoursePage from "./components/CourseCreation/CreateCourse";
+import CreateLesson from "./components/CourseCreation/CreateLesson";
+import CourseModify from "./pages/CourseModify";
 
 const AppRoutes = () => (
   <Routes>
@@ -19,10 +23,17 @@ const AppRoutes = () => (
     <Route path="/signup" element={<SignUp />} />
     <Route path="/courses" element={<Courses />} />
     <Route path="/coursepage/:id" element={<CoursePage />} />
-    <Route path="/profile" element={<UserProfile />} />
-    <Route path="/mylibrary" element={<MyLibrary />} />
+    <Route path="/user/updatecourse/:id" element={<CourseModify />} />
+    <Route
+      path="/user/updatecourse/:id/createlesson"
+      element={<CreateLesson />}
+    />
+    <Route path="/user" element={<UserProfile />} />
+    <Route path="/user/mylibrary" element={<MyLibrary />} />
     <Route path="/community" element={<Community />} />
     <Route path="/createcourse" element={<CreateCoursePage />} />
+    <Route path="/user/yourcourses" element={<YourCourses />} />
+    <Route path="/user/dashboard" element={<Dashboard />} />
     <Route path="/buypage" element={<BuyPage />} />
   </Routes>
 );
