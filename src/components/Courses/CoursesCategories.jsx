@@ -5,28 +5,29 @@ import "../../Stylesheets/Courses.css";
 
 export default function CoursesCategories() {
   const { setCategory, selectedCategory, setSelectedCategory } = useCategory();
-  const [Courses, setCourses] = useState([]);
 
-  const fetchCategories = async () => {
-    try {
-      const url = "http://localhost:8080/api/v1/courses/allCourses";
-      const response = await fetch(url);
-      const courseData = await response.json();
-
-      setCourses(courseData.data);
-    } catch (err) {
-      console.error("Failed to fetch courses", err);
-    }
-  };
+  const categories = [
+    "Artificial Intelligence",
+    "Web Development",
+    "App Development",
+    "Software Development",
+    "Game Development",
+    "Language",
+    "Graphic Design",
+    "UI/UX Design",
+    "Video Editing",
+    "Cyber Security",
+    "Cloud Computing",
+    "Blockchain",
+    "Data Science",
+    "DevOps",
+    "Business Analysis",
+  ];
 
   const handleCategoryClick = (category) => {
     setCategory(category);
     setSelectedCategory(category);
   };
-
-  useEffect(() => {
-    fetchCategories();
-  }, []);
 
   return (
     <div className="categories">
@@ -62,22 +63,24 @@ export default function CoursesCategories() {
       </ul>
       <h1
         className="headings"
-        style={{ fontSize: "15px", marginLeft: "2vw", marginTop: "3vw" }}
+        style={{
+          fontSize: "clamp(0.6rem, 1vw, 1.5vw)",
+          marginLeft: "2vw",
+          marginTop: "clamp(1rem, 3vw, 3vw)",
+        }}
       >
         Course Categories
       </h1>
       <ul className="categories__list">
-        {[...new Set(Courses.map((course) => course.category))].map(
-          (category, idx) => (
-            <li
-              className={selectedCategory === category ? "active-li" : ""}
-              key={idx}
-              onClick={() => handleCategoryClick(category)}
-            >
-              {category}
-            </li>
-          )
-        )}
+        {categories.map((category, idx) => (
+          <li
+            className={selectedCategory === category ? "active-li" : ""}
+            key={idx}
+            onClick={() => handleCategoryClick(category)}
+          >
+            {category}
+          </li>
+        ))}
       </ul>
     </div>
   );

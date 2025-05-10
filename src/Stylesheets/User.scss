@@ -1,6 +1,7 @@
 @import './Animations/Animations';
 @import './ColorSystem/MainColors';
 @import './FontSystem/Fonts';
+@import './UIComponents/buttons';
 
 .sidebardiv{
     display: flex;
@@ -67,5 +68,11 @@
         width: 100%;
         height: 10vh;
         background-color: $grey3;
+    }
+}
+
+.update-button{
+    @include normbutton(8vw, 3vw, $accent1-light){
+        
     }
 }

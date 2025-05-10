@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "../../stylesheets/HomeHero.css";
+import "../../stylesheets/Home.css";
 import { NavLink } from "react-router-dom";
 
 function HomeHero() {

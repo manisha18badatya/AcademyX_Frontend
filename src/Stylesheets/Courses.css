@@ -207,16 +207,16 @@
 
 .headings {
   text-transform: uppercase;
-  margin-top: 30px;
-  margin-left: 15px;
+  margin-top: 3vw;
+  margin-left: 1.5vw;
   font-family: "Heading", sans-serif;
   color: #888;
-  font-size: 20px;
+  font-size: clamp(0.6rem, 1.5vw, 2vw);
 }
 
 .categories {
   width: 18vw;
-  height: 100vh;
+  min-height: 60vw;
   border-radius: 0.5rem;
   background-color: #201D21;
   color: #ebebeb;
@@ -226,19 +226,23 @@
   list-style-type: none;
 }
 .categories .active-li {
-  font-size: 16px;
+  font-size: clamp(0.8rem, 1.2vw, 1.2vw);
   color: #FFB703;
+  transform: translateX(0.3vw);
 }
 .categories .active-li:hover {
   color: #FFB703;
 }
 .categories li {
   font-family: sans-serif;
-  font-size: 15px;
+  font-size: clamp(0.6rem, 1vw, 1vw);
   text-decoration: none;
   text-transform: capitalize;
-  margin-block: 30px;
-  margin-left: 30px;
+  display: flex;
+  align-items: center;
+  height: 3vw;
+  margin-block: clamp(0.6rem, 0.2vw, 0.5vw);
+  margin-left: 3vw;
   color: #888;
   cursor: pointer;
   transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -250,13 +254,15 @@
 
 .courses {
   text-decoration: none;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .videocard-container {
-  display: block;
+  display: flex;
   width: 75vw;
   min-height: 120vh;
-  margin-left: 2vw;
+  margin-left: 1vw;
   float: left;
 }
 
@@ -268,7 +274,7 @@
 
 .videocard {
   width: 24vw;
-  height: 60vh;
+  height: clamp(20rem, 35vw, 35vw);
   border-radius: 1rem;
   background-color: white;
   border: 1px solid #888;
@@ -304,31 +310,31 @@
 }
 .videocard__data__title {
   text-decoration: none;
-  margin-top: 2vh;
+  margin-top: 1vw;
   color: #201D21;
   font-family: "Heading", sans-serif;
-  font-size: 20px;
+  font-size: clamp(0.8rem, 1.5vw, 1.8vw);
 }
 .videocard__data__subtitle {
   text-decoration: none;
-  margin-top: 10px;
+  margin-top: 0.5vw;
   color: #201D21;
   font-family: "SubHeading1", sans-serif;
-  font-size: 15px;
+  font-size: clamp(0.6rem, 1.2vw, 1.5vw);
 }
 .videocard__data__description {
   text-decoration: none;
-  margin-top: 30px;
+  margin-top: 3vw;
   color: #201D21;
   font-family: "Content", sans-serif;
-  font-size: 12px;
+  font-size: clamp(0.5rem, 1vw, 1.2vw);
 }
 .videocard__buybutton {
   background-color: #FFB703;
   color: #201D21;
   display: flex;
   width: 20vw;
-  height: 8vh;
+  height: 5vw;
   border-radius: 0.5rem;
   padding-block: 1rem;
   padding-inline: 1rem;
@@ -343,15 +349,6 @@
   align-items: center;
   color: #fff;
 }
-.videocard__buybutton text {
-  display: block;
-  float: left;
-}
-.videocard__buybutton__price {
-  display: block;
-  float: left;
-  font-family: sans-serif;
-}
 .videocard__buybutton .hover-text {
   position: absolute;
   display: none;
@@ -360,6 +357,7 @@
   opacity: 0;
   visibility: hidden;
   color: #fff;
+  font-size: clamp(0.8rem, 1.5vw, 1.5rem);
   transition-property: transform opacity;
   transition-duration: 0.8s;
   transition-timing-function: ease-in-out;
@@ -367,6 +365,7 @@
 .videocard__buybutton .pricecontain {
   display: flex;
   width: 100%;
+  font-size: clamp(0.2rem, 1.2vw, 1.5vw);
   justify-content: space-between;
   opacity: 1;
   transition: opacity 0.4s ease-in-out;

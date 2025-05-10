@@ -133,50 +133,40 @@
 }
 
 .navbar {
-  max-width: vw;
-  width: 100%;
-  height: 60px;
-  display: grid;
+  width: 96vw;
+  margin-inline: 0;
+  height: clamp(2.5rem, 4.5vw, 4.8vw);
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  margin-bottom: 10px;
+  justify-content: space-between;
+  font-family: "Segoe UI", sans-serif;
 }
-
-.navleft {
-  padding: 0;
-  float: left;
-  list-style-type: none;
-  width: 15%;
+.navbar__left, .navbar__center, .navbar__right {
   display: flex;
-  overflow: hidden;
-  justify-content: flex-start;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 2rem);
 }
-
-.navmiddle {
-  float: left;
-  list-style-type: none;
-  width: 46%;
-  display: flex;
-  overflow: hidden;
+.navbar__left {
+  flex: 1;
+  width: 8vw;
+}
+.navbar__center {
+  flex: 4;
+  width: 40vw;
   justify-content: center;
-  align-items: center;
+  overflow: hidden;
 }
-
-.navmiddle li {
-  margin-top: 20px;
-  margin-inline: 20px;
-  display: inline-block;
-}
-
-.navright {
-  padding: 0;
-  padding-top: 10px;
-  position: relative;
-  float: right;
-  list-style-type: none;
-  width: 39%;
+.navbar__center li {
+  margin-inline: 2vw;
   display: flex;
-  align-items: center;
+  float: left;
+}
+.navbar__right {
+  flex: 1 1 0;
+  width: 40vw;
   justify-content: flex-end;
+  flex-wrap: nowrap;
 }
 
 .ullist {
@@ -184,13 +174,25 @@
   list-style-type: none;
 }
 
+#indevelopment {
+  text-decoration: none;
+  color: #888;
+  pointer-events: none;
+}
+#indevelopment:hover {
+  transform: translateY(0);
+}
+
 .navlink {
-  display: grid;
+  display: block;
+  margin-bottom: 0.5vw;
+  padding: 0vw;
   text-decoration: none;
   color: #201D21;
-  height: 40px;
+  height: 3.5vw;
+  place-content: center center;
   border: none;
-  font-size: 15px;
+  font-size: clamp(0.8rem, 1.2vw, 1.4vw);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   transition-property: transform color;
   transition-duration: 0.25s;
@@ -203,72 +205,84 @@
 }
 .navlink:hover {
   color: #FB8500;
-  transform: translateY(-5px);
+  transform: translateY(-0.3vw);
 }
 .navlink.active {
   color: #0774AB;
   font-weight: bold;
-  transform: translateY(-5px);
+}
+.navlink.active:hover {
+  transform: translateY(0);
 }
 .navlink.active .underline {
   display: block;
-  margin-top: 8px;
+  margin-top: 0.6vw;
   opacity: 1;
-  height: 3px;
+  height: 0.2vw;
   width: 120%;
   background-color: #0774AB;
 }
 
 .pfp-icon {
-  height: 50px;
-  margin-left: 20px;
-  transform: translateX(10px);
+  height: clamp(2rem, 4vw, 5vw);
+  margin-left: 1.2vw;
 }
 
 .left-container {
+  text-decoration: none;
   transition-property: all;
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   margin: 0;
   padding: 0;
 }
 .left-container:hover {
-  transform: translateX(5px);
+  transform: translateX(0.5vw);
 }
 .left-container__logo {
-  height: 60px;
+  height: clamp(1.8rem, 3.8vw, 5vw);
+  width: clamp(1.8rem, 3.8vw, 5vw);
   margin: 0;
-  transform: translateX(-10px);
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+.left-container__logo img {
+  height: 130%;
 }
 .left-container__acad {
+  display: flex;
+  align-items: center;
   text-decoration: none;
   font-family: "Heading", sans-serif;
   font-weight: 700;
-  font-size: 25px;
+  font-size: clamp(1rem, 2vw, 2vw);
   color: #201D21;
   opacity: 0.7;
-  display: grid;
-  transform: translateX(-25px);
-  place-items: center; /* shorthand for align-items and justify-items */
 }
 
 .user-buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding-block: auto;
-  gap: 8px;
-  font-size: 15px;
+  gap: 0.5vw;
+  font-size: clamp(0.6rem, 1.1vw, 1.2vw);
   text-align: center;
   font-family: "Content", sans-serif;
 }
-.user-buttons__login {
+.user-buttons__login, .user-buttons__signup {
+  width: clamp(2.8rem, 7vw, 9vw);
+  height: clamp(1.5rem, 3vw, 4vw);
+  display: block;
   place-content: center;
-  padding-block: 8px;
-  padding-inline: 12px;
+  padding-block: 0.1vw;
+  padding-inline: 0.2vw;
   border-radius: 0.5rem;
   text-decoration: none;
+}
+.user-buttons__login {
   background-color: #B9D4E2;
   transition-property: all;
   transition-duration: 0.3s;
@@ -279,11 +293,6 @@
   background-color: #84DEFF;
 }
 .user-buttons__signup {
-  place-content: center;
-  padding-block: 5px;
-  padding-inline: 10px;
-  border-radius: 0.5rem;
-  text-decoration: none;
   background-color: #0774AB;
   transition-property: all;
   transition-duration: 0.3s;
@@ -296,41 +305,43 @@
 }
 
 .search-bar {
-  height: 90%;
-  padding: 0px;
-  max-width: 400px;
-  margin: 0 auto;
-  margin-right: 20px;
-  display: inline-flex;
-  background-color: white;
+  height: 3vw;
+  display: flex;
+  align-items: center;
   transition: border 0.3s ease;
 }
-.search-bar:focus-within {
+.search-bar input[type=text] {
+  width: clamp(12rem, 20vw, 20vw);
+  height: clamp(1rem, 1vw, 3rem);
+  background-color: #ebebeb;
+  padding: clamp(0.1rem, 1.5vw, 1.6vw);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  border-radius: 0.3rem;
+  border: 2px solid #ebebeb;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.search-bar input[type=text]:focus {
   border-color: #007BFF;
 }
 .search-bar__icon {
-  margin-top: 10px;
-  height: 20px;
-}
-.search-bar__input {
-  width: 100%;
-  flex: 1;
-  height: 40px;
-  padding: 0.75rem 0.25rem;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  font-family: "Segoe UI", sans-serif;
+  align-self: center;
+  height: 1.2vw;
+  margin-left: 1vw;
+  position: absolute;
+  opacity: 0.5;
+  pointer-events: none;
 }
 .search-bar__button {
-  margin-left: 8px;
+  margin-left: 0.5vw;
   border-radius: 0.5rem;
-  padding: 0 1rem;
+  padding: 1vw 1.2vw;
   background-color: #007BFF;
   color: white;
   border: none;
   cursor: pointer;
   font-family: "Content", sans-serif;
-  font-size: 1rem;
+  font-size: clamp(0.8rem, 1.2vw, 1.4vw);
   font-weight: bold;
   transition-property: transform background-color;
   transition-duration: 0.3s;
@@ -347,28 +358,25 @@
 }
 
 .pfpdrop {
-  width: 20vh;
+  width: 10vw;
   background-color: white;
   display: grid;
   position: absolute;
   top: 100%;
   right: 0;
-  min-width: 200px;
-  padding: 20px;
+  padding: 2vw;
   z-index: 9999;
   transform-origin: top;
   animation: drop 0.2s ease-out forwards;
 }
 .pfpdrop__content {
-  padding: 20px;
+  padding: 1.2px;
   position: relative;
   z-index: inherit;
 }
 
 @media screen and (max-width: 768px) {
-  .navleft,
-  .navmiddle,
-  .navright {
+  .navbar__center, .user-buttons__signup {
     display: none;
   }
   .navbar {

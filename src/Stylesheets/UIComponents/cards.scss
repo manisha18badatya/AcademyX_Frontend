@@ -5,21 +5,20 @@
 
 
 @mixin herocard{
+  display: block;
     width: vw;
     margin-inline: auto;
-    height: 90vh;
+    height: 50vw;
     border-radius: 1rem;
-    justify-content:first baseline;
-    align-items: center;
     background-color: $bg-dark1;
-    padding-top: 30px;
+    padding-top: 3vh;
 
     &__title{
       position: absolute;
       color: white;
       font-family: 'Heading', sans-serif;
       font-weight: 900;
-      font-size: 50px;
+      font-size: 5vw;
     }
 
     &__subtitle{
@@ -27,7 +26,7 @@
       color: white;
       font-family: 'Heading', sans-serif;
       font-weight: 300;
-      font-size: 30px;
+      font-size: 3vw;
     }
 }
 
@@ -35,8 +34,8 @@
 
 @mixin card(
   $width: 25vw,
-  $padding: 1rem,
-  $border-radius: 12px,
+  $padding: 1vw,
+  $border-radius: 1rem,
   $bg-color: #333,
 ) {
   width: $width;
@@ -46,41 +45,41 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    box-shadow: 0 10px 20px $highlight;
+    box-shadow: 0 0.5vw 1vw $highlight;
   }
 
   &__img{
     display: flex;
-    margin-top: 20px;
+    margin-top: 1vw;
     margin-inline: auto;
   } 
 
   &__title{
-    margin-top: 20px;
+    margin-top: 2vw;
     color: white;
     font-family: 'Heading', sans-serif;
-    font-size: 20px;
+    font-size: clamp(0.8rem, 2vw, 2vw);
   }
 
   &__subtitle{
-    margin-top: 10px;
+    margin-top: 0.5vw;
     color: $grey1;
     font-family: 'SubHeading1', sans-serif;
-    font-size: 18px;
+    font-size: 1.5vw;
   }
 
   &__description{
-    margin-top: 7px;
+    margin-top: 1vw;
     color: $grey2;
     font-family: 'Content', sans-serif;
-    font-size: 15px;
+    font-size: clamp(0.5rem, 1vw, 1vw);
   }
 }
 
 
 @mixin videocard(
   $width: 25vw,
-  $height: 40vh,
+  $height: 20vw,
   $border-radius: 1rem,
 ) {
   width: $width;
@@ -124,26 +123,26 @@
 
     &__title{
       text-decoration: none;
-      margin-top: 2vh;
+      margin-top: 1vw;
       color: $bg-dark1;
       font-family: 'Heading', sans-serif;
-      font-size: 20px;
+      font-size: clamp(0.8rem, 1.5vw, 1.8vw);
     }
   
     &__subtitle{
       text-decoration: none;
-      margin-top: 10px;
+      margin-top: 0.5vw;
       color: $bg-dark1;
       font-family: 'SubHeading1', sans-serif;
-      font-size: 15px;
+      font-size: clamp(0.6rem, 1.2vw, 1.5vw);
     }
   
     &__description{
       text-decoration: none;
-      margin-top: 30px;
+      margin-top: 3vw;
       color: $bg-dark1;
       font-family: 'Content', sans-serif;
-      font-size: 12px;
+      font-size: clamp(0.5rem, 1vw, 1.2vw);
     }
   }
 

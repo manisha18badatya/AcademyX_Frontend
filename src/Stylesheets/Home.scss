@@ -2,7 +2,7 @@
 @import './FontSystem/Fonts';
 @import './UIComponents/cards';
 @import './UIComponents/buttons';
-
+@import './Animations/Animations';
 
 
 
@@ -40,22 +40,22 @@
             display: block;
             position: absolute;
             padding: 3% 5%;
-            transform: translate(8vw,-6vh);
+            transform: translate(8vw,-3vw);
             background-color: $accent2-dark;
-            border-radius: 1rem;
+            border-radius: 1.5vw;
         }
     }
 
     .hero__title{
-        font-size: 70px;
-        margin-left: 40px;
+        font-size: 5vw;
+        margin-left: 3vw;
     }
     
     .hero__subtitle{
         width: 60%;
         margin-top: 40%;
-        font-size: 40px;
-        margin-left: 40px;
+        font-size: 3vw;
+        margin-left: 2.8rem;
     }
     
 
@@ -65,7 +65,6 @@
         float: left;
         width: 40%;
         height: 60%;
-        margin-left: 50px;
         background-color: $accent1;
         overflow: hidden;
         padding: 0;
@@ -82,15 +81,15 @@
 }
 
 .signupbutton{
-    @include capsulebutton(20vw, 8vh);
+    @include capsulebutton(20vw, 5vw);
     margin-left: 10vw;
-    margin-top: 60vh;
+    margin-top: 30vw;
     cursor: pointer;
     text-decoration: none;
     position: absolute;
 
     &__text{
-        font-size: 20px;
+        font-size: 1.8vw;
         font-weight: 600;
         opacity: 0.85;
         font-family: 'SubHeading',sans-serif;
@@ -98,3 +97,41 @@
 }
 
 
+.Topcreator{
+    @include herocard;
+    background-color: $accent1;
+    margin-top: 2vw;
+  
+    &__subtitle{
+      text-align: center;
+    }
+  }
+  
+  .cards-grid {
+    display: grid;
+    margin-top: 4vw;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2vw;
+    padding-inline: 6vw;
+  }
+    
+  
+  .cardset{
+    @include card($padding:1.5vw);
+    margin-top: 0.8vw;
+    height: clamp(12rem, 30vw, 30vw);
+    cursor: pointer;
+  
+    &:hover .cardset__img{
+      transform: scale(1.05);
+    }
+  }
+  
+  .cardset__img{
+    height: 15vw;
+    border-radius: 50%;
+    @include transition(transform);
+  }
+  
+  
+  

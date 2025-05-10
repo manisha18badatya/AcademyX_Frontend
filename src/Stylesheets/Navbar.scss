@@ -4,66 +4,75 @@
 @import './Animations/Animations';
 
 
-.navbar{
-    max-width: vw;
-    width: 100%;
-    height: 60px;
-    display: grid;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.navleft {
-    padding: 0;
-    float: left;
-    list-style-type: none;
-    width: 15%;
+.navbar {
+    width: 96vw;
+    margin-inline: 0;
+    height: clamp(2.5rem, 4.5vw, 4.8vw);
     display: flex;
-    overflow: hidden;
-    justify-content: flex-start;
-  }
-
-.navmiddle {
-    float: left;
-    list-style-type: none;
-    width: 46%;
-    display: flex;
-    overflow: hidden;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-}
-.navmiddle  li {
-    margin-top: 20px;
-    margin-inline:20px;
-    display: inline-block;
+    justify-content: space-between;
+    font-family: 'Segoe UI', sans-serif;
+  
+    &__left,
+    &__center,
+    &__right {
+      display: flex;
+      align-items: center;
+      gap: clamp(0.5rem, 2vw, 2rem);
+    }
+
+    &__left {
+        flex: 1;
+        width: 8vw;
+      }
     
+      &__center {
+        flex: 4 ;
+        width: 40vw;
+        justify-content: center;
+        overflow: hidden;
+    
+        li {
+            margin-inline:2vw;
+            display: flex;
+            float: left;
+        }
+      }
+    
+      &__right {
+        flex: 1 1 0;
+        width: 40vw;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+    
+    }
 }
-  
 
-.navright {
-    padding: 0;
-    padding-top: 10px;
-    position: relative;
-    float: right;
-    list-style-type: none;
-    width: 39%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-  
 .ullist{
     text-decoration: none;
     list-style-type: none;
 }
 
+#indevelopment{
+    text-decoration: none;
+    color: $grey2;
+    pointer-events: none;
+    &:hover{
+        transform: translateY(0);
+    }
+}
+
 .navlink{
-    display: grid;
+    display: block;
+    margin-bottom: 0.5vw;
+    padding: 0vw;
     text-decoration: none;
     color: $bg-dark1;
-    height: 40px;
+    height:3.5vw;
+    place-content: center center;
     border: none;
-    font-size: 15px;
+    font-size: clamp(0.8rem, 1.2vw, 1.4vw);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     @include transition(transform color, 0.25s);
     transform-origin: top;
@@ -76,19 +85,22 @@
 
     &:hover{
     color: $accent2-dark;
-    transform: translateY(-5px);
+    transform: translateY(-0.3vw);
     }
 
     &.active {
         color: $accent1;
         font-weight: bold;
-        transform: translateY(-5px);
+
+        &:hover{
+            transform: translateY(0);
+            }
 
         .underline{
             display: block;
-            margin-top: 8px;
+            margin-top: 0.6vw;
             opacity: 1;
-            height:3px ;
+            height:0.2vw ;
             width: 120%;
             background-color: $accent1;
         }
@@ -96,39 +108,44 @@
 }
 
 .pfp-icon{
-    height: 50px;
-    margin-left: 20px;
-    transform: translateX(10px);
-    
+    height: clamp(2rem, 4vw, 5vw);
+    margin-left: 1.2vw;    
 }
 
 .left-container{
+    text-decoration: none;
     @include transition;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+    display: flex;
     margin: 0;
     padding: 0;
 
     &:hover{
-        transform: translateX(5px);
+        transform: translateX(0.5vw);
     }
 
     &__logo{
-        height: 60px;
+        height: clamp(1.8rem,3.8vw, 5vw);
+        width: clamp(1.8rem, 3.8vw, 5vw);
         margin: 0;
-        transform: translateX(-10px);
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+
+        img{
+            height: 130%;
+        }
     }
     
     &__acad{
+        display: flex;
+        align-items: center;
         text-decoration: none;
         font-family: 'Heading', sans-serif;
         font-weight: 700;
-        font-size: 25px;
+        font-size: clamp(1rem, 2vw, 2vw);
         color: $bg-dark1;
         opacity: 0.7;
-        display: grid;
-        transform: translateX(-25px);
-        place-items: center; /* shorthand for align-items and justify-items */
     }
 }
 
@@ -136,17 +153,23 @@
     display: grid;
     grid-template-columns: repeat(2,1fr);
     padding-block: auto;
-    gap: 8px;
-    font-size: 15px;
+    gap: 0.5vw;
+    font-size:clamp(0.6rem, 1.1vw, 1.2vw );
     text-align: center;
     font-family: 'Content', sans-serif;
 
-    &__login{
+    &__login, &__signup{
+        width: clamp(2.8rem, 7vw, 9vw );
+        height: clamp(1.5rem, 3vw, 4vw);
+        display: block;
         place-content: center;
-        padding-block: 8px;
-        padding-inline: 12px;
+        padding-block: 0.1vw;
+        padding-inline: 0.2vw;
         border-radius: 0.5rem;
         text-decoration: none;
+    }
+
+    &__login{
         background-color: $accent1-light;
         @include transition;
         color: #1a1a1a;
@@ -157,11 +180,7 @@
     }
 
     &__signup{
-        place-content: center;
-        padding-block: 5px;
-        padding-inline: 10px;
-        border-radius: 0.5rem;
-        text-decoration: none;
+        
         background-color: $accent1;
         @include transition;
         color: #fff;
@@ -177,44 +196,46 @@
 
 
 .search-bar {
-    height: 90%;
-    padding: 0px;
-    max-width: 400px;
-    margin: 0 auto;
-    margin-right: 20px ;
-    display: inline-flex;
-    background-color: white;
+    height: 3vw;
+    display: flex;
+    align-items: center;
     transition: border 0.3s ease;
-  
-    &:focus-within {
-      border-color: #007BFF; // or your $accent1
+
+    input[type="text"] {
+        width: clamp(12rem, 20vw, 20vw);
+        height: clamp(1rem, 1vw, 3rem);
+        background-color: $grey1;
+        padding: clamp(0.1rem, 1.5vw, 1.6vw);
+        font-size: clamp(0.8rem, 1.5vw, 1rem);
+        border-radius: 0.3rem;
+        border: 2px solid $grey1;
+        outline: none; // Remove default blue outline
+        transition: border-color 0.3s ease;
+
+      &:focus{
+        border-color: #007BFF; // or your $accent1
+      }
     }
 
     &__icon{
-        margin-top: 10px;
-        height: 20px;
-    }
-  
-    &__input {
-        width: 100%;
-        flex: 1;
-        height: 40px;
-        padding: 0.75rem 0.25rem;
-        border-radius: 0.5rem;
-        font-size: 1rem;
-        font-family: 'Segoe UI', sans-serif;
+        align-self: center;
+        height: 1.2vw;
+        margin-left: 1vw;
+        position: absolute;
+        opacity: 0.5;
+        pointer-events: none;
     }
   
     &__button {
-        margin-left: 8px;
+        margin-left: 0.5vw;
         border-radius: 0.5rem;
-        padding: 0 1rem;
+        padding: 1vw 1.2vw;
         background-color: #007BFF; // or $accent1
         color: white;
         border: none;
         cursor: pointer;
         font-family: 'Content', sans-serif;
-        font-size: 1rem;
+        font-size: clamp(0.8rem, 1.2vw, 1.4vw);
         font-weight: bold;
         @include transition(transform background-color,0.3s);
     
@@ -235,9 +256,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .navleft,
-    .navmiddle,
-    .navright {
+    .navbar__center, .user-buttons__signup{
       display: none; // Hide main navbar sections
     }
   

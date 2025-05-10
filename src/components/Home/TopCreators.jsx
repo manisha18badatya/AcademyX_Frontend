@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../../Stylesheets/TopCreator.css";
+import "../../Stylesheets/Home.css";
 export default function TopCreators() {
   let [card, setCard] = useState([]);
   useEffect(() => {

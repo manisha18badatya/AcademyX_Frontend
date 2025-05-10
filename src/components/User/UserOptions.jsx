@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../stylesheets/User.css";
-import { NavLink } from "react-router-dom";
-import { useCategory } from "../../context/CategoryContext";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 
 export default function UserOptions() {
   return (
@@ -11,7 +10,9 @@ export default function UserOptions() {
         <ul className="option-list">
           <li className="active-option">My Profile</li>
           <li>My Library</li>
-          <li>Dashboard</li>
+          <NavLink to="/user/dashboard">
+            <li>Dashboard</li>
+          </NavLink>
           <li>Create Course</li>
           <li>Billing</li>
           <li>Notifications</li>
