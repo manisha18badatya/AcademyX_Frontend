@@ -3,6 +3,7 @@ import axios from "axios";
 import { Navigate, NavLink, useParams } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useForm } from "../../context/FormContext";
+import "../../Stylesheets/Courseform.css";
 
 axios.defaults.withCredentials = true;
 
