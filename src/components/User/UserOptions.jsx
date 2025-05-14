@@ -4,76 +4,46 @@ import { NavLink } from "react-router-dom";
 import { useOptions } from "../../context/UserContext";
 
 export default function UserOptions() {
-  const { option, setOption, selectedOption, setSelectedOption } = useOptions();
+  const { selectedOption, setSelectedOption } = useOptions();
 
   const handleOptionClick = (option) => {
-    setOption(option);
     setSelectedOption(option);
   };
+
+  // Define your options as objects for easier mapping
+  const options = [
+    { name: "My Profile", path: "/user/profile" },
+    { name: "My Library", path: "/user/library" },
+    { name: "Dashboard", path: "/user/dashboard" },
+    { name: "Create Course", path: "/createcourse" },
+    { name: "Billing" },
+    { name: "Notifications" },
+    { name: "Settings" },
+    { name: "Log out" },
+  ];
 
   return (
     <div className="sidebardiv">
       <div className="user-options">
         <ul className="option-list">
-          <li
-            className={selectedOption === "My Profile" ? "active-option" : ""}
-            onClick={() => handleOptionClick("My Profile")}
-          >
-            <NavLink to="/user/profile">My Profile</NavLink>
-          </li>
-
-          <li
-            className={selectedOption === "My Library" ? "active-option" : ""}
-            onClick={() => handleOptionClick("My Library")}
-          >
-            <NavLink to="/user/library">My Library</NavLink>
-          </li>
-
-          <li
-            className={selectedOption === "Dashboard" ? "active-option" : ""}
-            onClick={() => handleOptionClick("Dashboard")}
-          >
-            <NavLink to="/user/dashboard">Dashboard</NavLink>
-          </li>
-
-          <li
-            className={
-              selectedOption === "Create Course" ? "active-option" : ""
-            }
-            onClick={() => handleOptionClick("Create Course")}
-          >
-            <NavLink to="/createcourse">Create Course</NavLink>
-          </li>
-
-          <li
-            className={selectedOption === "Billing" ? "active-option" : ""}
-            onClick={() => handleOptionClick("Billing")}
-          >
-            Billing
-          </li>
-
-          <li
-            className={
-              selectedOption === "Notifications" ? "active-option" : ""
-            }
-            onClick={() => handleOptionClick("Notifications")}
-          >
-            Notifications
-          </li>
-
-          <li
-            className={selectedOption === "Settings" ? "active-option" : ""}
-            onClick={() => handleOptionClick("Settings")}
-          >
-            Settings
-          </li>
-
-          <li
-            className={selectedOption === "Log out" ? "active-option" : ""}
-            onClick={() => handleOptionClick("Log out")}
-          >
-            Log out
-          </li>
+          {options.map(({ name, path }) => (
+            <li
+              key={name}
+              className={selectedOption === name ? "active-option" : ""}
+              onClick={() => handleOptionClick(name)}
+            >
+              {path ? (
+                <NavLink
+                  to={path}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  {name}
+                </NavLink>
+              ) : (
+                name
+              )}
+            </li>
+          ))}
         </ul>
       </div>
     </div>
