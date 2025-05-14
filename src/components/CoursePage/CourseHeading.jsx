@@ -3,9 +3,13 @@ import { useCourse } from "../../context/CourseContext";
 import "../../Stylesheets/CoursePage.css";
 
 function CourseHeading() {
-  const { course } = useCourse();
+  const { course, selectedSection, setSelectedSection } = useCourse();
 
   if (!course) return <p>Loading...</p>;
+
+  const handleClick = (section) => {
+    setSelectedSection(section);
+  };
 
   return (
     <div className="course-header">
@@ -21,6 +25,22 @@ function CourseHeading() {
         </text>
       </h2>
       <p>{course.title}</p>
+      <hr className="line" />
+      <div className="course-menu">
+        <p
+          className={selectedSection === "info" ? "active-p" : ""}
+          onClick={() => handleClick("info")}
+        >
+          Course Info
+        </p>
+
+        <p
+          className={selectedSection === "content" ? "active-p" : ""}
+          onClick={() => handleClick("content")}
+        >
+          Content
+        </p>
+      </div>
       <hr className="line" />
     </div>
   );

@@ -1,12 +1,11 @@
 import React from "react";
 import Navbar from "../components/navbar";
-import VideoContainer from "../components/CoursePage/videocontainer";
-import CourseTracker from "../components/CoursePage/coursetracker";
 import CourseHeading from "../components/CoursePage/CourseHeading";
 import { CourseProvider } from "../context/CourseContext";
 import Footer from "../components/footer";
 import "../Stylesheets/CoursePage.css";
 import "../Stylesheets/base.css";
+import CourseContent from "../components/CoursePage/CourseContent";
 
 function CoursePage() {
   return (
@@ -15,8 +14,7 @@ function CoursePage() {
         <Navbar />
         <CourseHeading />
         <div className="maincontent">
-          <VideoContainer />
-          <CourseTracker />
+          <CourseContent />
         </div>
       </div>
       <Footer />

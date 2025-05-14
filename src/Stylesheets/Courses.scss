@@ -71,6 +71,25 @@
     float: left;
 }
 
+.info-container{
+    display: flex;
+    width: 75vw;
+    min-height: 120vh;
+    margin-left: 1vw;
+    float: left;
+}
+
+.thumbnaii{
+    width: 100%;
+    height: 40vw;
+    object-fit: cover;
+
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+
 .videocard-grid{
     display: grid;
     grid-template-columns: repeat(3,1fr);
