@@ -3,12 +3,29 @@ import axios from "axios";
 import { Navigate, NavLink, useParams } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useForm } from "../../context/FormContext";
-import "../../Stylesheets/Courseform.css";
+import "../../Stylesheets/User.css";
 
 axios.defaults.withCredentials = true;
 
 export default function UpdateCourse() {
   const { isLoggedIn } = useAuth();
+  const categories = [
+    "Artificial Intelligence",
+    "Web Development",
+    "App Development",
+    "Software Development",
+    "Game Development",
+    "Language",
+    "Graphic Design",
+    "UI/UX Design",
+    "Video Editing",
+    "Cyber Security",
+    "Cloud Computing",
+    "Blockchain",
+    "Data Science",
+    "DevOps",
+    "Business Analysis",
+  ];
 
   if (!isLoggedIn) {
     return <Navigate to="/login" replace />;
@@ -66,6 +83,13 @@ export default function UpdateCourse() {
     }));
   };
 
+  const handleCategoryChange = (e) => {
+    setCourseData((prev) => ({
+      ...prev,
+      category: e.target.value,
+    }));
+  };
+
   const handleSubmit = async () => {
     try {
       await axios.post(
@@ -93,10 +117,17 @@ export default function UpdateCourse() {
   };
 
   const delLesson = async (lessonId) => {
+    console.log("Attempting to delete lesson:", lessonId);
+    // Show the confirmation dialog
+    const isConfirmed = window.confirm(
+      "Are you sure you want to delete this lesson?"
+    );
+    // If user clicks "Cancel", exit the function
+    if (!isConfirmed) return;
+
     try {
       await axios.delete(
         `http://localhost:8080/api/v1/lessons/${id}/${lessonId}`,
-        courseData,
         { withCredentials: true }
       );
       alert("Course updated!");
@@ -132,6 +163,39 @@ export default function UpdateCourse() {
     <div style={{ padding: "20px" }}>
       <h2>Update Course</h2>
 
+      <div style={{ marginTop: "20px" }}>
+        {["courseName", "title"].map((field) => {
+          const isEditing = editFields[field];
+          const isTitleField = field === "courseName";
+
+          return (
+            <div
+              key={field}
+              className="textinput"
+              style={{ marginBottom: "10px" }}
+            >
+              <h3>{isTitleField ? "Course Title" : "Brief Description"}</h3>
+
+              {isEditing ? (
+                <>
+                  <input
+                    type="text"
+                    value={courseData[field] || ""}
+                    onChange={(e) => handleChange(field, e.target.value)}
+                  />
+                  <button onClick={() => toggleEdit(field)}>Save</button>
+                </>
+              ) : (
+                <>
+                  <span>{course[field]}</span>
+                  <button onClick={() => toggleEdit(field)}>Edit</button>
+                </>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
       {course.thumbnail && (
         <div>
           <label className="block font-semibold">Thumbnail</label>
@@ -154,23 +218,28 @@ export default function UpdateCourse() {
       )}
 
       <div style={{ marginTop: "20px" }}>
-        {[
-          "courseName",
-          "title",
-          "description",
-          "price",
-          "duration",
-          "category",
-        ].map((field) => (
-          <div key={field} style={{ marginBottom: "10px" }}>
+        {["description", "price", "duration"].map((field) => (
+          <div
+            key={field}
+            className={field === "description" ? "textfield" : ""}
+            style={{ marginBottom: "10px" }}
+          >
             <strong>{field}: </strong>
             {editFields[field] ? (
               <>
-                <input
-                  type="text"
-                  value={courseData[field] || ""}
-                  onChange={(e) => handleChange(field, e.target.value)}
-                />
+                {field === "description" ? (
+                  <textarea
+                    value={courseData[field] || ""}
+                    onChange={(e) => handleChange(field, e.target.value)}
+                    placeholder="Enter course description"
+                  />
+                ) : (
+                  <input
+                    type="text"
+                    value={courseData[field] || ""}
+                    onChange={(e) => handleChange(field, e.target.value)}
+                  />
+                )}
                 <button onClick={() => toggleEdit(field)}>Save</button>
               </>
             ) : (
@@ -182,6 +251,22 @@ export default function UpdateCourse() {
           </div>
         ))}
       </div>
+
+      <h3>Course Category</h3>
+      <select value={courseData.category} onChange={handleCategoryChange}>
+        <option value="">
+          {courseData.category && (
+            <p style={{ marginTop: "5px", fontSize: "0.9rem", color: "#555" }}>
+              <strong>{courseData.category}</strong>
+            </p>
+          )}
+        </option>
+        {categories.map((category) => (
+          <option key={category} value={category}>
+            {category}
+          </option>
+        ))}
+      </select>
 
       {Array.isArray(course.content) && course.content.length > 0 && (
         <div style={{ marginTop: "20px" }}>
@@ -198,7 +283,6 @@ export default function UpdateCourse() {
                 <button onClick={() => delLesson(lesson._id)}>
                   Delete Lesson
                 </button>
-                <button onClick={delLesson(lesson._id)}></button>
               </h4>
               <ul>
                 {lesson.video.map((vid) => (
@@ -210,10 +294,17 @@ export default function UpdateCourse() {
         </div>
       )}
 
-      <NavLink to={`/user/updatecourse/${course._id}/createlesson`}>
+      <NavLink
+        to={`/user/updatecourse/${course._id}/createlesson`}
+        className="button2"
+      >
         Add a lesson
       </NavLink>
-      <button onClick={handleSubmit} style={{ marginTop: "20px" }}>
+      <button
+        onClick={handleSubmit}
+        className="button1"
+        style={{ marginTop: "20px" }}
+      >
         Update Course
       </button>
     </div>

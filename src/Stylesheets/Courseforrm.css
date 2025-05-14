@@ -144,7 +144,7 @@
   animation: pulse 1.5s infinite;
 }
 
-.mainbutton {
+.button1 {
   background-color: #201D21;
   color: #201D21;
   display: flex;
@@ -157,11 +157,12 @@
   text-decoration: none;
   font-family: sans-serif;
   font-weight: 800;
+  text-decoration: none;
   color: #fff;
   font-size: 1vw;
 }
 
-input[type=text] {
+.textfield input[type=text] {
   width: clamp(12rem, 20vw, 20vw);
   height: clamp(1rem, 1vw, 3rem);
   background-color: #ebebeb;
@@ -172,6 +173,6 @@ input[type=text] {
   outline: none;
   transition: border-color 0.3s ease;
 }
-input[type=text]:focus {
+.textfield input[type=text]:focus {
   border-color: #007BFF;
 }/*# sourceMappingURL=Courseforrm.css.map */

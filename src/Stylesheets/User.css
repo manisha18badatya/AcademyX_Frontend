@@ -188,6 +188,8 @@
 
 .main-content {
   display: flex;
+  position: relative;
+  font-family: sans-serif;
   float: left;
   background-color: #ebebeb;
   width: 75vw;
@@ -195,14 +197,131 @@
   margin-bottom: 5vh;
   border-radius: 1rem;
   min-height: 100vh;
+  overflow: hidden;
+  z-index: 3;
   padding: 2%;
+}
+.main-content__name {
+  display: flex;
+  position: absolute;
+  text-transform: capitalize;
+  color: #141414;
+  z-index: 10;
+  font-size: 2vw;
 }
 
 .profile-content {
   width: 100%;
+  display: flex;
+  background-color: #007BFF;
+  margin-top: 3vw;
+}
+.profile-content .pfp {
+  display: flex;
+  background-image: url("../assets/pfp.jpg");
+  background-size: cover;
+  position: absolute;
+  background-color: #333;
+  width: 12vw;
+  height: 12vw;
+  border-radius: 50%;
 }
 .profile-content .banner {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 10vh;
+  height: 22vh;
   background-color: #444;
+}
+
+.button-box {
+  margin-top: 5vw;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  gap: 2vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.button1 {
+  background-color: #00171F;
+  color: #201D21;
+  display: flex;
+  width: 10vw;
+  height: 4vw;
+  border-radius: 0.5rem;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  justify-content: center;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: 800;
+  font-weight: 200;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1vw;
+}
+
+.button2 {
+  background-color: #0774AB;
+  color: #201D21;
+  display: flex;
+  width: 10vw;
+  height: 3vw;
+  border-radius: 0.5rem;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  justify-content: center;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: 800;
+  font-weight: 200;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1vw;
+}
+
+.textfield textarea {
+  width: clamp(20rem, 70vw, 80vw);
+  height: clamp(10rem, 20vw, 22vw);
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #333;
+  background-color: #f9f9f9;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  vertical-align: top;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  line-height: 1.5;
+  transition: border-color 0.3s ease;
+}
+.textfield textarea:focus {
+  border-color: #007BFF;
+}
+
+.textinput input[type=text], .input-cont input[type=text] {
+  width: clamp(20rem, 70vw, 80vw);
+  height: clamp(1rem, 5vw, 6vw);
+  padding: 1rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #333;
+  background-color: #f9f9f9;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  vertical-align: top;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  line-height: 1.5;
+  transition: border-color 0.3s ease;
+}
+.textinput input[type=text]:focus, .input-cont input[type=text]:focus {
+  border-color: #007BFF;
 }/*# sourceMappingURL=User.css.map */

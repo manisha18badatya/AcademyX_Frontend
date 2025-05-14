@@ -2,14 +2,16 @@
 @import './UIComponents/cards';
 @import './ColorSystem/MainColors';
 
-.mainbutton{
+.button1{
     @include normbutton(8vw, 3vw, $bg-dark1);
+    text-decoration: none;
     color: $white;
     font-size: 1vw;
 }
 
 
-input[type="text"] {
+.textfield{
+  input[type="text"] {
         width: clamp(12rem, 20vw, 20vw);
         height: clamp(1rem, 1vw, 3rem);
         background-color: $grey1;
@@ -24,3 +26,4 @@ input[type="text"] {
         border-color: #007BFF; // or your $accent1
       }
     }
+}
