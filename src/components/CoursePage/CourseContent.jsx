@@ -1,29 +1,28 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react"; // Capital "R"
+import { useCourse } from "../../context/CourseContext";
+import CourseInfo from "./CourseInfo";
+import VideoContainer from "./VideoContainer";
+import CourseTracker from "./coursetracker";
+import CourseList from "./CourseList";
 
 function CourseContent() {
   const { id } = useParams();
-  const [course, setCourse] = useState(null);
-
-  useEffect(() => {
-    fetch(`http://localhost:8080/api/v1/courses/${id}`)
-      .then((res) => res.json())
-      .then((coursedata) => {
-        if (coursedata && coursedata.data) {
-          setCourse(coursedata.data);
-        } else {
-          console.error("Course not found or response malformed:", coursedata);
-        }
-      })
-      .catch((err) => console.error("Fetch error:", err));
-  }, [id]);
-
-  if (!course) return <p>Loading...</p>;
+  const { selectedSection } = useCourse();
 
   return (
     <div>
-      <h1>{course.courseName}</h1>
-      <p>{course.description}</p>
+      {selectedSection && selectedSection === "info" ? (
+        <>
+          <CourseInfo />
+          <CourseList />
+        </>
+      ) : (
+        <>
+          <VideoContainer />
+          <CourseTracker />
+        </>
+      )}
     </div>
   );
 }

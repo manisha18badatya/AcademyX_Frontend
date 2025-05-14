@@ -12,8 +12,8 @@ export default function UserOptions() {
 
   // Define your options as objects for easier mapping
   const options = [
-    { name: "My Profile", path: "/user/profile" },
-    { name: "My Library", path: "/user/library" },
+    { name: "My Profile", path: "/user" },
+    { name: "My Library", path: "/user/mylibrary" },
     { name: "Dashboard", path: "/user/dashboard" },
     { name: "Create Course", path: "/createcourse" },
     { name: "Billing" },

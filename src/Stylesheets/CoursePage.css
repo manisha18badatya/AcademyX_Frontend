@@ -71,6 +71,79 @@
   font-family: "Content";
   src: url("./Inter.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Heading";
+  src: url("./AlbertSans.ttf") format("truetype");
+}
+@font-face {
+  font-family: "SubHeading1";
+  src: url("./Inter.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Content";
+  src: url("./Inter.ttf") format("truetype");
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideright {
+  from {
+    transform: translatex(0px);
+    opacity: 0;
+  }
+  to {
+    transform: translatex(20px);
+    opacity: 1;
+  }
+}
+@keyframes drop {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.pulse {
+  animation: pulse 1.5s infinite;
+}
+
 .maincontent {
   display: flex;
   justify-content: center;
@@ -78,10 +151,12 @@
 
 .course-header {
   width: 95%;
-  display: block;
+  display: flex;
+  flex-direction: column;
   margin-inline: auto;
+  margin-bottom: 20vw;
   font-family: "Heading", sans-serif;
-  height: 20vh;
+  height: 10vh;
 }
 .course-header h1 {
   text-transform: capitalize;
@@ -107,6 +182,75 @@
   background-color: #888;
   height: 1px;
   margin-block: 30px;
+}
+
+.course-menu {
+  display: flex;
+  font-family: sans-serif;
+  gap: 3vw;
+  font-size: medium;
+}
+.course-menu p {
+  height: 2.5vw;
+  color: black;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+.course-menu p:hover {
+  transform: translateY(-0.5vw);
+}
+.course-menu .active-p {
+  color: #FFB703;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4vh;
+  width: 40vw;
+  float: left;
+}
+.info-container .thumb-cont {
+  width: 100%;
+}
+.info-container .thumb {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.info-container .hrline {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  background-color: #888;
+  border: none;
+  height: 1px;
+  width: 100%;
+}
+.info-container .descript {
+  margin-top: 3vw;
+  font-family: sans-serif;
+  font-size: 1.4vw;
+}
+
+.enroll-button {
+  background-color: #B9D4E2;
+  color: #201D21;
+  display: flex;
+  width: 15vw;
+  height: 8vh;
+  border-radius: 0.5rem;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  justify-content: center;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: 800;
+  margin-top: 4vw;
+  cursor: pointer;
 }
 
 .videocontainer-body {

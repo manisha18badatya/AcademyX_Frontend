@@ -8,6 +8,7 @@ export const useCourse = () => useContext(CourseContext);
 export function CourseProvider({ children }) {
   const { id } = useParams();
   const [course, setCourse] = useState(null);
+  const [selectedSection, setSelectedSection] = useState("info");
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [selectedLesson, setSelectedLesson] = useState(null);
 
@@ -42,6 +43,8 @@ export function CourseProvider({ children }) {
         setSelectedVideo,
         selectedLesson,
         setSelectedLesson,
+        selectedSection,
+        setSelectedSection,
       }}
     >
       {children}
