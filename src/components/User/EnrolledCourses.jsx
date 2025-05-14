@@ -9,6 +9,16 @@ export default function EnrolledCourses() {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const removeEnroll = async () => {
+    const res = await axios.get(
+      `http://localhost:8080/api/v1/enrollments/${id}`,
+      {
+        withCredentials: true,
+      }
+    );
+    alert(res.data.message);
+  };
+
   useEffect(() => {
     const fetchCourses = async () => {
       setLoading(true);
@@ -55,9 +65,22 @@ export default function EnrolledCourses() {
                 <div className="videocard__data">
                   <h3 className="videocard__data__title">
                     {course.courseName}
-                    {console.log(course.category)}
                   </h3>
                   <p className="videocard__data__subtitle">{course.title}</p>
+                </div>
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    paddingRight: "2vw",
+                    color: "red",
+                    justifyContent: "flex-end",
+                    fontFamily: "sans-serif",
+                    transform: "translateY(-2vw)",
+                  }}
+                  onClick={removeEnroll}
+                >
+                  Remove
                 </div>
                 <NavLink
                   to={`/coursepage/${course._id}`}

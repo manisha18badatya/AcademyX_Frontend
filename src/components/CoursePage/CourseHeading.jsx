@@ -34,12 +34,18 @@ function CourseHeading() {
           Course Info
         </p>
 
-        <p
-          className={selectedSection === "content" ? "active-p" : ""}
-          onClick={() => handleClick("content")}
-        >
-          Content
-        </p>
+        {course.isEnrolled ? (
+          <p
+            className={selectedSection === "content" ? "active-p" : ""}
+            onClick={() => handleClick("content")}
+          >
+            Content
+          </p>
+        ) : (
+          <p className="disabled-p" title="Enroll to access content">
+            Content 🔒
+          </p>
+        )}
       </div>
       <hr className="line" />
     </div>

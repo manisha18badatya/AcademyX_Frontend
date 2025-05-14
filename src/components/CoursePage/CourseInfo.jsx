@@ -33,9 +33,11 @@ export default function CourseInfo() {
       <hr />
       <p className="descript">{course.description}</p>
 
-      <div className="enroll-button" onClick={handleEnroll}>
-        ENROLL NOW
-      </div>
+      {!course?.isEnrolled && (
+        <div className="enroll-button" onClick={handleEnroll}>
+          ENROLL NOW
+        </div>
+      )}
     </div>
   );
 }
