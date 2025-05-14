@@ -313,14 +313,15 @@
   margin-top: 1vw;
   color: #201D21;
   font-family: "Heading", sans-serif;
-  font-size: clamp(0.8rem, 1.5vw, 1.8vw);
+  font-size: clamp(0.8em, 1.2vw, 1.2vw);
 }
 .videocard__data__subtitle {
+  width: 90%;
   text-decoration: none;
-  margin-top: 0.5vw;
+  margin-top: 1.6vw;
   color: #201D21;
   font-family: "SubHeading1", sans-serif;
-  font-size: clamp(0.6rem, 1.2vw, 1.5vw);
+  font-size: clamp(0.6em, 1vw, 1.2vw);
 }
 .videocard__data__description {
   text-decoration: none;

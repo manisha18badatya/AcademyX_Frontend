@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "../../stylesheets/User.css";
 import "../../Stylesheets/Courses.css";
+import "../../Stylesheets/base.css";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import Footer from "../footer";
+import Navbar from "../navbar";
 
 export default function YourCourses() {
   const [ycourses, setYCourses] = useState([]);
@@ -36,16 +39,13 @@ export default function YourCourses() {
   }, [ycourses]);
 
   return (
-    <div>
+    <div className="bodydiv">
+      <Navbar />
       {loading ? (
         <p>Loading...</p>
       ) : ycourses.length > 0 ? (
         ycourses.map((course) => (
-          <NavLink
-            to={`/coursepage/${course._id}`}
-            className="courses"
-            key={course._id}
-          >
+          <div className="courses" key={course._id}>
             <div className="videocard">
               <div className="videocard__thumbcontainer">
                 <img
@@ -59,25 +59,22 @@ export default function YourCourses() {
                   {course.courseName}
                   {console.log(course.category)}
                 </h3>
-                <p className="videocard__data__subtitle">
-                  {course.description}
-                </p>
-                <p className="videocard__data__description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </p>
+                <p className="videocard__data__subtitle">{course.title}</p>
               </div>
               <NavLink
                 to={`/user/updatecourse/${course._id}`}
-                className="update-button"
+                className="button1"
+                style={{ marginLeft: "2vw" }}
               >
                 Update course
               </NavLink>
             </div>
-          </NavLink>
+          </div>
         ))
       ) : (
         <p>No courses found.</p>
       )}
+      <Footer />
     </div>
   );
 }

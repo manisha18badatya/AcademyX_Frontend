@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
 import "../../stylesheets/Home.css";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 function HomeHero() {
   const imageRef = useRef(null);
+  const { isLoggedIn } = useAuth();
 
   const handleMouseMove = (e) => {
     const img = imageRef.current;
@@ -53,7 +55,11 @@ function HomeHero() {
         <div className="heroimage" ref={imageRef}>
           <img src="/Image/homehero.jpg" alt="Hero" />
         </div>
-        <NavLink to="/signup" className="signupbutton">
+        <NavLink
+          to="/signup"
+          className="signupbutton"
+          style={isLoggedIn && isLoggedIn ? { display: "none" } : {}}
+        >
           <div className="signupbutton__text">Sign up for free</div>
         </NavLink>
       </div>

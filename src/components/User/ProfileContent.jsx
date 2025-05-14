@@ -15,15 +15,13 @@ export default function ProfileContent() {
       <div className="banner">Banner</div>
 
       <div className="head-container">
-        <div className="main-data">
-          <div className="pfp">
-            <img src={user.profileImage} />
-          </div>
-          <h2 className="main-data__name">{user.username}</h2>
-          <p className="main-data__bio">
-            User bio - Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-          </p>
+        <div className="pfp">
+          <img src={user.profileImage} />
         </div>
+        <h2 className="username">{user.username}</h2>
+        <p className="bio">
+          User bio - Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        </p>
       </div>
     </div>
   );

@@ -1,25 +1,22 @@
 import React, { useState } from "react";
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import "../Stylesheets/Navbar.css";
+import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
   const navigate = useNavigate();
-  const { isLoggedIn, setIsLoggedIn } = useAuth();
+  const { isLoggedIn, logout } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   let [courseText, setCourseText] = useState("");
   const handlelogOut = async (e) => {
-    // Clear auth tokens or context values
-    // localStorage.removeItem("authToken"); // or whatever you're using
-    const url = "http://localhost:8080/api/v1/users/logout";
-    const response = await fetch(url, {
-      method: "GET",
-      credentials: "include",
+    await axios.get("http://localhost:8080/api/v1/users/logout", {
+      withCredentials: true,
     });
 
-    // Force full page reload
-    localStorage.removeItem("isLoggedIn");
-    setIsLoggedIn(false);
+    // remove data from local storage
+    logout();
+    //redirtect to login page
     navigate("/login");
   };
 

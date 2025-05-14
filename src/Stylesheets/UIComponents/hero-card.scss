@@ -1,0 +1,9 @@
+@import '../ColorSystem/MainColors';
+
+@mixin herocard{
+    width: 90%;
+    margin-inline: auto;
+    height: 80vh;
+    border-radius: 1rem;
+    background-color: $bg-dark1;
+}

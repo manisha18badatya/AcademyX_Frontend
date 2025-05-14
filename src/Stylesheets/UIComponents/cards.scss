@@ -126,15 +126,16 @@
       margin-top: 1vw;
       color: $bg-dark1;
       font-family: 'Heading', sans-serif;
-      font-size: clamp(0.8rem, 1.5vw, 1.8vw);
+      font-size: clamp(0.8em, 1.2vw, 1.2vw);
     }
   
     &__subtitle{
+      width: 90%;
       text-decoration: none;
-      margin-top: 0.5vw;
+      margin-top: 1.6vw;
       color: $bg-dark1;
       font-family: 'SubHeading1', sans-serif;
-      font-size: clamp(0.6rem, 1.2vw, 1.5vw);
+      font-size: clamp(0.6em, 1vw, 1.2vw);
     }
   
     &__description{

@@ -1,0 +1,29 @@
+@import './UIComponents/buttons';
+@import './UIComponents/cards';
+@import './ColorSystem/MainColors';
+
+.button1{
+    @include normbutton(8vw, 3vw, $bg-dark1);
+    text-decoration: none;
+    color: $white;
+    font-size: 1vw;
+}
+
+
+.textfield{
+  input[type="text"] {
+        width: clamp(12rem, 20vw, 20vw);
+        height: clamp(1rem, 1vw, 3rem);
+        background-color: $grey1;
+        padding: clamp(0.1rem, 1.5vw, 1.6vw);
+        font-size: clamp(0.8rem, 1.5vw, 1rem);
+        border-radius: 0.3rem;
+        border: 2px solid $grey1;
+        outline: none; // Remove default blue outline
+        transition: border-color 0.3s ease;
+
+      &:focus{
+        border-color: #007BFF; // or your $accent1
+      }
+    }
+}

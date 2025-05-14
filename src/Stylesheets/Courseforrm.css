@@ -1,3 +1,15 @@
+@font-face {
+  font-family: "Heading";
+  src: url("./AlbertSans.ttf") format("truetype");
+}
+@font-face {
+  font-family: "SubHeading1";
+  src: url("./Inter.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Content";
+  src: url("./Inter.ttf") format("truetype");
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -59,6 +71,18 @@
   animation: pulse 1.5s infinite;
 }
 
+@font-face {
+  font-family: "Heading";
+  src: url("./AlbertSans.ttf") format("truetype");
+}
+@font-face {
+  font-family: "SubHeading1";
+  src: url("./Inter.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Content";
+  src: url("./Inter.ttf") format("truetype");
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -118,4 +142,37 @@
 
 .pulse {
   animation: pulse 1.5s infinite;
-}/*# sourceMappingURL=dropdown.css.map */
+}
+
+.button1 {
+  background-color: #201D21;
+  color: #201D21;
+  display: flex;
+  width: 8vw;
+  height: 3vw;
+  border-radius: 0.5rem;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  justify-content: center;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: 800;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1vw;
+}
+
+.textfield input[type=text] {
+  width: clamp(12rem, 20vw, 20vw);
+  height: clamp(1rem, 1vw, 3rem);
+  background-color: #ebebeb;
+  padding: clamp(0.1rem, 1.5vw, 1.6vw);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  border-radius: 0.3rem;
+  border: 2px solid #ebebeb;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.textfield input[type=text]:focus {
+  border-color: #007BFF;
+}/*# sourceMappingURL=Courseforrm.css.map */

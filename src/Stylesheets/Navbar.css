@@ -59,6 +59,67 @@
   animation: pulse 1.5s infinite;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideright {
+  from {
+    transform: translatex(0px);
+    opacity: 0;
+  }
+  to {
+    transform: translatex(20px);
+    opacity: 1;
+  }
+}
+@keyframes drop {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.pulse {
+  animation: pulse 1.5s infinite;
+}
+
 @font-face {
   font-family: "Heading";
   src: url("./AlbertSans.ttf") format("truetype");
@@ -354,25 +415,35 @@
 
 .pfpdrop-container {
   position: relative;
+  display: inline-block;
   z-index: 99;
 }
 
 .pfpdrop {
-  width: 10vw;
-  background-color: white;
-  display: grid;
   position: absolute;
   top: 100%;
   right: 0;
-  padding: 2vw;
-  z-index: 9999;
+  background-color: white;
+  width: 15vw;
+  display: grid;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   transform-origin: top;
   animation: drop 0.2s ease-out forwards;
+  z-index: 9999;
+  transform: translateX(-10vw);
 }
 .pfpdrop__content {
-  padding: 1.2px;
-  position: relative;
-  z-index: inherit;
+  padding: 0.5rem 0;
+  padding-left: 0.4vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.pfpdrop__content:hover {
+  background-color: #f0f0f0;
 }
 
 @media screen and (max-width: 768px) {

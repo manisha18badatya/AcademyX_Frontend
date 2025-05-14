@@ -14,10 +14,8 @@ function Courses() {
       <div className="bodydiv">
         <Navbar />
         <ErrorBoundary>
-          <CategoryProvider>
-            <CoursesCategories />
-            <CourseCard />
-          </CategoryProvider>
+          <CoursesCategories />
+          <CourseCard />
         </ErrorBoundary>
       </div>
       <Footer />

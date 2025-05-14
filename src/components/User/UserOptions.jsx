@@ -1,23 +1,49 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../../stylesheets/User.css";
-import axios from "axios";
 import { NavLink } from "react-router-dom";
+import { useOptions } from "../../context/UserContext";
 
 export default function UserOptions() {
+  const { selectedOption, setSelectedOption } = useOptions();
+
+  const handleOptionClick = (option) => {
+    setSelectedOption(option);
+  };
+
+  // Define your options as objects for easier mapping
+  const options = [
+    { name: "My Profile", path: "/user/profile" },
+    { name: "My Library", path: "/user/library" },
+    { name: "Dashboard", path: "/user/dashboard" },
+    { name: "Create Course", path: "/createcourse" },
+    { name: "Billing" },
+    { name: "Notifications" },
+    { name: "Settings" },
+    { name: "Log out" },
+  ];
+
   return (
     <div className="sidebardiv">
       <div className="user-options">
         <ul className="option-list">
-          <li className="active-option">My Profile</li>
-          <li>My Library</li>
-          <NavLink to="/user/dashboard">
-            <li>Dashboard</li>
-          </NavLink>
-          <li>Create Course</li>
-          <li>Billing</li>
-          <li>Notifications</li>
-          <li>Settings</li>
-          <li>Log out</li>
+          {options.map(({ name, path }) => (
+            <li
+              key={name}
+              className={selectedOption === name ? "active-option" : ""}
+              onClick={() => handleOptionClick(name)}
+            >
+              {path ? (
+                <NavLink
+                  to={path}
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  {name}
+                </NavLink>
+              ) : (
+                name
+              )}
+            </li>
+          ))}
         </ul>
       </div>
     </div>

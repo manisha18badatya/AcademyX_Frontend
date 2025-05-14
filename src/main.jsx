@@ -1,16 +1,17 @@
 // main.jsx
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
 
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider } from "./context/AuthContext";
+import { CategoryProvider } from "./context/CategoryContext.jsx";
 
-
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <App />
+      <CategoryProvider>
+        <App />
+      </CategoryProvider>
     </AuthProvider>
   </React.StrictMode>
 );

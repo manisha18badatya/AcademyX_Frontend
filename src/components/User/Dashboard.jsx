@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
-import "../../stylesheets/User.css";
-import "../../Stylesheets/Courses.css";
 import axios from "axios";
+import "../../Stylesheets/User.css";
+import "../../Stylesheets/Courses.css";
 import { NavLink } from "react-router-dom";
 
 export default function Dashboard() {
   return (
     <div>
-      <NavLink to="/user/yourcourses">Your courses</NavLink>
-      <NavLink to="/createcourse">Create Course</NavLink>
+      <div className="button-box">
+        <NavLink to="/user/yourcourses" className="button1">
+          Your courses
+        </NavLink>
+        <NavLink to="/createcourse" className="button1">
+          Create Course
+        </NavLink>
+      </div>
     </div>
   );
 }
