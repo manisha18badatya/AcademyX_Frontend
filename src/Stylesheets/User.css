@@ -213,7 +213,7 @@
 .profile-content {
   width: 100%;
   display: flex;
-  background-color: #007BFF;
+  background-color: #007bff;
   margin-top: 3vw;
 }
 .profile-content .pfp {
@@ -302,10 +302,11 @@
   transition: border-color 0.3s ease;
 }
 .textfield textarea:focus {
-  border-color: #007BFF;
+  border-color: #007bff;
 }
 
-.textinput input[type=text], .input-cont input[type=text] {
+.textinput input[type=text],
+.input-cont input[type=text] {
   width: clamp(20rem, 70vw, 80vw);
   height: clamp(1rem, 5vw, 6vw);
   padding: 1rem;
@@ -322,6 +323,7 @@
   line-height: 1.5;
   transition: border-color 0.3s ease;
 }
-.textinput input[type=text]:focus, .input-cont input[type=text]:focus {
-  border-color: #007BFF;
+.textinput input[type=text]:focus,
+.input-cont input[type=text]:focus {
+  border-color: #007bff;
 }/*# sourceMappingURL=User.css.map */

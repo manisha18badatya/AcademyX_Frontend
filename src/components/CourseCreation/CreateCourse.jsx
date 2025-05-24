@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../../Stylesheets/User.css";
+import "../../Stylesheets/CreateCoursePage.css";
 import Navbar from "../navbar";
 
 const CreateCourse = () => {
@@ -74,44 +74,56 @@ const CreateCourse = () => {
   };
 
   return (
-    <div>
-      <Navbar />
-      <div className="max-w-xl mx-auto p-6 bg-white rounded shadow">
-        <h1 className="text-2xl font-bold mb-4 sans-serif">
-          Create a New Course
-        </h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {[
-            "courseName",
-            "title",
-            "description",
-            "price",
-            "duration",
-            "category",
-            "tags",
-          ].map((field) => (
-            <div key={field} className="input-cont">
-              <label
-                style={{
-                  alignContent: "center",
-                  alignItems: "center",
-                  marginLeft: "2vw",
-                  textTransform: "uppercase",
-                }}
-              >
-                {field}
-              </label>
-              <input
-                type="text"
+    <div className="create-course-container">
+      <h1 className="text-2xl font-bold mb-4 sans-serif">
+        Create a New Course
+      </h1>
+      <form onSubmit={handleSubmit} className="main-form">
+        {[
+          "courseName",
+          "title",
+          "description",
+          "price",
+          "duration",
+          "category",
+          "taqs",
+        ].map((field) => (
+          <div key={field} className="course-form">
+            <label
+              style={{
+                alignContent: "center",
+                alignItems: "center",
+                marginTop: "2rem",
+                marginLeft: "2vw",
+                textTransform: "uppercase",
+              }}
+            >
+              {field == "taqs" ? "tags" : field}
+            </label>
+            {field === "description" ? (
+              <textarea
                 name={field}
                 value={formData[field]}
                 onChange={handleChange}
-                style={{ marginBlock: "2vw" }}
+                style={{ minHeight: "100px" }}
+                placeholder="Enter a detailed course description"
+                required
+              />
+            ) : (
+              <input
+                type={field === "price" ? "number" : "text"}
+                name={field}
+                value={formData[field]}
+                onChange={handleChange}
                 placeholder={
                   field === "taqs"
                     ? "comma-separated tags (e.g., js,react)"
+                    : field === "price"
+                    ? "₹"
                     : ""
                 }
+                min={field === "price" ? "0" : undefined}
+                step={field === "price" ? "0.01" : undefined}
                 required={[
                   "courseName",
                   "description",
@@ -120,36 +132,34 @@ const CreateCourse = () => {
                   "category",
                 ].includes(field)}
               />
-            </div>
-          ))}
-
-          <div>
-            <label className="block font-semibold">Thumbnail</label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleThumbnailChange}
-            />
-            {preview && (
-              <img
-                src={preview}
-                alt="Preview"
-                className="mt-2 h-32 object-cover rounded"
-              />
             )}
           </div>
+        ))}
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-          >
-            {loading ? "Creating..." : "Create Course"}
-          </button>
+        <div className="thumbnail">
+          <label className="block font-semibold">Thumbnail</label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleThumbnailChange}
+          />
+          {preview && (
+            <div className="thumbnail-box">
+              <img src={preview} alt="Preview" />
+            </div>
+          )}
+        </div>
 
-          {message && <p className="mt-4 text-sm text-red-600">{message}</p>}
-        </form>
-      </div>
+        <button
+          type="submit"
+          disabled={loading}
+          className="create-course-button"
+        >
+          {loading ? "Creating..." : "Create Course"}
+        </button>
+
+        {message && <p className="mt-4 text-sm text-red-600">{message}</p>}
+      </form>
     </div>
   );
 };

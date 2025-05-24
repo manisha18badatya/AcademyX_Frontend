@@ -2,7 +2,7 @@ import React from "react";
 import { useCourse } from "../../context/CourseContext";
 import "../../Stylesheets/CoursePage.css";
 
-function CourseHeading() {
+function BeforeEnroll() {
   const { course, selectedSection, setSelectedSection } = useCourse();
 
   if (!course) return <p>Loading...</p>;
@@ -34,17 +34,11 @@ function CourseHeading() {
           Course Info
         </p>
 
-        <p
-          className={selectedSection === "content" ? "active-p" : ""}
-          title="Enroll to access content"
-          onClick={() => handleClick("content")}
-        >
-          Content
-        </p>
+        {course.isEnrolled ? <p></p> : <p></p>}
       </div>
       <hr className="line" />
     </div>
   );
 }
 
-export default CourseHeading;
+export default BeforeEnroll;

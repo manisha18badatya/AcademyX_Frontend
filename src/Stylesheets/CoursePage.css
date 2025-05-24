@@ -202,6 +202,11 @@
 .course-menu .active-p {
   color: #FFB703;
 }
+.course-menu .disabled-p {
+  color: grey;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
 
 .info-container {
   display: flex;

@@ -1,45 +1,43 @@
-@import '../ColorSystem/MainColors';
-@import '../FontSystem/Fonts';
-@import '../Animations/Animations';
+@import "../ColorSystem/MainColors";
+@import "../FontSystem/Fonts";
+@import "../Animations/Animations";
 
-@mixin capsulebutton(
-    $width: 30vw,
-    $height: 8vh
-){
-    width: $width;
-    height: $height;
-    color: $bg-dark1;
-    background-color: $white;
-    border: none;
-    border-radius: 4rem;
-    display: grid;
-    place-content: center;
-    z-index: 3;
-    @include transition(transform box-shadow, 0.3s);
+@mixin capsulebutton($width: 30vw, $height: 8vh) {
+  width: $width;
+  height: $height;
+  color: $bg-dark1;
+  background-color: $white;
+  border: none;
+  border-radius: 4rem;
+  display: grid;
+  place-content: center;
+  z-index: 3;
+  cursor: pointer;
+  @include transition(transform box-shadow, 0.3s);
 
-    &:hover{
-        transform: scale(1.02);
-        box-shadow: 0 0.5vw 1.5vw $highlight;
-    }
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0.5vw 1.5vw $highlight;
+  }
 }
 
 @mixin normbutton(
-    $width:10vw,
-    $height: 8vh,
-    $bgcolor: $accent1-light,
-    $radius: 0.5rem,
-    $col: $bg-dark1
-){
-    background-color: $bgcolor;
-    color: $col;
-    display: flex;
-    width: $width;
-    height: $height;
-    border-radius: $radius;
-    padding-block: 1rem;
-    padding-inline: 1rem;
-    justify-content: center;
-    text-decoration: none;
-    font-family: sans-serif;
-    font-weight: 800;
+  $width: 10vw,
+  $height: 8vh,
+  $bgcolor: $accent1-light,
+  $radius: 0.5rem,
+  $col: $bg-dark1
+) {
+  background-color: $bgcolor;
+  color: $col;
+  display: flex;
+  width: $width;
+  height: $height;
+  border-radius: $radius;
+  padding-block: 1rem;
+  padding-inline: 1rem;
+  justify-content: center;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: 800;
 }
