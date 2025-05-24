@@ -45,7 +45,18 @@ export default function EnrolledCourses() {
   }, [courses]);
 
   return (
-    <div className="videocard-container">
+    <div className="videocard-container" style={{ flexDirection: "column" }}>
+      <div
+        style={{
+          marginBlock: "0.5rem 2rem",
+          fontFamily: "sans-serif",
+          fontWeight: "600",
+          fontSize: "2rem",
+        }}
+      >
+        Your Enrolled Course
+      </div>
+
       <div className="videocard-grid">
         {courses.length > 0 ? (
           courses.map((course) => (
@@ -54,7 +65,7 @@ export default function EnrolledCourses() {
               className="courses"
               key={course._id}
             >
-              <div className="videocard">
+              <div className="videocard" style={{ width: "100%" }}>
                 <div className="videocard__thumbcontainer">
                   <img
                     src={course.thumbnail}
@@ -95,7 +106,7 @@ export default function EnrolledCourses() {
             </NavLink>
           ))
         ) : (
-          <p>Loading...</p>
+          <p>No Enrolled Courses</p>
         )}
       </div>
     </div>

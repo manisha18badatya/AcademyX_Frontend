@@ -28,12 +28,12 @@ export default function UserOptions() {
   // Define your options as objects for easier mapping
   const options = [
     { name: "My Profile", path: "/user" },
-    { name: "My Library", path: "/user/mylibrary" },
-    { name: "Dashboard" },
-    { name: "Create Course", path: "/createcourse" },
-    { name: "Billing" },
-    { name: "Notifications" },
-    { name: "Settings" },
+    { name: "My Library", path: "/user" },
+    { name: "Dashboard", path: "/user" },
+    { name: "Create Course", path: "/user" },
+    { name: "Billing", path: "/user" },
+    { name: "Notifications", path: "/user" },
+    { name: "Settings", path: "/user" },
     { name: "Log out" },
   ];
 
@@ -45,29 +45,17 @@ export default function UserOptions() {
             <li
               key={name}
               className={selectedOption === name ? "active-option" : ""}
-              onClick={() => handleOptionClick(name)}
+              onClick={() => {
+                if (name === "Log out") {
+                  handlelogOut();
+                } else {
+                  handleOptionClick(name); // set selected option
+                }
+              }}
             >
-              {path ? (
-                <NavLink
-                  to={path}
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  {name}
-                </NavLink>
-              ) : name === "Log out" ? (
-                <span
-                  onClick={handlelogOut}
-                  style={{
-                    cursor: "pointer",
-                    color: "inherit",
-                    textDecoration: "none",
-                  }}
-                >
-                  {name}
-                </span>
-              ) : (
-                <span>{name}</span>
-              )}
+              <span style={{ cursor: "pointer", color: "inherit" }}>
+                {name}
+              </span>
             </li>
           ))}
         </ul>

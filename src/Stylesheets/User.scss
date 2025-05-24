@@ -1,178 +1,175 @@
-@import './Animations/Animations';
-@import './ColorSystem/MainColors';
-@import './FontSystem/Fonts';
-@import './UIComponents/buttons';
+@import "./Animations/Animations";
+@import "./ColorSystem/MainColors";
+@import "./FontSystem/Fonts";
+@import "./UIComponents/buttons";
 
-.sidebardiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    width: 18vw;
-    height: 100vh;
-    border-radius: 0.5rem;
-    background-color: $bg-dark1;
-    float: left;
-    color: $grey2;
-    font-family: sans-serif;
-    padding: 2%;
+.sidebardiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 18vw;
+  height: 100vh;
+  border-radius: 0.5rem;
+  background-color: $bg-dark1;
+  float: left;
+  color: $grey2;
+  font-family: sans-serif;
+  padding: 2%;
 
-    .user-options{
-        height: 50%;
-        width: 100%;
-    }
-
-    .option-list{
-        list-style-type: none;
-    }
-
-    .option-list li{
-        display: flex;
-        border-radius: 1rem;
-        margin-block: 3vh;
-        height: 8vh;
-        align-items: center;
-        padding-left: 2vw;
-        cursor: pointer;
-        @include transition;
-
-        &:hover{
-            color: $white;
-            transform: translateX(0.5vw);
-        }
-    }
-
-    .active-option{
-        color: $white;
-        transform: translateX(0.5vw);
-        background-color: $accent1;
-    }
-
-}
-
-.main-content{
-    display: flex;
-    position: relative;
-    font-family: sans-serif;
-    float: left;
-    background-color: $grey1;
-    width: 75vw;
-    margin-left: 2vw;
-    margin-bottom: 5vh;
-    border-radius: 1rem;
-    min-height: 100vh;
-    overflow: hidden;
-    z-index: 3;
-    padding: 2%;
-
-        &__name{
-            display: flex;
-            position:absolute;
-            text-transform: capitalize;
-            color: #141414;
-            z-index: 10;
-            font-size: 2vw;
-    }
-}
-
-.profile-content{
+  .user-options {
+    height: 50%;
     width: 100%;
+  }
+
+  .option-list {
+    list-style-type: none;
+  }
+
+  .option-list li {
     display: flex;
-    background-color: #007BFF;
-    margin-top: 3vw;
-
-    .pfp{
-        display: flex;
-        background-image: url('../assets/pfp.jpg');
-        background-size: cover;
-        position: absolute;
-        background-color: #333;
-        width: 12vw;
-        height: 12vw;
-        border-radius: 50%;
-        }
-
-    .banner{
-        display: flex;
-        position: absolute;
-        top:0;
-        left: 0;
-        width: 100%;
-        height: 22vh;
-        background-color: $grey3;
-    }
-}
-
-.button-box{
-    margin-top: 5vw;
-    height: fit-content;
-    display: flex;
-    gap: 2vw;
+    border-radius: 1rem;
+    margin-block: 3vh;
+    height: 8vh;
     align-items: center;
-    justify-content: center
-}
+    padding-left: 2vw;
+    cursor: pointer;
+    @include transition;
 
-.button1{
-    @include normbutton(10vw, 4vw, $bg-dark2);
-    font-weight: 200;
-    text-decoration: none;
+    &:hover {
+      color: $white;
+      transform: translateX(0.5vw);
+    }
+  }
+
+  .active-option {
     color: $white;
-    font-size: 1vw;
+    transform: translateX(0.5vw);
+    background-color: $accent1;
+  }
 }
 
-.button2{
-    @include normbutton(10vw, 3vw, $accent1);
-    font-weight: 200;
-    text-decoration: none;
-    color: $white;
-    font-size: 1vw;
+.main-content {
+  display: flex;
+  position: relative;
+  font-family: sans-serif;
+  float: left;
+  background-color: $grey1;
+  width: 75vw;
+  margin-left: 2vw;
+  margin-bottom: 5vh;
+  border-radius: 1rem;
+  min-height: 100vh;
+  overflow: hidden;
+  z-index: 3;
+  padding: 2%;
+
+  &__name {
+    display: flex;
+    position: absolute;
+    text-transform: capitalize;
+    color: #141414;
+    z-index: 10;
+    font-size: 2vw;
+  }
 }
 
+.profile-content {
+  width: 100%;
+  display: flex;
+  background-color: #007bff;
+  margin-top: 3vw;
 
-.textfield{
-    
+  .pfp {
+    display: flex;
+    background-image: url("../assets/pfp.jpg");
+    background-size: cover;
+    position: absolute;
+    background-color: #333;
+    width: 12vw;
+    height: 12vw;
+    border-radius: 50%;
+  }
+
+  .banner {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 22vh;
+    background-color: $grey3;
+  }
+}
+
+.button-box {
+  margin-top: 5vw;
+  height: fit-content;
+  display: flex;
+  gap: 2vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.button1 {
+  @include normbutton(10vw, 4vw, $bg-dark2);
+  font-weight: 200;
+  text-decoration: none;
+  color: $white;
+  font-size: 1vw;
+}
+
+.button2 {
+  @include normbutton(10vw, 3vw, $accent1);
+  font-weight: 200;
+  text-decoration: none;
+  color: $white;
+  font-size: 1vw;
+}
+
+.textfield {
   textarea {
-        width: clamp(20rem, 70vw, 80vw);
-        height: clamp(10rem, 20vw, 22vw);
-        padding: 1rem;
-        font-size: 1rem;
-        font-family: inherit;
-        color: #333;
-        background-color: #f9f9f9;
-        border: 1.5px solid #ccc;
-        border-radius: 8px;
-        resize: vertical;
-         vertical-align: top; // ensures it's aligned top in inline contexts
-        padding-top: 1rem;   // adjust as needed
-        padding-bottom: 1rem;
-        line-height: 1.5;
-        transition: border-color 0.3s ease;
-      &:focus{
-        border-color: #007BFF; // or your $accent1
-      }
+    width: clamp(20rem, 70vw, 80vw);
+    height: clamp(10rem, 20vw, 22vw);
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+    background-color: #f9f9f9;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    resize: vertical;
+    vertical-align: top; // ensures it's aligned top in inline contexts
+    padding-top: 1rem; // adjust as needed
+    padding-bottom: 1rem;
+    line-height: 1.5;
+    transition: border-color 0.3s ease;
+    &:focus {
+      border-color: #007bff; // or your $accent1
     }
+  }
 }
 
-.textinput, .input-cont{
+.textinput,
+.input-cont {
+  input[type="text"] {
+    width: clamp(20rem, 70vw, 80vw);
+    height: clamp(1rem, 5vw, 6vw);
+    padding: 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #333;
+    background-color: #f9f9f9;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    resize: vertical;
+    vertical-align: top; // ensures it's aligned top in inline contexts
+    padding-top: 1rem; // adjust as needed
+    padding-bottom: 1rem;
+    line-height: 1.5;
+    transition: border-color 0.3s ease;
 
-    input[type="text"] {
-        width: clamp(20rem, 70vw, 80vw);
-        height: clamp(1rem, 5vw,6vw);
-        padding: 1rem;
-        font-size: 1rem;
-        font-family: inherit;
-        color: #333;
-        background-color: #f9f9f9;
-        border: 1.5px solid #ccc;
-        border-radius: 8px;
-        resize: vertical;
-         vertical-align: top; // ensures it's aligned top in inline contexts
-        padding-top: 1rem;   // adjust as needed
-        padding-bottom: 1rem;
-        line-height: 1.5;
-        transition: border-color 0.3s ease;
-
-      &:focus{
-        border-color: #007BFF; // or your $accent1
-      }
+    &:focus {
+      border-color: #007bff; // or your $accent1
     }
+  }
 }

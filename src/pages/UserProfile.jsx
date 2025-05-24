@@ -5,17 +5,14 @@ import Footer from "../components/footer";
 import UserOptions from "../components/User/UserOptions";
 import MainContent from "../components/User/MainContent";
 import "../Stylesheets/base.css";
-import { OptionProvider } from "../context/UserContext";
 
 function UserProfile() {
   return (
     <div>
       <div className="bodydiv">
-        <OptionProvider>
-          <Navbar />
-          <UserOptions />
-          <MainContent />
-        </OptionProvider>
+        <Navbar />
+        <UserOptions />
+        <MainContent />
       </div>
       <Footer />
     </div>

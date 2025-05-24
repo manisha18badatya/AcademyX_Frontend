@@ -1,29 +1,126 @@
+@font-face {
+  font-family: "Heading";
+  src: url("./AlbertSans.ttf") format("truetype");
+}
+@font-face {
+  font-family: "SubHeading1";
+  src: url("./Inter.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Content";
+  src: url("./Inter.ttf") format("truetype");
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideright {
+  from {
+    transform: translatex(0px);
+    opacity: 0;
+  }
+  to {
+    transform: translatex(20px);
+    opacity: 1;
+  }
+}
+@keyframes drop {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.pulse {
+  animation: pulse 1.5s infinite;
+}
+
 .create-course-container {
   display: flex;
-  padding: 20px;
+  padding: 2rem;
+  width: 100%;
+  flex-direction: column;
   font-family: sans-serif;
 }
 
-.sidebar {
-  width: 250px;
-  background-color: #e6e6e6;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.card {
-  background-color: white;
-  padding: 15px;
-  border-radius: 8px;
-  border: 2px solid #111;
+.thumbnail {
+  margin-top: 2rem;
 }
 
 .thumbnail-box {
-  background-color: #0073a8;
-  height: 150px;
+  margin-block: 2rem;
+  width: 64vw;
+  height: 36vw;
   position: relative;
+}
+.thumbnail-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+
+.create-course-button {
+  width: 50%;
+  height: 4rem;
+  color: #201D21;
+  background-color: #fff;
+  border: none;
+  border-radius: 4rem;
+  display: grid;
+  place-content: center;
+  z-index: 3;
+  transition-property: transform box-shadow;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+  margin-top: 2rem;
+  color: #e6e6e6;
+  font-size: 1.5rem;
+  align-self: center;
+  background-color: #201D21;
+  cursor: pointer;
+}
+.create-course-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0.5vw 1.5vw #84DEFF;
 }
 
 .thumbnail-upload {
@@ -38,50 +135,10 @@
   color: white;
 }
 
-.edit-btn {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
-
-.attachment-box {
-  background-color: #0073a8;
-  padding: 20px;
-  color: white;
-  text-align: center;
-}
-
-.attachment-icon {
-  font-size: 24px;
-}
-
-.btn-light, .btn-light-blue, .btn-dark {
-  display: block;
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.btn-light {
-  background-color: #f0f0f0;
-}
-
-.btn-light-blue {
-  background-color: #aee1ff;
-}
-
-.btn-dark {
-  background-color: #111;
-  color: white;
-}
-
 .main-form {
-  flex: 1;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .course-form {
@@ -90,18 +147,12 @@
   gap: 15px;
 }
 
-.course-form input,
-.course-form textarea {
-  padding: 10px;
+.main-form input,
+.main-form textarea {
+  padding: 1rem;
   border-radius: 8px;
   border: 1px solid lightgray;
   width: 100%;
-}
-
-.inline-group {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
 }
 
 .video-upload {
@@ -116,7 +167,6 @@
 }
 
 .add-lesson-btn {
-  background-color: #0073a8;
   color: white;
   padding: 10px;
   border: none;

@@ -7,7 +7,6 @@ import Courses from "./pages/Courses";
 import React from "react";
 import UserProfile from "./pages/UserProfile";
 import SignUp from "./pages/Signup";
-import MyLibrary from "./pages/MyLibrary";
 import Community from "./pages/Community";
 import BuyPage from "./pages/BuyPage";
 import YourCourses from "./components/User/YourCourses";
@@ -16,6 +15,7 @@ import CreateCoursePage from "./components/CourseCreation/CreateCourse";
 import CreateLesson from "./components/CourseCreation/CreateLesson";
 import CourseModify from "./pages/CourseModify";
 import UpdateLesson from "./components/CourseCreation/UpdateLesson";
+import EnrolledCourses from "./components/User/EnrolledCourses";
 
 const AppRoutes = () => (
   <Routes>
@@ -35,7 +35,7 @@ const AppRoutes = () => (
     />
 
     <Route path="/user" element={<UserProfile />} />
-    <Route path="/user/mylibrary" element={<MyLibrary />} />
+    <Route path="/user/mylibrary" element={<EnrolledCourses />} />
     <Route path="/community" element={<Community />} />
     <Route path="/createcourse" element={<CreateCoursePage />} />
     <Route path="/user/yourcourses" element={<YourCourses />} />

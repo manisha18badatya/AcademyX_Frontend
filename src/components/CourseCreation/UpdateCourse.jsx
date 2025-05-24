@@ -1,14 +1,23 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Navigate, NavLink, useParams } from "react-router-dom";
+import { Navigate, useParams, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useForm } from "../../context/FormContext";
-import "../../Stylesheets/User.css";
+import { useOptions } from "../../context/UserContext";
+import "../../Stylesheets/CreateCoursePage.css"; // Using same styling
 
 axios.defaults.withCredentials = true;
 
 export default function UpdateCourse() {
   const { isLoggedIn } = useAuth();
+  const navigate = useNavigate();
+  const { setSelectedOption } = useOptions();
+  const { courseData, setCourseData } = useForm();
+  const [preview, setPreview] = useState(null);
+  const [thumbnail, setThumbnail] = useState(null);
+  const [course, setCourse] = useState({});
+  const { id } = useParams();
+
   const categories = [
     "Artificial Intelligence",
     "Web Development",
@@ -27,93 +36,27 @@ export default function UpdateCourse() {
     "Business Analysis",
   ];
 
-  if (!isLoggedIn) {
-    return <Navigate to="/login" replace />;
-    // or: return <h1>403 Forbidden Request</h1>;
-  }
-  const [thumbnail, setThumbnail] = useState(null);
-  const [preview, setPreview] = useState(null);
-  const { id } = useParams();
-  const [course, setCourse] = useState({});
-  const { courseData, setCourseData } = useForm();
-  const [editFields, setEditFields] = useState({});
+  if (!isLoggedIn) return <Navigate to="/login" replace />;
 
   useEffect(() => {
     const fetchCourse = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8080/api/v1/courses/${id}`,
-          { withCredentials: true }
+          `http://localhost:8080/api/v1/courses/${id}`
         );
         setCourse(res.data.data);
-        setCourseData(res.data.data); // preload formData
+        setCourseData(res.data.data);
         setPreview(res.data.data.thumbnail);
       } catch (err) {
         console.error("Failed to fetch course", err);
       }
     };
-
     fetchCourse();
   }, [id]);
 
-  const handleChange = (field, value) => {
-    setCourseData((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
-
-    setCourse((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
-  };
-
-  const handleThumbnailChange = (e) => {
-    const file = e.target.files[0];
-    setThumbnail(file);
-    if (file) {
-      setPreview(URL.createObjectURL(file));
-    }
-  };
-
-  const toggleEdit = (field) => {
-    setEditFields((prev) => ({
-      ...prev,
-      [field]: !prev[field],
-    }));
-  };
-
-  const handleCategoryChange = (e) => {
-    setCourseData((prev) => ({
-      ...prev,
-      category: e.target.value,
-    }));
-  };
-
-  const handleSubmit = async () => {
-    try {
-      await axios.post(
-        `http://localhost:8080/api/v1/courses/${id}/updateCourse`,
-        courseData,
-        { withCredentials: true }
-      );
-      alert("Course updated!");
-    } catch (error) {
-      console.error("Update error:", error);
-    }
-  };
-
-  const handleDelVid = async (lessonId, videoId) => {
-    try {
-      await axios.delete(
-        `http://localhost:8080/api/v1/lessons/${id}/${lessonId}/${videoId}`,
-        courseData,
-        { withCredentials: true }
-      );
-      alert("Course updated!");
-    } catch (error) {
-      console.error("Update error:", error);
-    }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCourseData((prev) => ({ ...prev, [name]: value }));
   };
 
   const delLesson = async (lessonId) => {
@@ -136,68 +79,108 @@ export default function UpdateCourse() {
     }
   };
 
+  const handleThumbnailChange = (e) => {
+    const file = e.target.files[0];
+    setThumbnail(file);
+    if (file) {
+      setPreview(URL.createObjectURL(file));
+    }
+  };
+
   const handleThumbnailUpdate = async () => {
     try {
       const formData = new FormData();
-      formData.set("thumbnail", thumbnail); // thumbnail must be a File object
-
-      const res = await axios.post(
+      formData.set("thumbnail", thumbnail);
+      await axios.post(
         `http://localhost:8080/api/v1/courses/${id}/updateThumbnail`,
         formData,
         {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-          withCredentials: true,
+          headers: { "Content-Type": "multipart/form-data" },
         }
       );
-
       alert("Thumbnail updated!");
     } catch (error) {
-      console.error("Thumbnail update error:", error);
       alert("Failed to update thumbnail.");
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post(
+        `http://localhost:8080/api/v1/courses/${id}/updateCourse`,
+        courseData
+      );
+      alert("Course updated!");
+    } catch (err) {
+      console.error("Update error:", err);
+    }
+  };
+
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Update Course</h2>
+    <div className="create-course-container">
+      <h1 className="text-2xl font-bold mb-4 sans-serif">Update Course</h1>
 
-      <div style={{ marginTop: "20px" }}>
-        {["courseName", "title"].map((field) => {
-          const isEditing = editFields[field];
-          const isTitleField = field === "courseName";
-
-          return (
-            <div
-              key={field}
-              className="textinput"
-              style={{ marginBottom: "10px" }}
+      <form onSubmit={handleSubmit} className="main-form">
+        {[
+          "courseName",
+          "title",
+          "description",
+          "price",
+          "duration",
+          "category",
+          "taqs",
+        ].map((field) => (
+          <div key={field} className="course-form">
+            <label
+              style={{
+                alignContent: "center",
+                alignItems: "center",
+                marginTop: "2rem",
+                marginLeft: "2vw",
+                textTransform: "uppercase",
+              }}
             >
-              <h3>{isTitleField ? "Course Title" : "Brief Description"}</h3>
+              {field === "taqs" ? "tags" : field}
+            </label>
 
-              {isEditing ? (
-                <>
-                  <input
-                    type="text"
-                    value={courseData[field] || ""}
-                    onChange={(e) => handleChange(field, e.target.value)}
-                  />
-                  <button onClick={() => toggleEdit(field)}>Save</button>
-                </>
-              ) : (
-                <>
-                  <span>{course[field]}</span>
-                  <button onClick={() => toggleEdit(field)}>Edit</button>
-                </>
-              )}
-            </div>
-          );
-        })}
-      </div>
+            {field === "description" ? (
+              <textarea
+                name={field}
+                value={courseData[field] || ""}
+                onChange={handleChange}
+                style={{ minHeight: "100px" }}
+                placeholder="Enter a detailed course description"
+                required
+              />
+            ) : (
+              <input
+                type={field === "price" ? "number" : "text"}
+                name={field}
+                value={courseData[field] || ""}
+                onChange={handleChange}
+                placeholder={
+                  field === "taqs"
+                    ? "comma-separated tags (e.g., js,react)"
+                    : field === "price"
+                    ? "₹"
+                    : ""
+                }
+                min={field === "price" ? "0" : undefined}
+                step={field === "price" ? "0.01" : undefined}
+                required={[
+                  "courseName",
+                  "description",
+                  "price",
+                  "duration",
+                  "category",
+                ].includes(field)}
+              />
+            )}
+          </div>
+        ))}
 
-      {course.thumbnail && (
-        <div>
+        <div className="thumbnail">
           <label className="block font-semibold">Thumbnail</label>
           <input
             type="file"
@@ -205,108 +188,77 @@ export default function UpdateCourse() {
             onChange={handleThumbnailChange}
           />
           {preview && (
-            <img
-              src={preview}
-              alt="Preview"
-              style={{ width: "300px", borderRadius: "10px" }}
-            />
+            <div className="thumbnail-box">
+              <img src={preview} alt="Preview" />
+            </div>
           )}
-          <button onClick={handleThumbnailUpdate} style={{ marginTop: "20px" }}>
-            Save Thumbnail
+          <button
+            type="button"
+            onClick={handleThumbnailUpdate}
+            className="create-course-button"
+            style={{ width: "15rem", fontSize: "1rem" }}
+          >
+            Update Thumbnail
           </button>
         </div>
-      )}
 
-      <div style={{ marginTop: "20px" }}>
-        {["description", "price", "duration"].map((field) => (
+        {Array.isArray(course.content) && course.content.length > 0 && (
           <div
-            key={field}
-            className={field === "description" ? "textfield" : ""}
-            style={{ marginBottom: "10px" }}
+            style={{
+              marginTop: "20px",
+              display: "flex",
+              flexDirection: "column",
+              marginBlock: "1rem",
+            }}
           >
-            <strong>{field}: </strong>
-            {editFields[field] ? (
-              <>
-                {field === "description" ? (
-                  <textarea
-                    value={courseData[field] || ""}
-                    onChange={(e) => handleChange(field, e.target.value)}
-                    placeholder="Enter course description"
-                  />
-                ) : (
-                  <input
-                    type="text"
-                    value={courseData[field] || ""}
-                    onChange={(e) => handleChange(field, e.target.value)}
-                  />
-                )}
-                <button onClick={() => toggleEdit(field)}>Save</button>
-              </>
-            ) : (
-              <>
-                <span>{course[field]}</span>
-                <button onClick={() => toggleEdit(field)}>Edit</button>
-              </>
-            )}
-          </div>
-        ))}
-      </div>
-
-      <h3>Course Category</h3>
-      <select value={courseData.category} onChange={handleCategoryChange}>
-        <option value="">
-          {courseData.category && (
-            <p style={{ marginTop: "5px", fontSize: "0.9rem", color: "#555" }}>
-              <strong>{courseData.category}</strong>
-            </p>
-          )}
-        </option>
-        {categories.map((category) => (
-          <option key={category} value={category}>
-            {category}
-          </option>
-        ))}
-      </select>
-
-      {Array.isArray(course.content) && course.content.length > 0 && (
-        <div style={{ marginTop: "20px" }}>
-          <h3>Lessons</h3>
-          {course.content.map((lesson, index) => (
-            <div key={lesson._id}>
-              <h4>
-                Lesson {index + 1} : {lesson.title}
-                <NavLink
-                  to={`/user/updatecourse/${course._id}/${lesson._id}/updatelesson`}
+            <h3 style={{ margin: "1rem" }}>Lessons</h3>
+            {course.content.map((lesson, index) => (
+              <div key={lesson._id} style={{ marginTop: "2rem" }}>
+                <h4>
+                  Lesson {index + 1} : {lesson.title}
+                </h4>
+                <ul>
+                  {lesson.video.map((vid) => (
+                    <li key={vid._id}>- {vid.videoTitle} </li>
+                  ))}
+                </ul>
+                <button
+                  className="create-course-button"
+                  style={{
+                    width: "6rem",
+                    height: "2rem",
+                    fontSize: "0.6rem",
+                  }}
+                  onClick={() => {
+                    setSelectedOption("Edit Lesson");
+                    navigate("/user");
+                  }}
                 >
-                  Edit lesson
-                </NavLink>
+                  Edit Lesson
+                </button>
                 <button onClick={() => delLesson(lesson._id)}>
                   Delete Lesson
                 </button>
-              </h4>
-              <ul>
-                {lesson.video.map((vid) => (
-                  <li key={vid._id}>- {vid.videoTitle} </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      )}
+              </div>
+            ))}
+          </div>
+        )}
 
-      <NavLink
-        to={`/user/updatecourse/${course._id}/createlesson`}
-        className="button2"
-      >
-        Add a lesson
-      </NavLink>
-      <button
-        onClick={handleSubmit}
-        className="button1"
-        style={{ marginTop: "20px" }}
-      >
-        Update Course
-      </button>
+        <button
+          className="create-course-button"
+          style={{ width: "15rem", fontSize: "1rem" }}
+          onClick={() => {
+            setSelectedOption("Add Lesson");
+            navigate("/user");
+          }}
+        >
+          ADD A LESSON
+        </button>
+
+        <button type="submit" className="create-course-button">
+          Save Changes
+        </button>
+      </form>
     </div>
   );
 }
