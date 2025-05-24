@@ -124,7 +124,7 @@ const CreateCourse = () => {
           ))}
 
           <div>
-            <label className="block font-semibold">Thumbnail</label>
+            <label className="block font-semibold ">Thumbnail</label>
             <input
               type="file"
               accept="image/*"
