@@ -156,6 +156,7 @@
   justify-content: center;
   text-decoration: none;
   font-family: sans-serif;
+  cursor: pointer;
   font-weight: 800;
   text-decoration: none;
   color: #fff;
@@ -174,5 +175,5 @@
   transition: border-color 0.3s ease;
 }
 .textfield input[type=text]:focus {
-  border-color: #007BFF;
+  border-color: #007bff;
 }/*# sourceMappingURL=Courseforrm.css.map */

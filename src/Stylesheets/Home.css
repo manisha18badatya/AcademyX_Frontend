@@ -226,9 +226,9 @@
   background-color: #201D21;
   padding-top: 3vh;
   /*background-image:linear-gradient( to right,
-      rgba(7, 116, 171, 1), 
-      rgba(0, 0, 0, 0)
-    ), url(/Image/homehero.jpg);*/
+        rgba(7, 116, 171, 1), 
+        rgba(0, 0, 0, 0)
+      ), url(/Image/homehero.jpg);*/
   background-color: #201D21;
   background-size: cover;
   background-position: 90% 30%;
@@ -314,6 +314,7 @@
   display: grid;
   place-content: center;
   z-index: 3;
+  cursor: pointer;
   transition-property: transform box-shadow;
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;

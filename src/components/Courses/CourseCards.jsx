@@ -80,7 +80,7 @@ export default function CourseCard() {
             </NavLink>
           ))
         ) : (
-          <p>Loading...</p>
+          <p>No Courses in this Category</p>
         )}
       </div>
     </div>

@@ -13,9 +13,10 @@ import YourCourses from "./components/User/YourCourses";
 import Dashboard from "./components/User/Dashboard";
 import CreateCoursePage from "./components/CourseCreation/CreateCourse";
 import CreateLesson from "./components/CourseCreation/CreateLesson";
-import CourseModify from "./pages/CourseModify";
 import UpdateLesson from "./components/CourseCreation/UpdateLesson";
 import EnrolledCourses from "./components/User/EnrolledCourses";
+
+import CourseModify from "./components/CourseCreation/CourseModify";
 
 const AppRoutes = () => (
   <Routes>

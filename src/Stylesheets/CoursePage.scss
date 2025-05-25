@@ -1,235 +1,225 @@
+@import "./Animations/Animations";
+@import "./FontSystem/Fonts";
+@import "./ColorSystem/MainColors";
+@import "./UIComponents/buttons";
 
-@import './Animations/Animations';
-@import './FontSystem/Fonts';
-@import './ColorSystem/MainColors';
-@import './UIComponents/buttons';
-
-.maincontent{
-    display: flex;
-    justify-content: center;
+.maincontent {
+  display: flex;
+  justify-content: center;
 }
 
-.course-header{
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    margin-inline: auto ;
-    margin-bottom: 20vw;
-    font-family: 'Heading', sans-serif;
-    height: 10vh;
+.course-header {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+  margin-bottom: 20vw;
+  font-family: "Heading", sans-serif;
+  height: 10vh;
 
-    h1{
-        text-transform:capitalize;
-        margin-top: 10px;
-        font-size: 40px;
-    }
+  h1 {
+    text-transform: capitalize;
+    margin-top: 10px;
+    font-size: 40px;
+  }
 
-    .duration{
-        font-size: 15px;
-        font-weight: 100;
-        opacity: 0.5;
-    }
+  .duration {
+    font-size: 15px;
+    font-weight: 100;
+    opacity: 0.5;
+  }
 
-    h2{
-        margin-top: 20px;
-        font-size: 20px;
-    }
+  h2 {
+    margin-top: 20px;
+    font-size: 20px;
+  }
 
-    p{
-        margin-left: 5px;
-        margin-top: 20px;
-    }
+  p {
+    margin-left: 5px;
+    margin-top: 20px;
+  }
 }
 
-.line{
-    width: 100%;
-    background-color: $grey2;
-    height: 1px;
-    margin-block: 30px;
+.line {
+  width: 100%;
+  background-color: $grey2;
+  height: 1px;
+  margin-block: 30px;
 }
 
+.course-menu {
+  display: flex;
+  font-family: sans-serif;
+  gap: 3vw;
+  font-size: medium;
 
-.course-menu{
-    display: flex;
-    font-family: sans-serif;
-    gap: 3vw;
-    font-size: medium;
+  p {
+    height: 2.5vw;
+    color: black;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
 
-    p{
-        height: 2.5vw;
-        color:black;
-        cursor: pointer;
-        transition: transform 0.2s ease-in-out;
-
-
-        &:hover{
-            transform: translateY(-0.5vw);
-        }
+    &:hover {
+      transform: translateY(-0.5vw);
     }
+  }
 
-    .active-p{
-        color: $accent2;
-    }
+  .active-p {
+    color: $accent2;
+  }
 
-    .disabled-p {
+  .disabled-p {
     color: grey;
     cursor: not-allowed;
     opacity: 0.6;
+    transform: none;
+  }
 }
 
+.info-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4vh;
+  width: 40vw;
+  float: left;
+
+  .thumb-cont {
+    width: 100%;
+  }
+
+  .thumb {
+    object-fit: cover;
+    object-position: center;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hrline {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    background-color: $grey2;
+    border: none;
+    height: 1px;
+    width: 100%;
+  }
+
+  .descript {
+    margin-top: 3vw;
+    font-family: sans-serif;
+    font-size: 1.4vw;
+  }
+}
+.enroll-button {
+  @include normbutton(15vw, 8vh, $accent1-light);
+  margin-top: 4vw;
+  cursor: pointer;
 }
 
+.videocontainer-body {
+  margin-top: 4vh;
+  width: 60vw;
+  float: left;
 
-.info-container{
-    display: flex;
-    flex-direction: column;
-    margin-top: 4vh;
-    width: 40vw;
-    float: left;
+  .lesson {
+    text-transform: capitalize;
+    font-family: "Heading", sans-serif;
+    margin-block: 10px;
+    font-size: 30px;
+    color: $bg-dark1;
+  }
 
-    .thumb-cont{
-        width: 100%;
-    }
+  .hrline {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    background-color: $grey2;
+    border: none;
+    height: 1px;
+    width: 100%;
+  }
 
-    .thumb{
-        object-fit: cover;
-        object-position: center;
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-    }
+  .video-title {
+    font-family: "Content", sans-serif;
+    margin-block: 10px;
+    margin-left: 5px;
+    font-weight: 100;
+    color: #444;
+  }
 
-    .hrline{
-        margin-top: 50px;
-        margin-bottom: 30px;
-        background-color: $grey2;
-        border: none;
-        height: 1px;
-        width: 100%;
-    }
-
-    .descript{
-        margin-top: 3vw;
-        font-family: sans-serif;
-        font-size:1.4vw;
-
-    }
-
-}
-.enroll-button{
-    @include normbutton(15vw,8vh,$accent1-light);
-    margin-top: 4vw;
-    cursor: pointer;
-    
-}
-
-.videocontainer-body{
-    margin-top: 4vh;
-    width: 60vw;
-    float: left;
-
-    .lesson{
-        text-transform: capitalize;
-        font-family: 'Heading', sans-serif;
-        margin-block: 10px;
-        font-size: 30px;
-        color: $bg-dark1;
-    }
-
-    .hrline{
-        margin-top: 50px;
-        margin-bottom: 30px;
-        background-color: $grey2;
-        border: none;
-        height: 1px;
-        width: 100%;
-    }
-
-    .video-title{
-        font-family: 'Content', sans-serif;
-        margin-block: 10px;
-        margin-left: 5px;
-        font-weight: 100;
-        color: #444;
-    }
-    
-    .videotime{
-        font-size: 15px;
-        font-weight: 100;
-        opacity: 0.6;
-    }
+  .videotime {
+    font-size: 15px;
+    font-weight: 100;
+    opacity: 0.6;
+  }
 }
 
 .video-player {
-    position: relative;
-  }
-  
+  position: relative;
+}
+
 .video-player video {
-    display: block;
-    width: 100%;
-    height: auto;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .play-icon {
-position: absolute;
-top: 50%;
-left: 50%;
-fill: white;
-transform: translate(-50%, -50%);
-pointer-events: none; /* so the video controls still work */
-opacity: 0.8;
-width: 80px;
-height: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  fill: white;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* so the video controls still work */
+  opacity: 0.8;
+  width: 80px;
+  height: 80px;
 }
 
-.course-tracker{
-    background-color: $grey1;
-    margin-top: 5vh;
-    padding-top: 30px;
-    width: 25vw;
-    padding-inline: 20px;
-    float: left;
-    color: $grey3;
-    border-radius: 0.5rem;
-    margin-left: 20px;
-    min-height: 100vh;
-    font-family: sans-serif;
+.course-tracker {
+  background-color: $grey1;
+  margin-top: 5vh;
+  padding-top: 30px;
+  width: 25vw;
+  padding-inline: 20px;
+  float: left;
+  color: $grey3;
+  border-radius: 0.5rem;
+  margin-left: 20px;
+  min-height: 100vh;
+  font-family: sans-serif;
 
-    .course-head{
-        text-transform: uppercase;
-        font-weight: 100;
+  .course-head {
+    text-transform: uppercase;
+    font-weight: 100;
+  }
+
+  .lesson-section {
+    text-transform: uppercase;
+    margin-top: 30px;
+    font-size: 10px;
+  }
+
+  .active-video {
+    color: $accent2-dark;
+    transform: translateX(5px);
+  }
+
+  .video-list {
+    text-transform: none;
+    list-style-type: none;
+    font-size: 15px;
+  }
+
+  .video-list li {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    list-style-type: none;
+    cursor: pointer;
+    @include transition;
+
+    &:hover {
+      color: $bg-dark1;
+      transform: translateX(5px);
     }
-
-    .lesson-section{
-        text-transform: uppercase;
-        margin-top: 30px;
-        font-size: 10px;
-    }
-
-    .active-video{
-        color: $accent2-dark;
-        transform: translateX(5px);
-    }
-
-    .video-list{
-        text-transform: none;
-        list-style-type: none;
-        font-size: 15px;
-    }
-
-    .video-list li{
-        margin-top: 15px;
-        margin-bottom: 20px;
-        list-style-type: none;
-        cursor: pointer;
-        @include transition;
-
-        &:hover{
-            color: $bg-dark1;
-            transform: translateX(5px);
-        }
-    }
+  }
 }
-
-
-

@@ -1,42 +1,39 @@
 // _card.scss
-@import '../ColorSystem/MainColors';
-@import '../FontSystem/Fonts';
-@import '../Animations/Animations.scss';
+@import "../ColorSystem/MainColors";
+@import "../FontSystem/Fonts";
+@import "../Animations/Animations.scss";
 
-
-@mixin herocard{
+@mixin herocard {
   display: block;
-    width: vw;
-    margin-inline: auto;
-    height: 50vw;
-    border-radius: 1rem;
-    background-color: $bg-dark1;
-    padding-top: 3vh;
+  width: vw;
+  margin-inline: auto;
+  height: 50vw;
+  border-radius: 1rem;
+  background-color: $bg-dark1;
+  padding-top: 3vh;
 
-    &__title{
-      position: absolute;
-      color: white;
-      font-family: 'Heading', sans-serif;
-      font-weight: 900;
-      font-size: 5vw;
-    }
+  &__title {
+    position: absolute;
+    color: white;
+    font-family: "Heading", sans-serif;
+    font-weight: 900;
+    font-size: 5vw;
+  }
 
-    &__subtitle{
-      position:relative;
-      color: white;
-      font-family: 'Heading', sans-serif;
-      font-weight: 300;
-      font-size: 3vw;
-    }
+  &__subtitle {
+    position: relative;
+    color: white;
+    font-family: "Heading", sans-serif;
+    font-weight: 300;
+    font-size: 3vw;
+  }
 }
-
-
 
 @mixin card(
   $width: 25vw,
   $padding: 1vw,
   $border-radius: 1rem,
-  $bg-color: #333,
+  $bg-color: #333
 ) {
   width: $width;
   padding: $padding;
@@ -48,47 +45,46 @@
     box-shadow: 0 0.5vw 1vw $highlight;
   }
 
-  &__img{
+  &__img {
     display: flex;
     margin-top: 1vw;
     margin-inline: auto;
-  } 
+  }
 
-  &__title{
+  &__title {
     margin-top: 2vw;
     color: white;
-    font-family: 'Heading', sans-serif;
+    font-family: "Heading", sans-serif;
     font-size: clamp(0.8rem, 2vw, 2vw);
   }
 
-  &__subtitle{
+  &__subtitle {
     margin-top: 0.5vw;
     color: $grey1;
-    font-family: 'SubHeading1', sans-serif;
+    font-family: "SubHeading1", sans-serif;
     font-size: 1.5vw;
   }
 
-  &__description{
+  &__description {
     margin-top: 1vw;
     color: $grey2;
-    font-family: 'Content', sans-serif;
+    font-family: "Content", sans-serif;
     font-size: clamp(0.5rem, 1vw, 1vw);
   }
 }
 
-
-@mixin videocard(
-  $width: 25vw,
-  $height: 20vw,
-  $border-radius: 1rem,
-) {
+@mixin videocard($width: 25vw, $height: 20vw, $border-radius: 1rem) {
   width: $width;
   height: $height;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border-radius: $border-radius;
   background-color: white;
   border: 1px solid $grey2;
   text-decoration: none;
   padding: 0;
+  padding-bottom: 0.8rem;
   overflow: hidden;
   transition: box-shadow 0.3s ease;
 
@@ -96,56 +92,52 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
 
-
-
-  &__thumbcontainer{
+  &__thumbcontainer {
     overflow: hidden;
     height: 40%;
     padding: 0;
-
   }
 
-  &__thumb{
-    object-fit: cover;    
+  &__thumb {
+    object-fit: cover;
     object-position: center;
     margin: 0;
     width: 100%;
-   height: 100%; 
+    height: 100%;
     padding: 0;
-  } 
+  }
 
-  &__data{
-    display: block;
+  &__data {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
     margin-left: 1vw;
-    height: 40%;
     width: 100%;
     overflow: hidden;
 
-    &__title{
+    &__title {
       text-decoration: none;
       margin-top: 1vw;
       color: $bg-dark1;
-      font-family: 'Heading', sans-serif;
+      font-family: "Heading", sans-serif;
       font-size: clamp(0.8em, 1.2vw, 1.2vw);
     }
-  
-    &__subtitle{
+
+    &__subtitle {
       width: 90%;
       text-decoration: none;
       margin-top: 1.6vw;
       color: $bg-dark1;
-      font-family: 'SubHeading1', sans-serif;
+      font-family: "SubHeading1", sans-serif;
       font-size: clamp(0.6em, 1vw, 1.2vw);
     }
-  
-    &__description{
+
+    &__description {
       text-decoration: none;
       margin-top: 3vw;
       color: $bg-dark1;
-      font-family: 'Content', sans-serif;
+      font-family: "Content", sans-serif;
       font-size: clamp(0.5rem, 1vw, 1.2vw);
     }
   }
-
-
 }

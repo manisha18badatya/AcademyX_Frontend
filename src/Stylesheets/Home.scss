@@ -1,137 +1,129 @@
-@import './ColorSystem/MainColors';
-@import './FontSystem/Fonts';
-@import './UIComponents/cards';
-@import './UIComponents/buttons';
-@import './Animations/Animations';
+@import "./ColorSystem/MainColors";
+@import "./FontSystem/Fonts";
+@import "./UIComponents/cards";
+@import "./UIComponents/buttons";
+@import "./Animations/Animations";
 
-
-
-.hero{
-    @include herocard;
-    /*background-image:linear-gradient( to right,
+.hero {
+  @include herocard;
+  /*background-image:linear-gradient( to right,
         rgba(7, 116, 171, 1), 
         rgba(0, 0, 0, 0)
       ), url(/Image/homehero.jpg);*/
-    background-color: $bg-dark1;
-    background-size: cover;
-    background-position:90% 30%;
-    position: relative;
+  background-color: $bg-dark1;
+  background-size: cover;
+  background-position: 90% 30%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 3;
+
+  perspective: 1000px; // Add perspective here for 3D effect
+  perspective-origin: center;
+
+  .heroimage {
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+    will-change: transform;
+  }
+
+  .herotext {
     display: flex;
-    align-items: center;
-    z-index: 3;
+    position: relative;
+    height: 90%;
+    float: left;
+    width: 50%;
 
-    perspective: 1000px; // Add perspective here for 3D effect
-    perspective-origin: center;
-  
-    .heroimage {
-      transform-style: preserve-3d;
-      transition: transform 0.3s ease;
-      will-change: transform;
+    &__free {
+      display: block;
+      position: absolute;
+      padding: 3% 5%;
+      transform: translate(8vw, -3vw);
+      background-color: $accent2-dark;
+      border-radius: 1.5vw;
     }
+  }
 
-    .herotext{
-        display: flex;
-        position: relative;
-        height: 90%;
-        float: left;
-        width: 50%;
-        
-        &__free{
-            display: block;
-            position: absolute;
-            padding: 3% 5%;
-            transform: translate(8vw,-3vw);
-            background-color: $accent2-dark;
-            border-radius: 1.5vw;
-        }
-    }
+  .hero__title {
+    font-size: 5vw;
+    margin-left: 3vw;
+  }
 
-    .hero__title{
-        font-size: 5vw;
-        margin-left: 3vw;
-    }
-    
-    .hero__subtitle{
-        width: 60%;
-        margin-top: 40%;
-        font-size: 3vw;
-        margin-left: 2.8rem;
-    }
-    
+  .hero__subtitle {
+    width: 60%;
+    margin-top: 40%;
+    font-size: 3vw;
+    margin-left: 2.8rem;
+  }
 
-    .heroimage{
-        border-radius: 1rem;
-        display: block;
-        float: left;
-        width: 40%;
-        height: 60%;
-        background-color: $accent1;
-        overflow: hidden;
-        padding: 0;
-        
-        img{
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%; 
-            object-fit: cover;    
-            object-position: center;
-        }
-    }
-}
-
-.signupbutton{
-    @include capsulebutton(20vw, 5vw);
-    margin-left: 10vw;
-    margin-top: 30vw;
-    cursor: pointer;
-    text-decoration: none;
-    position: absolute;
-
-    &__text{
-        font-size: 1.8vw;
-        font-weight: 600;
-        opacity: 0.85;
-        font-family: 'SubHeading',sans-serif;
-    }
-}
-
-
-.Topcreator{
-    @include herocard;
+  .heroimage {
+    border-radius: 1rem;
+    display: block;
+    float: left;
+    width: 40%;
+    height: 60%;
     background-color: $accent1;
-    margin-top: 2vw;
-  
-    &__subtitle{
-      text-align: center;
+    overflow: hidden;
+    padding: 0;
+
+    img {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
   }
-  
-  .cards-grid {
-    display: grid;
-    margin-top: 4vw;
-    grid-template-columns: repeat(3,1fr);
-    gap: 2vw;
-    padding-inline: 6vw;
+}
+
+.signupbutton {
+  @include capsulebutton(20vw, 5vw);
+  margin-left: 10vw;
+  margin-top: 30vw;
+  cursor: pointer;
+  text-decoration: none;
+  position: absolute;
+
+  &__text {
+    font-size: 1.8vw;
+    font-weight: 600;
+    opacity: 0.85;
+    font-family: "SubHeading", sans-serif;
   }
-    
-  
-  .cardset{
-    @include card($padding:1.5vw);
-    margin-top: 0.8vw;
-    height: clamp(12rem, 30vw, 30vw);
-    cursor: pointer;
-  
-    &:hover .cardset__img{
-      transform: scale(1.05);
-    }
+}
+
+.Topcreator {
+  @include herocard;
+  background-color: $accent1;
+  margin-top: 2vw;
+
+  &__subtitle {
+    text-align: center;
   }
-  
-  .cardset__img{
-    height: 15vw;
-    border-radius: 50%;
-    @include transition(transform);
+}
+
+.cards-grid {
+  display: grid;
+  margin-top: 4vw;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2vw;
+  padding-inline: 6vw;
+}
+
+.cardset {
+  @include card($padding: 1.5vw);
+  margin-top: 0.8vw;
+  height: clamp(12rem, 30vw, 30vw);
+  cursor: pointer;
+
+  &:hover .cardset__img {
+    transform: scale(1.05);
   }
-  
-  
-  
+}
+
+.cardset__img {
+  height: 15vw;
+  border-radius: 50%;
+  @include transition(transform);
+}

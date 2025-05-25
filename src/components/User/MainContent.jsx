@@ -8,6 +8,7 @@ import EnrolledCourses from "./EnrolledCourses";
 import YourCourses from "./YourCourses";
 import CreateLesson from "../CourseCreation/CreateLesson";
 import UpdateLesson from "../CourseCreation/UpdateLesson";
+import CourseModify from "../CourseCreation/CourseModify";
 
 export default function MainContent() {
   const { selectedOption } = useOptions();
@@ -28,6 +29,8 @@ export default function MainContent() {
         return <CreateLesson />;
       case "Edit Lesson":
         return <UpdateLesson />;
+      case "Update Course":
+        return <CourseModify />;
       default:
         return <p>Content in progress...</p>;
     }

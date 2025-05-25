@@ -1,23 +1,14 @@
-import React, { useEffect, useState } from "react";
-import "../../stylesheets/User.css";
-import "../../Stylesheets/Courses.css";
+import React, { useEffect, useOptimistic, useState } from "react";
+import "../../Stylesheets/enrolledcourses.css";
 import "../../Stylesheets/base.css";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import { useOptions } from "../../context/UserContext";
 
 export default function EnrolledCourses() {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const removeEnroll = async () => {
-    const res = await axios.get(
-      `http://localhost:8080/api/v1/enrollments/${id}`,
-      {
-        withCredentials: true,
-      }
-    );
-    alert(res.data.message);
-  };
+  const { setEnrolledCourse } = useOptions();
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -44,66 +35,67 @@ export default function EnrolledCourses() {
     console.log("Fetched courses:", courses);
   }, [courses]);
 
-  return (
-    <div className="videocard-container" style={{ flexDirection: "column" }}>
-      <div
-        style={{
-          marginBlock: "0.5rem 2rem",
-          fontFamily: "sans-serif",
-          fontWeight: "600",
-          fontSize: "2rem",
-        }}
-      >
-        Your Enrolled Course
-      </div>
+  const handleEnroll = async (id) => {
+    try {
+      const res = await axios.get(
+        `http://localhost:8080/api/v1/enrollments/${id}`,
+        {
+          withCredentials: true,
+        }
+      );
+      alert(res.data.message);
 
-      <div className="videocard-grid">
+      // ✅ Remove the course from UI state
+      setCourses((prevCourses) =>
+        prevCourses.filter((course) => course._id !== id)
+      );
+
+      // ✅ Remove from global enrolledCourse in context
+      setEnrolledCourse((prev) => prev.filter((course) => course._id !== id));
+    } catch (error) {
+      console.error("Enrollment error:", error);
+      alert("Something went wrong. Please try again.");
+    }
+  };
+
+  return (
+    <div className="courses-wrapper">
+      <div className="courses-heading">Your Enrolled Course</div>
+
+      <div className="courses-grid">
         {courses.length > 0 ? (
           courses.map((course) => (
-            <NavLink
-              to={`/coursepage/${course._id}`}
-              className="courses"
-              key={course._id}
-            >
-              <div className="videocard" style={{ width: "100%" }}>
-                <div className="videocard__thumbcontainer">
+            <div className="course-card" key={course._id}>
+              <div className="course-content">
+                <div className="course-thumbnail">
                   <img
                     src={course.thumbnail}
                     alt={course.courseName}
-                    className="videocard__thumb"
+                    className="course-thumbnail__img"
                   />
                 </div>
-                <div className="videocard__data">
-                  <h3 className="videocard__data__title">
-                    {course.courseName}
-                  </h3>
-                  <p className="videocard__data__subtitle">{course.title}</p>
+                <div className="course-info">
+                  <h3 className="course-info__title">{course.courseName}</h3>
+                  <p className="course-info__subtitle">{course.title}</p>
                 </div>
-                <div
-                  style={{
-                    width: "100%",
-                    display: "flex",
-                    paddingRight: "2vw",
-                    color: "red",
-                    justifyContent: "flex-end",
-                    fontFamily: "sans-serif",
-                    transform: "translateY(-2vw)",
-                  }}
-                  onClick={removeEnroll}
+              </div>
+
+              <div className="course-actions">
+                <button
+                  className="course-remove-btn"
+                  onClick={() => handleEnroll(course._id)}
                 >
                   Remove
-                </div>
+                </button>
                 <NavLink
                   to={`/coursepage/${course._id}`}
-                  className="videocard__buybutton"
+                  className="course-watch-btn"
                 >
-                  <div className="pricecontain">
-                    <span>WATCH</span>
-                  </div>
-                  <div className="hover-text">Play {">"} </div>
+                  <span>Watch</span>
+                  <span className="course-watch-btn__icon">&rsaquo;</span>
                 </NavLink>
               </div>
-            </NavLink>
+            </div>
           ))
         ) : (
           <p>No Enrolled Courses</p>

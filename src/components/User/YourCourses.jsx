@@ -4,10 +4,12 @@ import "../../Stylesheets/Courses.css";
 import "../../Stylesheets/base.css";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import { useOptions } from "../../context/UserContext";
 
 export default function YourCourses() {
   const [ycourses, setYCourses] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { setSelectedOption } = useOptions();
 
   useEffect(() => {
     const fetchCourses = async () => {

@@ -294,11 +294,15 @@
 .videocard {
   width: 24vw;
   height: clamp(20rem, 35vw, 35vw);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
   border-radius: 1rem;
   background-color: white;
   border: 1px solid #888;
   text-decoration: none;
   padding: 0;
+  padding-bottom: 0.8rem;
   overflow: hidden;
   transition: box-shadow 0.3s ease;
 }
@@ -323,7 +327,6 @@
 .videocard__data {
   display: block;
   margin-left: 1vw;
-  height: 40%;
   width: 100%;
   overflow: hidden;
 }
@@ -361,10 +364,12 @@
   justify-content: center;
   text-decoration: none;
   font-family: sans-serif;
+  cursor: pointer;
   font-weight: 800;
   transition-property: background-color opacity;
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;
+  display: flex;
   margin-inline: auto;
   align-items: center;
   color: #fff;
