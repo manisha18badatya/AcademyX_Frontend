@@ -1,143 +1,141 @@
-@import './UIComponents/cards';
-@import './UIComponents/buttons';
-@import './Animations/Animations';
-@import './ColorSystem/MainColors';
+@import "./UIComponents/cards";
+@import "./UIComponents/buttons";
+@import "./Animations/Animations";
+@import "./ColorSystem/MainColors";
 
-
-.headings{
-    text-transform: uppercase;
-    margin-top: 3vw;
-    margin-left: 1.5vw;
-    font-family: 'Heading', sans-serif;
-    color: $grey2;
-    font-size: clamp(0.6rem, 1.5vw,2vw);
+.headings {
+  text-transform: uppercase;
+  margin-top: 3vw;
+  margin-left: 1.5vw;
+  font-family: "Heading", sans-serif;
+  color: $grey2;
+  font-size: clamp(0.6rem, 1.5vw, 2vw);
 }
 
 .categories {
-    width: 18vw;
-    min-height: 60vw;
-    border-radius: 0.5rem;
-    background-color: $bg-dark1;
-    color: $grey1;
-    float: left;
-  
-    &__list {
-      list-style-type: none;
-    }
+  width: 18vw;
+  min-height: 60vw;
+  border-radius: 0.5rem;
+  background-color: $bg-dark1;
+  color: $grey1;
+  float: left;
 
-    .active-li{
-        font-size: clamp(0.8rem, 1.2vw,1.2vw);
-        color: $accent2;
-        transform: translateX(0.3vw);
+  &__list {
+    list-style-type: none;
+  }
 
-        &:hover{
-            color: $accent2;
-        }
-    }
+  .active-li {
+    font-size: clamp(0.8rem, 1.2vw, 1.2vw);
+    color: $accent2;
+    transform: translateX(0.3vw);
 
-    li{
-        font-family: sans-serif;
-      font-size: clamp(0.6rem, 1vw,1vw);
-      text-decoration: none;
-      text-transform: capitalize;
-      display: flex;
-      align-items: center;
-      height: 3vw;
-      margin-block: clamp(0.6rem, 0.2vw,0.5vw);
-      margin-left: 3vw;
-      color: $grey2;
-      cursor: pointer;
-      transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
-  
-      &:hover {
-        transform: translateX(0.3vw);
-        color: $white;
-      }
+    &:hover {
+      color: $accent2;
     }
   }
-  
 
-
-.courses{
+  li {
+    font-family: sans-serif;
+    font-size: clamp(0.6rem, 1vw, 1vw);
     text-decoration: none;
-    height: fit-content;
-}
-
-.videocard-container{
+    text-transform: capitalize;
     display: flex;
-    width: 75vw;
-    min-height: 120vh;
-    margin-left: 1vw;
-    float: left;
+    align-items: center;
+    height: 3vw;
+    margin-block: clamp(0.6rem, 0.2vw, 0.5vw);
+    margin-left: 3vw;
+    color: $grey2;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateX(0.3vw);
+      color: $white;
+    }
+  }
 }
 
-.info-container{
-    display: flex;
-    width: 75vw;
-    min-height: 120vh;
-    margin-left: 1vw;
-    float: left;
+.courses {
+  text-decoration: none;
+  height: fit-content;
 }
 
-.thumbnaii{
+.videocard-container {
+  display: flex;
+  width: 75vw;
+  min-height: 120vh;
+  margin-left: 1vw;
+  float: left;
+}
+
+.info-container {
+  display: flex;
+  width: 75vw;
+  min-height: 120vh;
+  margin-left: 1vw;
+  float: left;
+}
+
+.thumbnaii {
+  width: 100%;
+  height: 40vw;
+  object-fit: cover;
+
+  img {
     width: 100%;
-    height: 40vw;
-    object-fit: cover;
-
-    img{
-        width: 100%;
-        height: 100%;
-    }
+    height: 100%;
+  }
 }
 
-.videocard-grid{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 1rem;
+.videocard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
 }
 
-.videocard{
-    @include videocard(24vw, clamp(20rem, 35vw, 35vw));
+.videocard {
+  @include videocard(24vw, clamp(20rem, 35vw, 35vw));
 
-    &__buybutton{
-        @include normbutton(20vw, 5vw, $bgcolor: $accent2);
-        @include transition(background-color opacity);
-        margin-inline: auto;
-        align-items: center;
-        color: $white;
+  &__buybutton {
+    @include normbutton(20vw, 5vw, $bgcolor: $accent2);
+    @include transition(background-color opacity);
+    display: flex;
+    margin-inline: auto;
+    align-items: center;
+    color: $white;
 
-        .hover-text{
-            position: absolute;
-            display: none;
-            align-items: center;
-            justify-content:center ;
-            opacity: 0;
-            visibility: hidden;
-            color: $white;
-            font-size: clamp(0.8rem,1.5vw, 1.5rem);
-            @include transition(transform opacity, 0.8s)
-        }
-
-        .pricecontain{
-            display: flex;
-            width: 100%;
-            font-size: clamp(0.2rem, 1.2vw, 1.5vw);
-            justify-content: space-between;
-            opacity: 1;
-            transition: opacity 0.4s ease-in-out;
-        }
-
-        &:hover .pricecontain{
-            opacity: 0;
-        }
-
-        &:hover{
-            background-color: $accent2-dark;
-        }
-        &:hover .hover-text{
-            display: block;
-            visibility: visible;
-            animation: slideright 0.5s ease-out forwards;
-        }
+    .hover-text {
+      position: absolute;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      color: $white;
+      font-size: clamp(0.8rem, 1.5vw, 1.5rem);
+      @include transition(transform opacity, 0.8s);
     }
+
+    .pricecontain {
+      display: flex;
+      width: 100%;
+      font-size: clamp(0.2rem, 1.2vw, 1.5vw);
+      justify-content: space-between;
+      opacity: 1;
+      transition: opacity 0.4s ease-in-out;
+    }
+
+    &:hover .pricecontain {
+      opacity: 0;
+    }
+
+    &:hover {
+      background-color: $accent2-dark;
+    }
+    &:hover .hover-text {
+      display: block;
+      visibility: visible;
+      animation: slideright 0.5s ease-out forwards;
+    }
+  }
 }

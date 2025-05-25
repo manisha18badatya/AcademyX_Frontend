@@ -108,6 +108,7 @@
   display: grid;
   place-content: center;
   z-index: 3;
+  cursor: pointer;
   transition-property: transform box-shadow;
   transition-duration: 0.3s;
   transition-timing-function: ease-in-out;

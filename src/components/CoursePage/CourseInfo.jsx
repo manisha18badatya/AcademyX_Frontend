@@ -3,12 +3,19 @@ import { useCourse } from "../../context/CourseContext";
 import { useParams } from "react-router-dom";
 import "../../Stylesheets/CoursePage.css";
 import axios from "axios";
+import { useOptions } from "../../context/UserContext";
 
 export default function CourseInfo() {
   const { course } = useCourse();
   const { id } = useParams();
+  const { enrolledCourse } = useOptions();
 
   if (!course) return <p>Loading course info...</p>;
+
+  const isEnrolled =
+    Array.isArray(enrolledCourse) &&
+    course?._id &&
+    enrolledCourse.some((c) => c._id === course._id);
 
   const handleEnroll = async () => {
     try {
@@ -18,7 +25,9 @@ export default function CourseInfo() {
           withCredentials: true,
         }
       );
-      alert(res.data.message); // Show feedback like "Successfully enrolled" or "Unenrolled successfully"
+      alert(res.data.message);
+      console.log(enrolledCourse);
+      window.location.reload(); // Refresh to update enrollment status
     } catch (error) {
       console.error("Enrollment error:", error);
       alert("Something went wrong. Please try again.");
@@ -33,9 +42,13 @@ export default function CourseInfo() {
       <hr />
       <p className="descript">{course.description}</p>
 
-      {!course?.isEnrolled && (
+      {!isEnrolled ? (
         <div className="enroll-button" onClick={handleEnroll}>
           ENROLL NOW
+        </div>
+      ) : (
+        <div className="enroll-button" onClick={handleEnroll}>
+          Enrolled
         </div>
       )}
     </div>
