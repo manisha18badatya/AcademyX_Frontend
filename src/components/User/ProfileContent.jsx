@@ -264,7 +264,7 @@ export default function ProfileContent() {
               justifyContent: "space-between",
             }}
           >
-            <span>Bio</span>
+            <span style={{ color: "grey" }}>Bio</span>
             <div className="edit-bio" onClick={handleClickbio}>
               <span>
                 <LiaEditSolid />
@@ -284,7 +284,14 @@ export default function ProfileContent() {
         </div>
 
         {user.bio ? <p className="bio">{user.bio}</p> : ""}
-        <hr style={{ height: "2px", width: "50vw", marginLeft: "2rem" }} />
+        <hr
+          style={{
+            height: "2px",
+            width: "50vw",
+            marginLeft: "2rem",
+            marginTop: "1.5rem",
+          }}
+        />
       </div>
     </div>
   );
