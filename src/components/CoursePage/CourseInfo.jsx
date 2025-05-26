@@ -48,7 +48,7 @@ export default function CourseInfo() {
       <div className="thumbnail">
         <img className="thumb" src={course.thumbnail} alt="Course Thumbnail" />
       </div>
-      <hr />
+      <hr style={{ marginTop: "4rem" }} />
       <p className="descript">{course.description}</p>
 
       {!isEnrolled ? (
