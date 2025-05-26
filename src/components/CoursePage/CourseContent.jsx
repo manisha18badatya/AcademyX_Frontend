@@ -13,15 +13,21 @@ function CourseContent() {
   return (
     <div>
       {selectedSection && selectedSection === "info" ? (
-        <>
+        <div
+          style={{
+            display: "flex",
+            width: "90%",
+            justifySelf: "center",
+          }}
+        >
           <CourseInfo />
           <CourseList />
-        </>
+        </div>
       ) : (
-        <>
+        <div>
           <VideoContainer />
           <CourseTracker />
-        </>
+        </div>
       )}
     </div>
   );

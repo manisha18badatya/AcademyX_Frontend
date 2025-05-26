@@ -78,15 +78,12 @@
 
 .info-container {
   display: flex;
-  width: 20%;
   flex-direction: column;
-  margin-top: 4vh;
-  float: left;
-  background-color: $accent1;
+  margin-bottom: 3vw;
 
   .thumbnail {
     display: flex;
-    width: 60%;
+    width: 80%;
   }
 
   .thumb {
@@ -98,7 +95,6 @@
   }
 
   .hrline {
-    margin-top: 50px;
     margin-bottom: 30px;
     background-color: $grey2;
     border: none;
