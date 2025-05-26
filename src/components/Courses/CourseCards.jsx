@@ -11,13 +11,6 @@ export default function CourseCard() {
   const searchParams = new URLSearchParams(location.search);
   const searchQuery = searchParams.get("search")?.toLowerCase() || "";
 
-  const filteredCourses =
-    category === "All Courses"
-      ? courses.filter((course) =>
-          course.courseName.toLowerCase().includes(searchQuery)
-        )
-      : courses; // Ignore search if specific category is selected
-
   useEffect(() => {
     const fetchCourses = async () => {
       try {
@@ -55,8 +48,8 @@ export default function CourseCard() {
   return (
     <div className="videocard-container">
       <div className="videocard-grid">
-        {filteredCourses.length > 0 ? (
-          filteredCourses.map((course) => (
+        {courses.length > 0 ? (
+          courses.map((course) => (
             <NavLink
               to={`/coursepage/${course._id}`}
               className="courses"
