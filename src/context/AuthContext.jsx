@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext();
 
@@ -6,21 +6,54 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     try {
       return localStorage.getItem("isLoggedIn") === "true";
-    } catch (error) {
-      console.error("Failed to load isLoggedIn from localStorage:", error);
+    } catch {
       return false;
     }
   });
 
   const [user, setUser] = useState(() => {
     try {
-      const storedUser = localStorage.getItem("user");
-      return storedUser ? JSON.parse(storedUser) : null;
-    } catch (error) {
-      console.error("Failed to load user from localStorage:", error);
+      const cached = localStorage.getItem("user");
+      return cached ? JSON.parse(cached) : null;
+    } catch {
       return null;
     }
   });
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      setIsLoading(true);
+      try {
+        const res = await fetch("http://localhost:8080/api/v1/dashboards", {
+          credentials: "include",
+        });
+        const userdata = await res.json();
+        if (userdata?.data[0]) {
+          setUser(userdata.data[0]);
+          localStorage.setItem("user", JSON.stringify(userdata.data[0]));
+        } else {
+          setUser(null);
+          localStorage.removeItem("user");
+        }
+      } catch (err) {
+        console.error("Error fetching user:", err);
+        setUser(null);
+        localStorage.removeItem("user");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (isLoggedIn) {
+      fetchUser();
+    } else {
+      setUser(null);
+      localStorage.removeItem("user");
+      setIsLoading(false);
+    }
+  }, [isLoggedIn]);
 
   const login = (userData) => {
     setIsLoggedIn(true);
@@ -38,7 +71,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, setIsLoggedIn, user, login, logout }}
+      value={{ isLoggedIn, setIsLoggedIn, user, isLoading, login, logout }}
     >
       {children}
     </AuthContext.Provider>

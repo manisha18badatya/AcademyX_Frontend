@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "../../Stylesheets/Courses.scss"; // ← make sure this SCSS file contains the styles you pasted
 import { NavLink } from "react-router-dom";
 import { useOptions } from "../../context/UserContext";
 
@@ -33,7 +32,7 @@ export default function Dashboard() {
     <div className="courses-wrapper">
       <div className="courses-heading">Your Dashboard</div>
 
-      <div className="dashboard-subheading">Recently Created Courses</div>
+      <div style={{ marginBlock: "1rem" }}>Recently Created Courses</div>
 
       {loading ? (
         <p>Loading...</p>
@@ -87,6 +86,7 @@ export default function Dashboard() {
         <NavLink
           to="/user"
           className="button1"
+          style={{ width: "10vw" }}
           onClick={() => setSelectedOption("Create Course")}
         >
           <div className="plus">+</div>

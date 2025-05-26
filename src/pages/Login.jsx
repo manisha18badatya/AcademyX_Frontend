@@ -102,8 +102,8 @@ function Login() {
             <button type="submit">Sign in</button>
             {validate && <p>{validate}</p>}
             <span>
-              <a href="/">Don't have an account? |</a>
-              <a href="/">Create an Account</a>
+              <a href="/signup">Don't have an account? |</a>
+              <a href="/signup">Create an Account</a>
             </span>
           </div>
 
