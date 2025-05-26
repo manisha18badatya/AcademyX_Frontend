@@ -157,7 +157,11 @@ export default function UpdateCourse() {
               <input
                 type={field === "price" ? "number" : "text"}
                 name={field}
-                value={courseData[field] || ""}
+                value={
+                  field === "price"
+                    ? courseData[field] || 0
+                    : courseData[field] || ""
+                }
                 onChange={handleChange}
                 placeholder={
                   field === "taqs"
