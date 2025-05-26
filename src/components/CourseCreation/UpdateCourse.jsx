@@ -222,20 +222,17 @@ export default function UpdateCourse() {
                     <li key={vid._id}>- {vid.videoTitle} </li>
                   ))}
                 </ul>
-                <button
+                <NavLink
+                  to={`/user/updatecourse/${course._id}/${lesson._id}/updatelesson`}
                   className="create-course-button"
                   style={{
                     width: "6rem",
                     height: "2rem",
                     fontSize: "0.6rem",
                   }}
-                  onClick={() => {
-                    setSelectedOption("Edit Lesson");
-                    navigate("/user");
-                  }}
                 >
                   Edit Lesson
-                </button>
+                </NavLink>
                 <button onClick={() => delLesson(lesson._id)}>
                   Delete Lesson
                 </button>
