@@ -1,14 +1,17 @@
 import React from "react";
 import { useCourse } from "../../context/CourseContext";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "../../Stylesheets/CoursePage.css";
 import axios from "axios";
 import { useOptions } from "../../context/UserContext";
+import { useAuth } from "../../context/AuthContext";
 
 export default function CourseInfo() {
   const { course } = useCourse();
   const { id } = useParams();
   const { enrolledCourse } = useOptions();
+  const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
 
   if (!course) return <p>Loading course info...</p>;
 
@@ -18,6 +21,12 @@ export default function CourseInfo() {
     enrolledCourse.some((c) => c._id === course._id);
 
   const handleEnroll = async () => {
+    if (!isLoggedIn) {
+      alert("Login to Enroll");
+      navigate("/login");
+      return; // exit early, do not proceed
+    }
+
     try {
       const res = await axios.get(
         `http://localhost:8080/api/v1/enrollments/${id}`,
