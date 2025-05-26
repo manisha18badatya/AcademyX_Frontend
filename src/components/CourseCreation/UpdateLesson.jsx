@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import "../../Stylesheets/CreateCoursePage.css"; // reusing CreateLesson styles
 
 const UpdateLesson = () => {
-  const { courseId, lessonId } = useParams(); // from route like /courses/:id/edit-lesson
+  const { courseId, lessonId } = useParams();
   const [videoTitle, setVideoTitle] = useState("");
   const [videoFile, setVideoFile] = useState(null);
   const [message, setMessage] = useState("");
@@ -48,27 +49,35 @@ const UpdateLesson = () => {
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto">
-      <h2 className="text-xl font-bold mb-4">Add New Video to Lesson</h2>
-      {message && <div className="mb-4 text-sm text-red-600">{message}</div>}
-      <form className="space-y-4">
-        <input
-          type="text"
-          placeholder="Video Title"
-          value={videoTitle}
-          onChange={(e) => setVideoTitle(e.target.value)}
-          className="w-full p-2 border border-gray-300 rounded"
-        />
-        <input
-          type="file"
-          accept="video/*"
-          onChange={(e) => setVideoFile(e.target.files[0])}
-          className="w-full"
-        />
+    <div className="create-course-container">
+      <h2 className="text-2xl font-bold mb-4">Update Lesson - Add New Video</h2>
+
+      {message && <p className="mt-4 text-sm text-red-600">{message}</p>}
+
+      <form className="main-form">
+        <div className="course-form">
+          <label>Video Title</label>
+          <input
+            type="text"
+            placeholder="Video Title"
+            value={videoTitle}
+            onChange={(e) => setVideoTitle(e.target.value)}
+          />
+        </div>
+
+        <div className="course-form">
+          <label>Upload Video</label>
+          <input
+            type="file"
+            accept="video/*"
+            onChange={(e) => setVideoFile(e.target.files[0])}
+          />
+        </div>
+
         <button
           onClick={handleAddVideo}
-          className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
           disabled={uploading}
+          className="create-course-button"
         >
           {uploading ? "Uploading..." : "Add Video"}
         </button>

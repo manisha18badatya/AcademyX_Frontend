@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../stylesheets/User.css";
-import "../../Stylesheets/Courses.css";
+import "../../Stylesheets/enrolledcourses.css";
 import "../../Stylesheets/base.css";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
@@ -39,46 +39,41 @@ export default function YourCourses() {
   }, [ycourses]);
 
   return (
-    <div className="videocard-container" style={{ flexDirection: "column" }}>
-      <div
-        style={{
-          fontFamily: "sans-serif",
-          fontSize: "1.5rem",
-          fontWeight: "bold",
-          marginBottom: "2rem",
-        }}
-      >
-        Your Courses
-      </div>
+    <div className="course-wrapper">
+      <div className="courses-heading">Your Courses</div>
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="videocard-grid">
+        <div className="courses-grid">
           {ycourses.length > 0 ? (
             ycourses.map((course) => (
-              <div className="courses" key={course._id}>
-                <div className="videocard" style={{ width: "100%" }}>
-                  <div className="videocard__thumbcontainer">
+              <div className="course-card" key={course._id}>
+                <div className="course-content" style={{ width: "100%" }}>
+                  <div className="course-thumbnail">
                     <img
                       src={course.thumbnail}
                       alt={course.courseName}
-                      className="videocard__thumb"
+                      className="course-thumbnail__img"
                     />
                   </div>
-                  <div className="videocard__data">
-                    <h3 className="videocard__data__title">
+                  <div className="course-info">
+                    <h3 className="course-info__title">
                       {course.courseName}
                       {console.log(course.category)}
                     </h3>
-                    <p className="videocard__data__subtitle">{course.title}</p>
+                    <p className="course-info__subtitle">{course.title}</p>
                   </div>
-                  <NavLink
-                    to={`/user/updatecourse/${course._id}`}
-                    className="button1"
-                    style={{ marginLeft: "2vw" }}
-                  >
-                    Update course
-                  </NavLink>
+
+                  {/* bottom actions */}
+                  <div className="course-actions">
+                    <NavLink
+                      to={`/user/updatecourse/${course._id}`}
+                      className="course-watch-btn"
+                    >
+                      <span>Edit</span>
+                      <span className="course-watch-btn__icon">›</span>
+                    </NavLink>
+                  </div>
                 </div>
               </div>
             ))

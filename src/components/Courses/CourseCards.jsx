@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "../../stylesheets/Courses.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useCategory } from "../../context/CategoryContext";
 import axios from "axios";
 
 export default function CourseCard() {
   const { category } = useCategory();
   const [courses, setCourses] = useState([]);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const searchQuery = searchParams.get("search")?.toLowerCase() || "";
+
+  const filteredCourses =
+    category === "All Courses"
+      ? courses.filter((course) =>
+          course.courseName.toLowerCase().includes(searchQuery)
+        )
+      : courses; // Ignore search if specific category is selected
 
   useEffect(() => {
     const fetchCourses = async () => {
@@ -45,22 +55,23 @@ export default function CourseCard() {
   return (
     <div className="videocard-container">
       <div className="videocard-grid">
-        {courses.length > 0 ? (
-          courses.map((course) => (
+        {filteredCourses.length > 0 ? (
+          filteredCourses.map((course) => (
             <NavLink
               to={`/coursepage/${course._id}`}
               className="courses"
               key={course._id}
             >
               <div className="videocard">
-                <div className="videocard__thumbcontainer">
-                  <img
-                    src={course.thumbnail}
-                    alt={course.courseName}
-                    className="videocard__thumb"
-                  />
-                </div>
                 <div className="videocard__data">
+                  <div className="videocard__data__thumbcontainer">
+                    <img
+                      src={course.thumbnail}
+                      alt={course.courseName}
+                      className="videocard__data__thumb"
+                    />
+                  </div>
+
                   <h3 className="videocard__data__title">
                     {course.courseName}
                     {console.log(course.category)}

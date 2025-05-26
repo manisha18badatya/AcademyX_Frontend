@@ -236,9 +236,29 @@
   }
 }
 
+.pfp-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 4.5vw;
+  height: 4.5vw;
+  cursor: pointer;
+}
+
 .pfp-icon {
-  height: clamp(2rem, 4vw, 5vw);
-  margin-left: 1.2vw;
+  display: flex;
+  overflow: hidden;
+  width: 80%;
+  height: 80%;
+  border-radius: 2rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 .pfpdrop-container {

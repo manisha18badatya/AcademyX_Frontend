@@ -45,14 +45,12 @@
   /* background-color:green; */
   position: relative;
 }
-
 .content {
   position: absolute;
   top: 9%;
   left: 10%;
   color: white;
 }
-
 .lbutton {
   width: 40%;
   /* background-color: red; */
@@ -61,7 +59,6 @@
   bottom: 17%;
   right: 10%;
 }
-
 .lbutton button {
   width: 50%;
   padding: 15px;
@@ -82,11 +79,9 @@
   padding-left: 7%;
   position: relative;
 }
-
 .formpage h3 {
   color: blue;
 }
-
 #inputbox {
   width: 80%;
   padding: 10px 10px;
@@ -94,7 +89,6 @@
   margin-top: 50px;
   border: 2px solid blue;
 }
-
 .rmiddle {
   width: 73%;
   height: 9%;
@@ -106,19 +100,16 @@
   margin-top: 20px;
   margin-bottom: 40px;
 }
-
 .rmiddle a {
   color: red;
   text-decoration: none;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-
 #checkbox {
   transform: scale(1.8);
   cursor: pointer;
   margin-right: 10px;
 }
-
 .linkpage {
   width: 90%;
   height: 20%;
@@ -127,13 +118,11 @@
   /* background-color: blueviolet; */
   padding: 30px 50px;
 }
-
 .linkpage p {
   margin-left: 20%;
   color: red;
   margin-bottom: 13px;
 }
-
 .linkpage button {
   width: 100%;
   height: 40px;
@@ -146,17 +135,14 @@
   font-weight: 600;
   margin-bottom: 22px;
 }
-
 .linkpage a {
   text-decoration: none;
   color: black;
   font-size: 18px;
 }
-
 .linkpage span {
   margin-left: 53px;
 }
-
 .rlast {
   width: 100%;
   /* background-color: red; */
@@ -164,22 +150,19 @@
   height: 25%;
   bottom: 0%;
 }
-
 .rlast p {
   font-size: 19px;
   font-family: "Times New Roman", Times, serif;
   margin-left: 40%;
   margin-bottom: 20px;
 }
-
 .rlast span {
   display: flex;
   gap: 55px;
   margin-left: 24%;
 }
-
 .rlast a img {
   width: 5vw;
   height: 9vh;
   border-radius: 100%;
-}/*# sourceMappingURL=Login.css.map */
+}
