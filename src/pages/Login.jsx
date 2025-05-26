@@ -102,14 +102,8 @@ function Login() {
             <button type="submit">Sign in</button>
             {validate && <p>{validate}</p>}
             <span>
-              <a href="/signup">Don't have an account? |</a>
-              <a href="/signup">Create an Account</a>
+              <a href="/signup">Don't have an account? Create new account </a>
             </span>
-          </div>
-
-          <div className="rlast">
-            <p>Or, login using</p>
-            <span>Google, GitHub, LinkedIn</span>
           </div>
         </form>
       </div>

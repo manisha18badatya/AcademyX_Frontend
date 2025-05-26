@@ -138,31 +138,12 @@
 .linkpage a {
   text-decoration: none;
   color: black;
-  font-size: 18px;
+  font-size: 1rem;
+
+  &:hover {
+    color: chocolate;
+  }
 }
 .linkpage span {
   margin-left: 53px;
-}
-.rlast {
-  width: 100%;
-  /* background-color: red; */
-  position: absolute;
-  height: 25%;
-  bottom: 0%;
-}
-.rlast p {
-  font-size: 19px;
-  font-family: "Times New Roman", Times, serif;
-  margin-left: 40%;
-  margin-bottom: 20px;
-}
-.rlast span {
-  display: flex;
-  gap: 55px;
-  margin-left: 24%;
-}
-.rlast a img {
-  width: 5vw;
-  height: 9vh;
-  border-radius: 100%;
 }
