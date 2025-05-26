@@ -28,12 +28,12 @@ export default function ProfileContent() {
 
   const updateBio = (e) => {
     setBio(e.target.value);
-    setFullname(user.fullname);
+    setFullname(user.fullname || "your full name");
   };
 
   const updateName = (e) => {
     setFullname(e.target.value);
-    setBio(user.bio);
+    setBio(user.bio || "your bio");
   };
 
   const updateProfile = async () => {
@@ -264,7 +264,7 @@ export default function ProfileContent() {
               justifyContent: "space-between",
             }}
           >
-            <span>Your Bio</span>
+            <span>Bio</span>
             <div className="edit-bio" onClick={handleClickbio}>
               <span>
                 <LiaEditSolid />
