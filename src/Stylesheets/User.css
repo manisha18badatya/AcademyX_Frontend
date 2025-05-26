@@ -261,11 +261,11 @@
 }
 .profile-content .bio {
   display: flex;
+  width: 60%;
   margin-top: 1rem;
   margin-left: 2rem;
   font-family: sans-serif;
   font-size: 1rem;
-  font-weight: bold;
 }
 
 .edit-pfp {

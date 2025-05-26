@@ -211,13 +211,15 @@
 
 .info-container {
   display: flex;
+  width: 20%;
   flex-direction: column;
   margin-top: 4vh;
-  width: 40vw;
   float: left;
+  background-color: #0774AB;
 }
-.info-container .thumb-cont {
-  width: 100%;
+.info-container .thumbnail {
+  display: flex;
+  width: 60%;
 }
 .info-container .thumb {
   -o-object-fit: cover;
@@ -237,6 +239,7 @@
   width: 100%;
 }
 .info-container .descript {
+  display: flex;
   margin-top: 3vw;
   font-family: sans-serif;
   font-size: 1.4vw;

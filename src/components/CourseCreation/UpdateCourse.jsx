@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Navigate, useParams, useNavigate } from "react-router-dom";
+import { Navigate, useParams, useNavigate, NavLink } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useForm } from "../../context/FormContext";
 import { useOptions } from "../../context/UserContext";
@@ -244,16 +244,13 @@ export default function UpdateCourse() {
           </div>
         )}
 
-        <button
+        <NavLink
+          to={`/user/updatecourse/${course._id}/createlesson`}
           className="create-course-button"
           style={{ width: "15rem", fontSize: "1rem" }}
-          onClick={() => {
-            setSelectedOption("Add Lesson");
-            navigate("/user");
-          }}
         >
           ADD A LESSON
-        </button>
+        </NavLink>
 
         <button type="submit" className="create-course-button">
           Save Changes
