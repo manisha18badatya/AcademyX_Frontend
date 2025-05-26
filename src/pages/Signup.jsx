@@ -114,6 +114,9 @@ function SignUp() {
               </button>
 
               <p>{validate}</p>
+              <span>
+                <a href="/login">Already have an account? Sign in </a>
+              </span>
             </div>
           </form>
         </div>
